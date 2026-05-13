@@ -31,10 +31,10 @@ export class App {
 	);
 
 	protected readonly navItems = [
+		{ label: 'Nav', icon: 'menu', route: '/navigation', exact: true },
 		{ label: 'Меню', icon: 'restaurant_menu', route: '/menu', exact: true },
-		{ label: 'Доставка', icon: 'delivery_truck_speed', route: '/delivery', exact: true },
 		{ label: 'Події', icon: 'celebration', route: '/events', exact: true },
-		{ label: 'Галерея', icon: 'photo_library', route: '/gallery', exact: true },
+		{ label: 'Доставка', icon: 'delivery_truck_speed', route: '/delivery', exact: true },
 		{ label: 'Контакти', icon: 'call', route: '/socials', exact: true },
 	];
 
