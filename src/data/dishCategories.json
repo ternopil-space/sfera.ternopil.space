@@ -1,0 +1,44 @@
+[
+	{
+		"name": "Меню SfeRa",
+		"description": "Ключові розділи ресторанного меню SfeRa Restaurant.",
+		"parent": "",
+		"slug": "sfera-menu"
+	},
+	{
+		"name": "Бар",
+		"description": "Напої до сніданку, обіду, вечері або святкування.",
+		"parent": "",
+		"slug": "bar"
+	},
+	{
+		"name": "Сніданки",
+		"description": "Сніданкові позиції для ранкового візиту або неквапливої зустрічі.",
+		"parent": "sfera-menu",
+		"slug": "breakfasts"
+	},
+	{
+		"name": "Бізнес-ланчі",
+		"description": "Будні ланчі 12:00-16:00 з першими стравами та змінними основними позиціями.",
+		"parent": "sfera-menu",
+		"slug": "business-lunches"
+	},
+	{
+		"name": "Основне меню",
+		"description": "Європейська та українська кухня для обіду, вечері або сімейного візиту.",
+		"parent": "sfera-menu",
+		"slug": "main-menu"
+	},
+	{
+		"name": "Банкетне меню",
+		"description": "Групові пропозиції для весіль, корпоративів, днів народження та випускних.",
+		"parent": "sfera-menu",
+		"slug": "banquet-menu"
+	},
+	{
+		"name": "Кава та напої",
+		"description": "Кава, безалкогольні напої та барна карта.",
+		"parent": "bar",
+		"slug": "drinks"
+	}
+]

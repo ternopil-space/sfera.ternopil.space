@@ -1,0 +1,152 @@
+{
+	"_id": "sfera-ternopil",
+	"name": "SfeRa Restaurant",
+	"lang": "uk",
+	"locale": "uk_UA",
+	"siteUrl": "https://sfera.ternopil.space",
+	"logo": "/sfera-logo.svg",
+	"phone": "+38 (068) 854 56 35",
+	"email": "",
+	"address": "вул. Білецька, 33а, Тернопіль, Тернопільська область, Україна, 46000",
+	"defaultSeo": {
+		"title": "SfeRa Restaurant | ресторан і банкетний простір у Тернополі",
+		"description": "SfeRa Restaurant у Тернополі: європейська та українська кухня, сніданки, бізнес-ланчі, доставка, сімейні візити, банкети й події до 150 гостей на вул. Білецькій, 33а.",
+		"keywords": [
+			"SfeRa",
+			"Sfera Restaurant",
+			"ресторан Тернопіль",
+			"Білецька 33а",
+			"банкет Тернопіль",
+			"весілля Тернопіль",
+			"бізнес-ланч Тернопіль",
+			"доставка їжі Тернопіль",
+			"європейська кухня",
+			"українська кухня"
+		],
+		"author": "SfeRa Restaurant",
+		"robots": "index, follow",
+		"image": "/gallery/demo-1.webp",
+		"type": "website",
+		"twitterCard": "summary_large_image"
+	},
+	"pageSeo": {
+		"/": {
+			"title": "SfeRa — ресторан і простір для подій у Тернополі",
+			"description": "SfeRa Restaurant у Тернополі: сніданки, бізнес-ланчі 12:00-16:00 у будні, європейська й українська кухня, сімейний відпочинок, доставка та банкети до 150 гостей.",
+			"image": "/gallery/demo-1.webp"
+		},
+		"/menu": {
+			"title": "Меню SfeRa Restaurant | сніданки, бізнес-ланчі, бар",
+			"description": "Огляд меню SfeRa у Тернополі: сніданки, бізнес-ланчі, основні страви, бар і банкетне меню. Повне актуальне меню доступне через ChoiceQR.",
+			"image": "/item/homemade-syrnyky-with-sour-cream.webp"
+		},
+		"/favorites": {
+			"title": "Обране меню | SfeRa Restaurant",
+			"description": "Збережені позиції меню SfeRa Restaurant для швидкого повернення до страв.",
+			"keywords": ["обране меню", "SfeRa Restaurant", "меню Тернопіль"],
+			"robots": "noindex, follow",
+			"image": "/item/homemade-syrnyky-with-sour-cream.webp"
+		},
+		"/about": {
+			"title": "Про SfeRa Restaurant у Тернополі",
+			"description": "SfeRa Restaurant — сучасний ресторан у Тернополі для сніданків, обідів, сімейних візитів, вечерь, банкетів і приватних подій.",
+			"image": "/gallery/demo-2.webp"
+		},
+		"/rooms": {
+			"title": "Банкети та зали | SfeRa Restaurant Тернопіль",
+			"description": "Банкетні формати SfeRa Restaurant у Тернополі: весілля, дні народження, корпоративи, випускні та події до 150 гостей.",
+			"image": "/room/room-1.webp"
+		},
+		"/navigation": {
+			"title": "Навігація по сайту | SfeRa Restaurant",
+			"description": "Швидкий доступ до меню, контактів, галереї, доставки, бронювання та подій SfeRa Restaurant.",
+			"robots": "noindex, follow",
+			"image": "/sfera-logo.svg"
+		},
+		"/gallery": {
+			"title": "Галерея SfeRa Restaurant | інтер'єр, події, кухня",
+			"description": "Візуальний настрій SfeRa Restaurant: сучасний інтер'єр, банкетні події, тераса, страви та сімейна атмосфера.",
+			"image": "/gallery/demo-1.webp"
+		},
+		"/dish": {
+			"title": "Страва меню | SfeRa Restaurant",
+			"description": "Опис позиції меню SfeRa Restaurant із деталями страви та пов'язаними пропозиціями."
+		},
+		"/discounts": {
+			"title": "Бізнес-ланчі та пропозиції | SfeRa Restaurant",
+			"description": "Актуальні формати SfeRa Restaurant: будні бізнес-ланчі 12:00-16:00, сезонні акценти та пропозиції для гостей.",
+			"image": "/gallery/demo-3.webp"
+		},
+		"/loyalty": {
+			"title": "Сімейний відпочинок | SfeRa Restaurant",
+			"description": "SfeRa Restaurant для сімейних візитів у Тернополі: дитяче меню, дитяча кімната, простір для зустрічей і святкувань.",
+			"image": "/gallery/demo-3.webp"
+		},
+		"/articles": {
+			"title": "Новини SfeRa Restaurant",
+			"description": "Оновлення меню, сезонні новини, події та корисна інформація для гостей SfeRa Restaurant у Тернополі.",
+			"image": "/gallery/demo-2.webp"
+		},
+		"/quests": {
+			"title": "Дозвілля для гостей | SfeRa Restaurant",
+			"description": "Сімейні та компанійські формати відпочинку у SfeRa Restaurant.",
+			"image": "/gallery/demo-3.webp"
+		},
+		"/questions": {
+			"title": "Поширені запитання | SfeRa Restaurant",
+			"description": "Відповіді про бронювання, години роботи, меню, доставку, банкети й контакти SfeRa Restaurant.",
+			"image": "/gallery/demo-2.webp"
+		},
+		"/rules": {
+			"title": "Інформація для гостей | SfeRa Restaurant",
+			"description": "Корисна інформація для гостей SfeRa Restaurant: бронювання, події, доставка, сімейні візити та контакти.",
+			"image": "/gallery/demo-2.webp"
+		},
+		"/reviews": {
+			"title": "Відгуки гостей | SfeRa Restaurant",
+			"description": "Сторінка для відгуків гостей SfeRa Restaurant у Тернополі.",
+			"image": "/gallery/demo-1.webp"
+		},
+		"/events": {
+			"title": "Події та банкети | SfeRa Restaurant Тернопіль",
+			"description": "Весілля, корпоративи, дні народження, випускні, team-building і банкети у SfeRa Restaurant у Тернополі до 150 гостей.",
+			"image": "/gallery/demo-3.webp"
+		},
+		"/products": {
+			"title": "Доставка і take away | SfeRa Restaurant",
+			"description": "Доставка й самовивіз SfeRa Restaurant у Тернополі через ChoiceQR та Korzyna: сніданки, салати, основні страви, десерти, дитяче меню й напої.",
+			"image": "/item/cappuccino.webp"
+		},
+		"/delivery": {
+			"title": "Доставка SfeRa Restaurant у Тернополі",
+			"description": "Замовлення страв SfeRa Restaurant із доставкою або на самовивіз через ChoiceQR та Korzyna у Тернополі.",
+			"image": "/item/cappuccino.webp"
+		},
+		"/jobs": {
+			"title": "Вакансії | SfeRa Restaurant",
+			"description": "Сторінка вакансій SfeRa Restaurant у Тернополі.",
+			"image": "/gallery/demo-2.webp"
+		},
+		"/team": {
+			"title": "Команда | SfeRa Restaurant",
+			"description": "Команда ресторану SfeRa у Тернополі.",
+			"image": "/gallery/demo-1.webp"
+		},
+		"/socials": {
+			"title": "Контакти і бронювання | SfeRa Restaurant Тернопіль",
+			"description": "Контакти SfeRa Restaurant: +38 (068) 854 56 35, вул. Білецька, 33а, Тернопіль, години 11:00-23:00 щодня, Instagram, Facebook, меню й доставка.",
+			"image": "/sfera-logo.svg"
+		}
+	},
+	"structuredData": {
+		"type": "Restaurant",
+		"priceRange": "$$",
+		"servesCuisine": "European cuisine, Ukrainian cuisine",
+		"addressLocality": "Ternopil",
+		"addressCountry": "UA",
+		"sameAs": [
+			"https://www.instagram.com/sfera.restaurant/",
+			"https://www.facebook.com/sfera.restaurant"
+		]
+	}
+}

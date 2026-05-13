@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="uk">
+	<head>
+		<meta charset="utf-8" />
+		<title>SfeRa Restaurant</title>
+		<base href="/" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<script>
+			try {
+				const storedMode = localStorage.getItem('app-mode');
+				const preferredMode =
+					storedMode === 'dark' || storedMode === 'light'
+						? storedMode
+						: window.matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light';
+				document.documentElement.setAttribute('data-mode', preferredMode);
+			} catch {}
+		</script>
+
+		<meta
+			name="description"
+			content="SfeRa Restaurant у Тернополі: ресторан, доставка, сніданки, бізнес-ланчі та банкети до 150 гостей."
+		/>
+		<meta
+			name="keywords"
+			content="SfeRa, Sfera Restaurant, ресторан Тернопіль, Білецька 33а, банкет Тернопіль"
+		/>
+		<meta name="author" content="SfeRa Restaurant" />
+		<meta name="robots" content="index, follow" />
+		<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)" />
+
+		<meta itemprop="name" content="SfeRa Restaurant" />
+		<meta
+			itemprop="description"
+			content="SfeRa Restaurant у Тернополі: європейська та українська кухня, доставка і події."
+		/>
+		<meta itemprop="image" content="/sfera-logo.svg" />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="SfeRa Restaurant" />
+		<meta property="og:locale" content="uk_UA" />
+		<meta property="og:url" content="/" />
+		<meta property="og:title" content="SfeRa Restaurant" />
+		<meta
+			property="og:description"
+			content="Ресторан і банкетний простір у Тернополі на вул. Білецькій, 33а."
+		/>
+		<meta property="og:image" content="/sfera-logo.svg" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="SfeRa Restaurant" />
+		<meta name="twitter:description" content="Ресторан і простір для подій у Тернополі." />
+		<meta name="twitter:image" content="/sfera-logo.svg" />
+		<meta name="twitter:image:src" content="/sfera-logo.svg" />
+
+		<link rel="canonical" href="/" />
+		<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<app-root></app-root>
+	</body>
+</html>
