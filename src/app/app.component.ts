@@ -31,17 +31,16 @@ export class App {
 	);
 
 	protected readonly navItems = [
-		{ label: 'Nav', icon: 'menu', route: '/navigation', exact: true },
+		{ label: 'Навігація', icon: 'navigation', route: '/navigation', exact: true },
 		{ label: 'Меню', icon: 'restaurant_menu', route: '/menu', exact: true },
 		{ label: 'Події', icon: 'celebration', route: '/events', exact: true },
-		{ label: 'Доставка', icon: 'delivery_truck_speed', route: '/delivery', exact: true },
-		{ label: 'Контакти', icon: 'call', route: '/socials', exact: true },
+		{ label: 'Галерея', icon: 'photo_library', route: '/gallery', exact: true },
+		{ label: 'Контакти', icon: 'call', route: '/contacts', exact: true },
 	];
 
 	constructor() {
 		this._canonicalService.initialize();
 		this._scrollService.initialize();
-		this._setRestaurantStructuredData();
 
 		effect(() => {
 			const language = this._languageService.language();
@@ -61,10 +60,14 @@ export class App {
 
 			if (
 				path.startsWith('/dish/') ||
-				path.startsWith('/discount/') ||
 				path.startsWith('/review/') ||
-				path.startsWith('/room/')
+				path.startsWith('/event/')
 			) {
+				return;
+			}
+
+			if (path === '/') {
+				this._title.setTitle(companyProfile.pageSeo['/']?.title ?? companyProfile.name);
 				return;
 			}
 
@@ -72,7 +75,6 @@ export class App {
 			const translatedTitle = titleKey
 				? this._translateService.translate(titleKey)()
 				: companyProfile.name;
-
 			this._title.setTitle(
 				translatedTitle === companyProfile.name
 					? translatedTitle
@@ -80,75 +82,19 @@ export class App {
 			);
 		});
 	}
-
-	private _setRestaurantStructuredData() {
-		const scriptId = 'restaurant-structured-data';
-		const existingScript = this._document.getElementById(scriptId);
-		const script = existingScript ?? this._document.createElement('script');
-
-		if (!existingScript) {
-			script.id = scriptId;
-			script.setAttribute('type', 'application/ld+json');
-			this._document.head.appendChild(script);
-		}
-
-		script.textContent = JSON.stringify({
-			'@context': 'https://schema.org',
-			'@type': companyProfile.structuredData.type,
-			name: companyProfile.name,
-			url: companyProfile.siteUrl,
-			logo: `${companyProfile.siteUrl}${companyProfile.logo}`,
-			image: `${companyProfile.siteUrl}${companyProfile.defaultSeo.image}`,
-			telephone: '+380688545635',
-			priceRange: companyProfile.structuredData.priceRange,
-			servesCuisine: ['European cuisine', 'Ukrainian cuisine'],
-			address: {
-				'@type': 'PostalAddress',
-				streetAddress: 'вул. Білецька, 33а',
-				addressLocality: companyProfile.structuredData.addressLocality,
-				postalCode: '46000',
-				addressCountry: companyProfile.structuredData.addressCountry,
-			},
-			openingHoursSpecification: [
-				{
-					'@type': 'OpeningHoursSpecification',
-					dayOfWeek: [
-						'Monday',
-						'Tuesday',
-						'Wednesday',
-						'Thursday',
-						'Friday',
-						'Saturday',
-						'Sunday',
-					],
-					opens: '11:00',
-					closes: '23:00',
-				},
-			],
-			sameAs: companyProfile.structuredData.sameAs,
-		});
-	}
 }
 
 const _pageTitleKeys: Record<string, string> = {
 	'/': 'SfeRa Restaurant',
-	'/menu': 'Меню SfeRa Restaurant',
-	'/about': 'Про SfeRa Restaurant',
-	'/spa': 'Spa',
-	'/favorites': 'Favorites',
-	'/rooms': 'Банкети SfeRa Restaurant',
+	'/menu': 'Меню',
+	'/about': 'Про SfeRa',
+	'/favorites': 'Обране',
 	'/navigation': 'Навігація',
-	'/gallery': 'Галерея SfeRa Restaurant',
-	'/discounts': 'Бізнес-ланчі SfeRa Restaurant',
-	'/articles': 'Articles',
-	'/quests': 'Quests',
-	'/reviews': 'Reviews',
-	'/events': 'Події та банкети SfeRa Restaurant',
-	'/products': 'Доставка SfeRa Restaurant',
-	'/delivery': 'Доставка SfeRa Restaurant',
-	'/jobs': 'Jobs',
-	'/team': 'Team',
-	'/socials': 'Контакти SfeRa Restaurant',
+	'/gallery': 'Галерея',
+	'/questions': 'FAQ',
+	'/reviews': 'Відгуки',
+	'/events': 'Події',
+	'/contacts': 'Контакти',
 };
 
 function _normalizeTitlePath(url: string): string {

@@ -8,22 +8,29 @@
 			<div
 				class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border border-[var(--c-border)] bg-[var(--c-bg-primary)] text-[var(--c-secondary)]"
 			>
-				<span class="material-symbols-outlined animate-pulse text-[28px]" aria-hidden="true">
+				<span
+					class="material-symbols-outlined animate-pulse text-[28px]"
+					aria-hidden="true"
+				>
 					photo_library
 				</span>
 			</div>
 
-			<p class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">
+			<p
+				class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+			>
 				<span [translate]="'Gallery'">{{ 'Gallery' }}</span>
 			</p>
-			<p class="mt-2 text-sm text-[var(--c-text-muted)]"><span [translate]="'Loading gallery...'">{{ 'Loading gallery...' }}</span></p>
+			<p class="mt-2 text-sm text-[var(--c-text-muted)]">
+				<span [translate]="'Loading gallery...'">{{ 'Loading gallery...' }}</span>
+			</p>
 		</section>
 	} @else if (exhibits().length) {
 		<section
 			class="overflow-hidden rounded-[1.2rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] shadow-[var(--shadow-sm)]"
 		>
 			<div
-				class="border-b border-[var(--c-border)] bg-[linear-gradient(135deg,rgba(197,61,61,0.14),rgba(217,168,88,0.08))] px-4 py-5 sm:px-5"
+				class="border-b border-[var(--c-border)] bg-[linear-gradient(135deg,rgba(0,137,137,0.14),rgba(214,172,91,0.1))] px-4 py-5 sm:px-5"
 			>
 				<h1
 					class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
@@ -31,6 +38,14 @@
 				>
 					Gallery
 				</h1>
+				<p class="mt-2 max-w-2xl text-sm leading-6 text-[var(--c-text-muted)]">
+					<span
+						[translate]="'Interior, event setup, dishes, and family atmosphere placeholders for SfeRa. Replace with owner-provided licensed photos before launch.'"
+					>
+						Interior, event setup, dishes, and family atmosphere placeholders for SfeRa.
+						Replace with owner-provided licensed photos before launch.
+					</span>
+				</p>
 			</div>
 
 			<div class="grid gap-3 p-3 sm:grid-cols-2 sm:p-4 lg:grid-cols-3">
@@ -41,7 +56,8 @@
 						<app-image
 							imageClass="h-72 w-full object-cover sm:h-80"
 							[src]="exhibit.src"
-							translate [translate]="{ alt: exhibit.alt }"
+							translate
+							[translate]="{ alt: exhibit.alt }"
 							[openLabel]="'Open photo in full screen'"
 							[closeLabel]="'Close full screen photo'"
 						/>
@@ -61,12 +77,16 @@
 				</span>
 			</div>
 
-			<p class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">
+			<p
+				class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+			>
 				<span [translate]="'Gallery'">{{ 'Gallery' }}</span>
 			</p>
 
 			<h1 class="mt-2 text-xl font-semibold text-[var(--c-text-secondary)]">
-				<span [translate]="'The gallery is currently empty'">{{ 'The gallery is currently empty' }}</span>
+				<span [translate]="'The gallery is currently empty'">{{
+					'The gallery is currently empty'
+				}}</span>
 			</h1>
 		</section>
 	}

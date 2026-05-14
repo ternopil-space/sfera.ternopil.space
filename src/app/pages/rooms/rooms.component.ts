@@ -20,16 +20,16 @@ export class RoomsComponent {
 	private readonly _roomService = inject(RoomService);
 
 	protected readonly amenities = [
-		'Банкети до 150 гостей',
-		'Весілля та дні народження',
-		'Корпоративи й team-building',
-		'Випускні',
-		'Банкетне меню',
-		'Wi-Fi',
-		'Літня тераса',
-		'Дитяче меню',
-		'Дитяча кімната',
-		'Бронювання телефоном',
+		'Comfortable rooms',
+		'Breakfast for guests',
+		'Restaurant or cafe on site',
+		'Room service',
+		'Wi-Fi in rooms',
+		'Parking',
+		'Work area',
+		'Air conditioning',
+		'Transfer on request',
+		'Booking support',
 	];
 	protected readonly loadingCards = [1, 2, 3];
 	protected readonly rooms = this._roomService.rooms;
@@ -39,18 +39,18 @@ export class RoomsComponent {
 	protected readonly contactLinks: ContactLink[] = [
 		{
 			label: 'Call us',
-			href: 'tel:+380688545635',
-			description: '+38 (068) 854 56 35',
+			href: 'tel:+380970000000',
+			description: '+38 097 000 00 00',
 		},
 		{
-			label: 'ChoiceQR меню',
-			href: 'https://sfera.choiceqr.com',
-			description: 'Актуальне меню',
+			label: 'Chat on Viber',
+			href: 'https://example.com/horeca-demo/viber',
+			description: 'Demo chat for quick booking',
 		},
 		{
-			label: 'Контакти',
-			href: '/socials',
-			description: 'Адреса, години, соцмережі',
+			label: 'Chat on Telegram',
+			href: 'https://example.com/horeca-demo/telegram',
+			description: '@horeca_demo',
 		},
 	];
 

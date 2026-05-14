@@ -28,7 +28,7 @@
 	<section class="about__intro">
 		<div class="about__introText">
 			<p class="about__eyebrow">
-				<span [translate]="'Hospitality complex'">Hospitality complex</span>
+				<span [translate]="'Restaurant and event venue'">Restaurant and event venue</span>
 			</p>
 			<h2>
 				<span [translate]="page.intro.title">{{ page.intro.title }}</span>
@@ -76,7 +76,9 @@
 				<ul>
 					@for (item of section.items; track item) {
 						<li>
-							<span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
+							<span class="material-symbols-outlined" aria-hidden="true"
+								>check_circle</span
+							>
 							<span [translate]="item">{{ item }}</span>
 						</li>
 					}
@@ -88,7 +90,7 @@
 	<section class="about__service">
 		<div>
 			<p class="about__eyebrow">
-				<span [translate]="'Guest care'">Guest care</span>
+				<span [translate]="'Verified positioning'">Verified positioning</span>
 			</p>
 			<h2>
 				<span [translate]="page.service.title">{{ page.service.title }}</span>

@@ -8,28 +8,29 @@ const outputDir = path.join(rootDir, 'dist/app/browser');
 
 const staticRoutes = [
 	'/',
-	'/about',
-	'/menu',
 	'/favorites',
-	'/rooms',
+	'/menu',
+	'/about',
 	'/navigation',
 	'/gallery',
-	'/discounts',
-	'/loyalty',
 	'/questions',
+	'/reviews',
 	'/events',
-	'/delivery',
-	'/socials',
+	'/contacts',
 ];
 
 const company = await readJson('src/data/company.json');
 const dishes = await readJson('src/data/dishes.json');
-const siteUrl = trimTrailingSlash(company.siteUrl || 'https://example.com');
+const events = await readJson('src/data/events.json');
+const reviews = await readJson('src/data/reviews.json');
+const siteUrl = trimTrailingSlash(company.siteUrl || 'https://sfera.ternopil.space');
 const pageSeo = company.pageSeo ?? {};
 
 const routes = [
 	...staticRoutes.filter((route) => isIndexable(route, pageSeo)),
 	...toSlugRoutes('/dish', dishes),
+	...toSlugRoutes('/event', events),
+	...toSlugRoutes('/review', reviews),
 ];
 const lastmod = new Date().toISOString().slice(0, 10);
 

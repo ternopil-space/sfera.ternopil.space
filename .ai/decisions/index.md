@@ -16,3 +16,4 @@ Use this file as the entry point for durable team decisions.
 - [2026-05-01 Assets Publish Path Policy](./2026-05-01-assets-publish-path-policy.md)
 - [2026-05-01 Theme-Aware Button Pattern](./2026-05-01-theme-aware-button-pattern.md)
 - [2026-05-01 Translation Usage Policy](./2026-05-01-translation-usage-policy.md)
+- [2026-05-14 Custom GPT Instruction Sync](./2026-05-14-custom-gpt-instruction-sync.md)

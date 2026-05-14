@@ -29,9 +29,9 @@
 				<div class="flex flex-wrap items-center gap-3">
 					<p class="text-3xl font-semibold leading-none text-[var(--c-secondary)]">
 						@if (dish().price === null) {
-							<span>Уточніть ціну</span>
+							<span [translate]="'Уточнити ціну'">Уточнити ціну</span>
 						} @else {
-							{{ dish().price }} â‚¬
+							{{ dish().price }} ₴
 						}
 					</p>
 				</div>
@@ -182,9 +182,9 @@
 								</h3>
 								<p class="mt-1 text-sm font-semibold text-[var(--c-secondary)]">
 									@if (suggestion.price === null) {
-										<span>Уточніть ціну</span>
+										<span [translate]="'Уточнити ціну'">Уточнити ціну</span>
 									} @else {
-										{{ suggestion.price }} â‚¬
+										{{ suggestion.price }} ₴
 									}
 								</p>
 								@if (suggestion.hasDescription) {

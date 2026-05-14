@@ -11,14 +11,12 @@ import { TranslateDirective } from '@wawjs/ngx-translate';
 export class NavigationComponent {
 	protected readonly navItems = [
 		{ label: 'Меню', icon: 'restaurant_menu', route: '/menu' },
-		{ label: 'Доставка', icon: 'delivery_truck_speed', route: '/delivery' },
-		{ label: 'Бронювання і контакти', icon: 'call', route: '/socials' },
-		{ label: 'Події та банкети', icon: 'celebration', route: '/events' },
-		{ label: 'Банкетний простір', icon: 'groups', route: '/rooms' },
+		{ label: 'Події', icon: 'celebration', route: '/events' },
 		{ label: 'Галерея', icon: 'photo_library', route: '/gallery' },
-		{ label: 'Про ресторан', icon: 'info', route: '/about' },
-		{ label: 'Бізнес-ланчі', icon: 'local_offer', route: '/discounts' },
-		{ label: 'Для сімей', icon: 'family_restroom', route: '/loyalty' },
-		{ label: 'Питання гостей', icon: 'help', route: '/questions' },
+		{ label: 'Контакти', icon: 'call', route: '/contacts' },
+		{ label: 'Про SfeRa', icon: 'info', route: '/about' },
+		{ label: 'Відгуки', icon: 'rate_review', route: '/reviews' },
+		{ label: 'FAQ', icon: 'help', route: '/questions' },
+		{ label: 'Доставка', icon: 'delivery_dining', route: '/contacts' },
 	];
 }

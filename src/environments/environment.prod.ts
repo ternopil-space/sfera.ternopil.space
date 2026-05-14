@@ -16,7 +16,7 @@ export const environment: {
 	languages: AppLanguage[];
 } = {
 	apiUrl: 'https://it.webart.work',
-	companyId: 'sfera-ternopil',
+	companyId: 'sfera-restaurant',
 	appVersion: '1.0.0',
 	production: true,
 	defaultLanguage: 'ua',

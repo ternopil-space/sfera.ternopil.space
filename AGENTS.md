@@ -49,6 +49,26 @@ Read `.ai/decisions/index.md` when:
 - a task resolves an ambiguity likely to come up again
 - you are unsure whether a rule is temporary guidance or a durable policy
 
+## Custom GPT Instructions Sync
+
+`.ai/custom-gpt.md` is the paste-ready instruction source for the external Custom GPT used to
+generate implementation prompts for this template. It must stay under the Custom GPT
+Instructions field limit of 8000 characters.
+
+Detailed Custom GPT knowledge files live in `.ai/custom-gpt/*.md` and are intended to be uploaded
+to the Custom GPT Knowledge section.
+
+When a task changes anything an external prompt-building GPT should know, update
+`.ai/custom-gpt.md` and the relevant `.ai/custom-gpt/*.md` file in the same change. Examples include:
+- routes, supported pages, feature/page mapping, or removal rules
+- navigation, header, footer, layout, asset, SEO, domain, CNAME, or prerender behavior
+- Angular, styling, i18n, media, company-profile, or verification expectations
+- durable repo rules in `AGENTS.md`, `.ai/`, or `.ai/decisions/`
+
+Keep `.ai/custom-gpt.md` as raw copy-paste content only. Do not wrap it in guide text,
+Markdown fences, descriptions, or conversation starters. Put longer explanatory details in
+`.ai/custom-gpt/*.md`.
+
 ## Read Only What You Need
 
 Start here, then open only the one or two relevant files in `.ai/`:

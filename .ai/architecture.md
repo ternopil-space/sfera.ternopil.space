@@ -48,6 +48,24 @@ For static business pages:
 - keep content close to the page unless reused
 - avoid API/CMS integration unless explicitly required
 
+## Company Profile And Static Shell
+
+The `company` feature is the main source for business identity and SEO data:
+- `src/data/company.json`
+- `src/app/feature/company/company.data.ts`
+- `src/app/feature/company/company.interface.ts`
+- `src/app/feature/company/company.service.ts`
+
+When adapting this template to a real business, update the company data before duplicating
+business identity across pages.
+
+`src/index.html` is still a static shell and is not fully derived from the company feature.
+Update its static title, description, keywords, author, itemprop metadata, Open Graph metadata,
+Twitter metadata, canonical URL, language, and image references when the business changes.
+
+The root `CNAME` file belongs to deployment configuration and should contain the target domain
+exactly, without protocol or path.
+
 For feature-backed pages that do use bootstrap or API content:
 - prefer API data first
 - keep the local fallback in `src/data/{featureName}s.json`

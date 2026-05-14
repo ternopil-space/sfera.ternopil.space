@@ -39,12 +39,23 @@ Use list and detail page pairs when a business entity needs both overview and in
 - rooms -> room
 - areas -> area
 
+Before deleting pages during a business adaptation, map the business category to feature/page groups:
+
+- restaurants, cafes, bars, bakeries, catering, and delivery food usually need menu/dish pages
+- hotels and accommodation usually need rooms/room detail pages
+- normal restaurants, cafes, and bars do not need rooms/room detail pages unless they sell private rooms or distinct bookable spaces
+- spa/wellness pages should stay only when the business has real spa or wellness services
+- events pages should stay when the business hosts events, banquets, catering, workshops, tastings, or regular programming
+- product pages should stay for retail-style catalogs, packaged goods, bakery shop items, merchandise, or purchasable services
+- articles, jobs, team, quests, questions, and rules should stay only when they fit the real business and content plan
+
 ## Consequences
 
 - new HoReCa projects based on this repo should start by mapping the business into these page types before inventing custom structures
 - route planning should reflect real visitor questions such as what can I order, what spaces exist, what room fits my needs, and how do I book or contact the venue
 - not every project needs every page type, but missing pages should be a product decision based on the business model, not an omission by default
 - list and detail pages should stay content-first and prerender-friendly
+- removing a feature means removing or updating its routes, page components, data, i18n, SEO metadata, and navigation links together
 
 ## Alternatives Considered
 

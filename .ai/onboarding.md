@@ -16,6 +16,8 @@ Use this file after `AGENTS.md` when you need quick orientation before touching 
 - existing route structure
 - current styling approach with Tailwind and local SCSS
 - current SEO/meta setup if the task affects page content or structure
+- `.ai/custom-gpt.md` if the task affects Custom GPT prompt generation for this template
+- `.ai/custom-gpt.md` and `.ai/custom-gpt/*.md` whenever template behavior changes in a way future business-adaptation prompts should mention
 
 ## What To Avoid
 

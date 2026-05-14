@@ -1,17 +1,17 @@
 [
 	{
-		"slug": "sfera-modern-interior-mood",
+		"slug": "sfera-modern-interior",
 		"src": "gallery/demo-1.webp",
-		"alt": "Візуальний настрій сучасного інтер'єру SfeRa з бірюзовими акцентами"
+		"alt": "SfeRa Restaurant modern interior and dining atmosphere"
 	},
 	{
-		"slug": "sfera-banquet-table-mood",
+		"slug": "sfera-event-setup",
 		"src": "gallery/demo-2.webp",
-		"alt": "Натхнення для банкетної події у SfeRa Restaurant"
+		"alt": "SfeRa Restaurant event and banquet setup placeholder"
 	},
 	{
-		"slug": "sfera-terrace-food-mood",
+		"slug": "sfera-dishes-and-service",
 		"src": "gallery/demo-3.webp",
-		"alt": "Візуальний настрій тераси, страв і сімейного відпочинку SfeRa"
+		"alt": "SfeRa Restaurant dishes and service atmosphere placeholder"
 	}
 ]

@@ -25,13 +25,19 @@ Use one responsive navigation layout with different surfaces by breakpoint:
 Default layout rules:
 
 - the mobile header should contain only the logo or brand mark plus high-value utility controls such as language and theme
+- the header logo or business name should always link to the landing page route `/`
 - the mobile sticky footer should contain at most five primary destinations
+- the first sticky footer item should stay the Navigation page link (`/navigation`) because that page contains the broader link set
+- the remaining sticky footer items should be the four highest-priority destinations for the adapted business
 - footer items should share the row equally
 - footer labels should stay short enough for a single-row mobile layout
 - the sticky footer should be hidden on tablet and desktop breakpoints
 - page layouts should reserve bottom spacing on mobile so content is not obscured by the sticky footer
 - desktop header navigation should reuse the same primary destination set instead of defining a second navigation taxonomy
 - if a project adopts this layout pattern, it should implement both parts together: compact mobile header plus mobile sticky footer, and desktop header navigation
+- all relevant pages that do not fit in the footer should be reachable from the Navigation page
+- when replacing a footer item, keep the displaced still-relevant page on the Navigation page
+- when removing a footer page entirely, promote the most important remaining Navigation page item into the footer
 
 ## Consequences
 
@@ -39,6 +45,7 @@ Default layout rules:
 - new projects based on this repo should start with one shared source of truth for primary navigation items
 - adding more than five footer items should be treated as a layout change, not a routine content edit
 - desktop layouts should not duplicate the mobile sticky footer if header navigation is already present
+- adapting the template to a new business requires explicit footer and Navigation page link planning instead of ad hoc link replacement
 
 ## Alternatives Considered
 

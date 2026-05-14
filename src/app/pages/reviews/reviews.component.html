@@ -8,7 +8,10 @@
 			<div
 				class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border border-[var(--c-border)] bg-[var(--c-bg-primary)] text-[var(--c-secondary)]"
 			>
-				<span class="material-symbols-outlined animate-pulse text-[28px]" aria-hidden="true">
+				<span
+					class="material-symbols-outlined animate-pulse text-[28px]"
+					aria-hidden="true"
+				>
 					rate_review
 				</span>
 			</div>
@@ -26,7 +29,7 @@
 			class="overflow-hidden rounded-[1.2rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] shadow-[var(--shadow-sm)]"
 		>
 			<div
-				class="border-b border-[var(--c-border)] bg-[linear-gradient(135deg,rgba(197,61,61,0.14),rgba(217,168,88,0.08))] px-4 py-5 sm:px-5"
+				class="border-b border-[var(--c-border)] bg-[linear-gradient(135deg,rgba(0,137,137,0.14),rgba(214,172,91,0.1))] px-4 py-5 sm:px-5"
 			>
 				<p
 					class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
@@ -34,8 +37,10 @@
 				>
 					Reviews
 				</p>
-				<h1 class="mt-2 text-2xl font-semibold text-[var(--c-text-secondary)]" translate>
-					Guest reviews
+				<h1 class="mt-2 text-2xl font-semibold text-[var(--c-text-secondary)]">
+					<span [translate]="'Коротко про враження гостей'"
+						>Коротко про враження гостей</span
+					>
 				</h1>
 			</div>
 
@@ -53,7 +58,9 @@
 									<span [translate]="review.author">{{ review.author }}</span>
 								</p>
 								@if (review.date) {
-									<p class="mt-1 text-xs uppercase tracking-[0.14em] text-[var(--c-text-muted)]">
+									<p
+										class="mt-1 text-xs uppercase tracking-[0.14em] text-[var(--c-text-muted)]"
+									>
 										<span [translate]="review.date">{{ review.date }}</span>
 									</p>
 								}
@@ -61,10 +68,14 @@
 
 							<div
 								class="flex items-center gap-1 text-[var(--c-secondary)]"
-								translate [translate]="{ ariaLabel: (review.rating + ' out of 5 stars') }"
+								translate
+								[translate]="{ ariaLabel: review.rating + ' out of 5 stars' }"
 							>
 								@for (star of stars; track star) {
-									<span class="material-symbols-outlined text-[18px]" aria-hidden="true">
+									<span
+										class="material-symbols-outlined text-[18px]"
+										aria-hidden="true"
+									>
 										{{ star <= review.rating ? 'star' : 'star_outline' }}
 									</span>
 								}
@@ -82,8 +93,14 @@
 						</p>
 
 						@if (review.sourceLabel) {
-							<div class="mt-4 border-t border-[var(--c-border)] pt-4 text-sm text-[var(--c-text-muted)]">
-								<p><span [translate]="review.sourceLabel">{{ review.sourceLabel }}</span></p>
+							<div
+								class="mt-4 border-t border-[var(--c-border)] pt-4 text-sm text-[var(--c-text-muted)]"
+							>
+								<p>
+									<span [translate]="review.sourceLabel">{{
+										review.sourceLabel
+									}}</span>
+								</p>
 							</div>
 						}
 					</a>
@@ -97,7 +114,9 @@
 			<div
 				class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border border-[var(--c-border)] bg-[var(--c-bg-primary)] text-[var(--c-secondary)]"
 			>
-				<span class="material-symbols-outlined text-[28px]" aria-hidden="true">rate_review</span>
+				<span class="material-symbols-outlined text-[28px]" aria-hidden="true"
+					>rate_review</span
+				>
 			</div>
 
 			<p
@@ -109,7 +128,10 @@
 			<h1 class="mt-2 text-xl font-semibold text-[var(--c-text-secondary)]" translate>
 				No reviews yet
 			</h1>
-			<p class="mx-auto mt-2 max-w-[28rem] text-sm leading-6 text-[var(--c-text-muted)]" translate>
+			<p
+				class="mx-auto mt-2 max-w-[28rem] text-sm leading-6 text-[var(--c-text-muted)]"
+				translate
+			>
 				Check back later for guest feedback and new ratings.
 			</p>
 		</section>

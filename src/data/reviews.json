@@ -1,12 +1,22 @@
 [
 	{
-		"slug": "thoughtful-evening-service",
-		"author": "Olena K.",
-		"title": "Thoughtful service and a relaxed dinner",
-		"body": "The team made the evening feel easy from the first greeting to the last course. The menu was clear, the dishes arrived at a comfortable pace, and every question was answered with care. It felt warm, organized, and worth returning to.",
+		"slug": "atmosfera-dlia-sviat",
+		"author": "Гості SfeRa",
+		"title": "Атмосфера для свят і сімейних зустрічей",
+		"body": "Гості часто обирають SfeRa для свят, сімейних зустрічей і вечері в сучасному інтер'єрі.",
 		"rating": 5,
-		"date": "March 2026",
-		"sourceLabel": "Guest review",
+		"date": "2026",
+		"sourceLabel": "Тема відгуків",
+		"sourceUrl": ""
+	},
+	{
+		"slug": "menu-i-prostir",
+		"author": "Гості SfeRa",
+		"title": "Меню, події та family-friendly формат",
+		"body": "У публічних відгуках і описах найчастіше звучать теми різноманітного меню, банкетів, дитячої кімнати та зручного простору для компаній.",
+		"rating": 5,
+		"date": "2026",
+		"sourceLabel": "Короткий підсумок",
 		"sourceUrl": ""
 	}
 ]

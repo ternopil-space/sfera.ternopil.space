@@ -41,7 +41,7 @@
 
 		<p class="mt-2 text-[1.2rem] font-semibold leading-none text-[var(--c-secondary)]">
 			@if (_dish.price === null) {
-				<span>Уточніть ціну</span>
+				<span [translate]="'Уточнити ціну'">Уточнити ціну</span>
 			} @else {
 				{{ _dish.price }} ₴
 			}

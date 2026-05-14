@@ -11,7 +11,7 @@ export interface Dish {
 	categorySlug: string;
 	name: string;
 	description: string;
-	price: number;
+	price: number | null;
 	labels: string[];
 	fullDescription: string;
 	suggested: string[];

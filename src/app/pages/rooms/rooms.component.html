@@ -12,14 +12,14 @@
 					class="material-symbols-outlined animate-pulse text-[28px]"
 					aria-hidden="true"
 				>
-					celebration
+					hotel
 				</span>
 			</div>
 
 			<p
 				class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
 			>
-				Банкети
+				<span [translate]="'Rooms'">{{ 'Rooms' }}</span>
 			</p>
 			<p class="mt-2 text-sm text-[var(--c-text-muted)]">
 				<span [translate]="'Loading rooms...'">{{ 'Loading rooms...' }}</span>
@@ -35,7 +35,7 @@
 						class="object-cover"
 						ngSrc="room/room-1.webp"
 						translate
-						[translate]="{ alt: 'Банкетний простір SfeRa Restaurant' }"
+						[translate]="{ alt: 'Horeca demo hotel room' }"
 						fill
 						priority
 						sizes="(max-width: 1023px) 100vw, 60vw"
@@ -48,27 +48,37 @@
 					<p
 						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
 					>
-						Банкети та зали
+						<span [translate]="'Rooms'">{{ 'Rooms' }}</span>
 					</p>
 					<h1
 						class="mt-3 text-[2rem] font-semibold leading-tight text-[var(--c-text-secondary)] sm:text-[2.4rem]"
 					>
-						Банкетний простір SfeRa Restaurant
+						<span [translate]="'Demo rooms page for HoReCa businesses'">{{
+							'Demo rooms page for HoReCa businesses'
+						}}</span>
 					</h1>
 					<p class="mt-4 text-sm leading-7 text-[var(--c-text-muted)]">
 						<span
-							>Весілля, дні народження, корпоративи, випускні, team-building і приватні
-							банкети у Тернополі.</span>
+							[translate]="'This section can be adapted for a hotel, hotel and restaurant complex, guest house, apartment hotel, or countryside retreat.'"
+							>{{
+								'This section can be adapted for a hotel, hotel and restaurant complex, guest house, apartment hotel, or countryside retreat.'
+							}}</span
+						>
 					</p>
 					<p class="mt-3 text-sm leading-7 text-[var(--c-text-muted)]">
 						<span
-							>Обережно вказуємо місткість як до 150 гостей і не обіцяємо пакетні ціни
-							без підтвердження власника.</span>
+							[translate]="'Show room categories, key amenities, photos, prices, and a quick way for guests to book.'"
+							>{{
+								'Show room categories, key amenities, photos, prices, and a quick way for guests to book.'
+							}}</span
+						>
 					</p>
 					<p class="mt-3 text-sm leading-7 text-[var(--c-text-muted)]">
-						<span>Бронювання:</span>
+						<span [translate]="'Room rates from'">{{ 'Room rates from' }}</span>
 						<span class="font-semibold text-[var(--c-text-secondary)]">
-							<span>+38 (068) 854 56 35</span> </span
+							<span [translate]="'from UAH 1800/night'">{{
+								'from UAH 1800/night'
+							}}</span> </span
 						>.
 					</p>
 				</div>
@@ -78,12 +88,17 @@
 				<div class="grid gap-6 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
 					<div>
 						<h2 class="text-lg font-semibold text-[var(--c-text-secondary)]">
-							Що доступно для подій
+							<span [translate]="'What is available for guests'">{{
+								'What is available for guests'
+							}}</span>
 						</h2>
 						<p class="mt-3 text-sm leading-7 text-[var(--c-text-muted)]">
 							<span
-								>Формат, меню, розсадка, час і доступність конкретної дати узгоджуються
-								напряму з командою ресторану.</span>
+								[translate]="'Add the services that matter for your property: breakfast, restaurant, parking, spa, conference hall, transfer, or pet-friendly stays.'"
+								>{{
+									'Add the services that matter for your property: breakfast, restaurant, parking, spa, conference hall, transfer, or pet-friendly stays.'
+								}}</span
+							>
 						</p>
 					</div>
 
@@ -159,15 +174,20 @@
 						<p
 							class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
 						>
-						Бронювання
+							<span [translate]="'Booking'">{{ 'Booking' }}</span>
 						</p>
 						<h2 class="mt-3 text-[1.5rem] font-semibold text-[var(--c-text-secondary)]">
-							Обговоріть подію телефоном
+							<span [translate]="'Contact us in the way that works for you'">{{
+								'Contact us in the way that works for you'
+							}}</span>
 						</h2>
 						<p class="mt-3 text-sm leading-7 text-[var(--c-text-muted)]">
 							<span
-								>Для весіль, банкетів, корпоративів або випускних телефонуйте в ресторан,
-								щоб уточнити дату, меню та посадку.</span>
+								[translate]="'Use this block for phone, messengers, or a booking form. The demo version includes safe test contacts.'"
+								>{{
+									'Use this block for phone, messengers, or a booking form. The demo version includes safe test contacts.'
+								}}</span
+							>
 						</p>
 					</div>
 
@@ -206,10 +226,10 @@
 			>
 				<img
 					class="mx-auto h-auto w-24 opacity-90 sm:w-28"
-					ngSrc="sfera-logo.svg"
-					alt="SfeRa Restaurant"
-					width="640"
-					height="240"
+					ngSrc="logo.webp"
+					alt="Horeca"
+					width="720"
+					height="720"
 				/>
 			</div>
 		</section>

@@ -492,6 +492,12 @@ contents of `AGENTS.md` into the AI prompt/context first.
 
 This ensures the AI follows the same project-specific rules that Codex uses inside the IDE.
 
+For business research and implementation-prompt generation, use the HoReCa Web Art Work Custom GPT:
+
+```
+https://chatgpt.com/g/g-6a04779f2e2481918bde1f0801eb6ed4-horeca-web-art-work
+```
+
 ---
 
 # NPM Scripts

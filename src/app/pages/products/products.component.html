@@ -9,7 +9,7 @@
 				class="mx-auto inline-flex h-14 w-14 items-center justify-center rounded-full border border-[var(--c-border)] bg-[var(--c-bg-primary)] text-[var(--c-secondary)]"
 			>
 				<span class="material-symbols-outlined animate-pulse text-[28px]" aria-hidden="true">
-					delivery_truck_speed
+					shopping_bag
 				</span>
 			</div>
 
@@ -17,9 +17,9 @@
 				class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
 				translate
 			>
-				Доставка
+				Products
 			</p>
-			<p class="mt-2 text-sm text-[var(--c-text-muted)]">Завантаження доставки...</p>
+			<p class="mt-2 text-sm text-[var(--c-text-muted)]" translate>Loading products...</p>
 		</section>
 	} @else if (products().length) {
 		<section
@@ -32,15 +32,11 @@
 					class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
 					translate
 				>
-					Доставка і take away
+					Products
 				</p>
-				<h1 class="mt-2 text-2xl font-semibold text-[var(--c-text-secondary)]">
-					Замовлення SfeRa у Тернополі
+				<h1 class="mt-2 text-2xl font-semibold text-[var(--c-text-secondary)]" translate>
+					Merch and branded goods
 				</h1>
-				<p class="mt-2 max-w-2xl text-sm leading-6 text-[var(--c-text-muted)]">
-					Використовуйте ChoiceQR для актуального меню та Korzyna як зовнішній сервіс
-					доставки. Умови, зони й час доставки перевіряйте у відповідному сервісі.
-				</p>
 			</div>
 
 			<div class="grid gap-3 p-3 sm:grid-cols-2 sm:p-4 xl:grid-cols-3">
@@ -109,13 +105,13 @@
 				class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
 				translate
 			>
-				Доставка
+				Products
 			</p>
-			<h1 class="mt-2 text-xl font-semibold text-[var(--c-text-secondary)]">
-				Інформація про доставку тимчасово недоступна
+			<h1 class="mt-2 text-xl font-semibold text-[var(--c-text-secondary)]" translate>
+				No products available right now
 			</h1>
-			<p class="mx-auto mt-2 max-w-[28rem] text-sm leading-6 text-[var(--c-text-muted)]">
-				Подзвоніть до ресторану або відкрийте онлайн-меню для актуальних деталей.
+			<p class="mx-auto mt-2 max-w-[28rem] text-sm leading-6 text-[var(--c-text-muted)]" translate>
+				Check back soon for new merch drops and branded goods.
 			</p>
 		</section>
 	}

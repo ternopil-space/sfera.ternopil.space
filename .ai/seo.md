@@ -37,6 +37,22 @@ Where relevant, include:
 - preserve prerender compatibility
 - avoid content that appears only after unnecessary client-side logic
 - ensure internal links are easy to follow
+- update `src/index.html` static metadata when adapting the site to a real business
+- keep `src/data/company.json` `siteUrl`, canonical URLs, Open Graph URLs, and `CNAME` aligned with the target domain
+- write `CNAME` as the bare domain only, without `https://` or a path
+
+## Static Metadata
+
+The runtime SEO services use company/page data, but crawlers and link previews may still read
+the static shell before Angular runs. When the business changes, update:
+- `<html lang>`
+- `<title>`
+- meta description, keywords, author, robots
+- itemprop name, description, image
+- Open Graph site name, locale, URL, title, description, image
+- Twitter title, description, image
+- canonical link
+- favicon/logo references if the asset changes
 
 ## Page Intent
 

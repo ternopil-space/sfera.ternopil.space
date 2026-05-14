@@ -32,23 +32,11 @@ export function toDishCard(dish: Dish): DishCard {
 		id: dish.slug,
 		slug: dish.slug,
 		name: dish.name,
-		price: dish.price > 0 ? dish.price : null,
+		price: dish.price,
 		description: dish.description,
 		labels: dish.labels,
-		image: _dishImage(dish),
+		image: `/item/${dish.slug}.webp`,
 		imageAlt: dish.name,
 		soldOut: false,
 	};
-}
-
-function _dishImage(dish: Dish): string {
-	if (dish.slug === 'cappuccino') {
-		return '/item/cappuccino.webp';
-	}
-
-	if (dish.categorySlug === 'breakfasts') {
-		return '/item/homemade-syrnyky-with-sour-cream.webp';
-	}
-
-	return '/gallery/demo-1.webp';
 }

@@ -17,6 +17,50 @@ Common page types:
 - events / banquets / catering
 - loyalty / special offers
 
+## Business Category Feature Mapping
+
+Before removing pages from this template, map the business category to feature/page groups.
+Treat list and detail pages, data files, i18n files, SEO keys, and navigation links as one
+connected feature group.
+
+Common mappings:
+- restaurant / cafe / bar / bakery / catering: usually keep menu, dish detail, gallery, about, reviews, socials, events/offers when real
+- hotel / accommodation: usually keep rooms and room detail, gallery, about, reviews, contacts, events/offers when real, spa only when real
+- spa / wellness: usually keep spa, gallery, about, reviews, products/offers only when real
+- event venue / banquet hall / catering: usually keep events, gallery, about, menu or products if offers are concrete, reviews, contacts
+- retail food / bakery shop: usually keep products or menu depending on how items are presented, gallery, about, socials, offers when real
+
+Feature/page groups:
+- `company`: core business profile for every site
+- `dish`: `menu`, `dish/:slug`, dish data, dish category data, dish i18n
+- `product`: `products`, `product/:slug`, product data, product i18n
+- `room`: `rooms`, `room/:slug`, room data, room i18n
+- `spa`: spa page and spa data/i18n
+- `event`: `events`, `event/:slug`, event data, event i18n
+- `discount` / `loyalty`: discounts, discount detail, loyalty, offer data/i18n
+- `article`: articles, article detail, article data/i18n
+- `review`: reviews, review detail, review data/i18n
+- `job` / `profile`: jobs, job detail, team, profile detail, related data/i18n
+- `quest` / `question` / `rule`: activity, FAQ, and policy/rule pages when they fit the business
+
+For a normal restaurant, cafe, or bar that does not sell accommodation or private rooms,
+remove the `room` feature group instead of leaving generic rooms pages in place. For a hotel,
+rooms are usually primary and should stay.
+
+When a page is removed, remove or update its route, page component references, page title keys,
+navigation links, data, translations, and SEO metadata together.
+
+## Navigation Page And Footer
+
+Keep the footer/bottom navigation focused:
+- first footer item stays `/navigation`
+- four remaining footer slots are the highest-priority pages for the business
+- all other relevant pages belong on the Navigation page
+- if a footer page is removed, promote the most important remaining Navigation page item into the footer
+- if a footer page is still relevant but no longer primary, move it to the Navigation page
+
+The header logo or business name always links to `/`.
+
 ## Home Page Priorities
 
 A good home page usually makes these clear fast:
