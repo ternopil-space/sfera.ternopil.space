@@ -1,50 +1,62 @@
 [
 	{
 		"name": "Меню",
-		"description": "Основні розділи меню SfeRa Restaurant.",
+		"description": "Основні ресторанні категорії SfeRa.",
 		"parent": "",
 		"slug": "menu"
 	},
 	{
-		"name": "Салати",
-		"description": "Салати з овочами, сиром, куркою, качкою, лососем і морепродуктами.",
-		"parent": "menu",
-		"slug": "salads"
+		"name": "Бар",
+		"description": "Безалкогольні напої, бар і коктейлі.",
+		"parent": "",
+		"slug": "bar"
 	},
 	{
-		"name": "Закуски і супи",
-		"description": "Легкі позиції для початку вечері або сімейного обіду.",
+		"name": "Сніданки",
+		"description": "Сніданки щодня у SfeRa.",
 		"parent": "menu",
-		"slug": "starters-soups"
+		"slug": "breakfasts"
 	},
 	{
-		"name": "М'ясо і гриль",
-		"description": "Страви з хоспера, шашлик, ребра і стейки.",
+		"name": "Бізнес-ланчі",
+		"description": "Будні 12:00-16:00, актуальний склад уточнюйте у меню ChoiceQR.",
 		"parent": "menu",
-		"slug": "meat-grill"
+		"slug": "business-lunches"
 	},
 	{
-		"name": "Риба і морепродукти",
-		"description": "Лосось, креветки, мідії та seafood-позиції.",
+		"name": "Закуски та салати",
+		"description": "Холодні закуски, салати і легкі позиції для столу.",
 		"parent": "menu",
-		"slug": "fish-seafood"
+		"slug": "starters-salads"
 	},
 	{
-		"name": "Паста",
-		"description": "Паста з морепродуктами, карбонара та вершкові поєднання.",
+		"name": "Основні страви",
+		"description": "М'ясо, гриль, гарячі страви і гарніри.",
 		"parent": "menu",
-		"slug": "pasta"
+		"slug": "main-dishes"
 	},
 	{
-		"name": "Десерти",
-		"description": "Сирники, фондан, панакота, Наполеон і баскський чизкейк.",
+		"name": "Риба та морепродукти",
+		"description": "Лосось, креветки, мідії та морські страви.",
 		"parent": "menu",
-		"slug": "desserts"
+		"slug": "seafood"
 	},
 	{
-		"name": "Дитяче меню",
-		"description": "Страви для маленьких гостей і сімейних візитів.",
+		"name": "Пасти та перші страви",
+		"description": "Пасти, борщ, сирний суп та теплі страви.",
 		"parent": "menu",
-		"slug": "kids-menu"
+		"slug": "soups-pasta"
+	},
+	{
+		"name": "Десерти та дитяче меню",
+		"description": "Солодкі позиції і страви для дітей.",
+		"parent": "menu",
+		"slug": "desserts-kids"
+	},
+	{
+		"name": "Напої та коктейлі",
+		"description": "Безалкогольні напої, кава, бар і коктейлі.",
+		"parent": "bar",
+		"slug": "drinks-cocktails"
 	}
 ]

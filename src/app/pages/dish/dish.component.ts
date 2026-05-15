@@ -88,7 +88,7 @@ export class DishComponent {
 			this._metaService.applyMeta({
 				title: translatedTitle,
 				description,
-				image: buildAbsoluteUrl(`/item/${dish.slug}.webp`),
+				image: buildAbsoluteUrl(_dishImage(dish.slug)),
 			});
 			this._canonicalService.setCanonicalUrl(`/dish/${dish.slug}`);
 		});
@@ -110,7 +110,7 @@ function _buildDishViewModel(category: DishCategory | null, item: Dish): DishVie
 		hasDescription: Boolean(item.description?.trim()),
 		hasFullDescription: Boolean(item.fullDescription?.trim()),
 		labels: item.labels,
-		price: item.price,
+		price: item.price > 0 ? item.price : null,
 		facts: _buildFacts(item, category),
 		suggestions: _buildSuggestions(item),
 	};
@@ -169,8 +169,14 @@ function _buildSuggestions(currentItem: Dish): DishSuggestion[] {
 			name: item.name,
 			description: item.description,
 			hasDescription: Boolean(item.description?.trim()),
-			price: item.price,
+			price: item.price > 0 ? item.price : null,
 		}));
+}
+
+function _dishImage(slug: string): string {
+	return slug === 'homemade-syrnyky-with-sour-cream' || slug === 'cappuccino'
+		? `/item/${slug}.webp`
+		: '/gallery/demo-1.webp';
 }
 
 function _resolveFallbackEntry() {

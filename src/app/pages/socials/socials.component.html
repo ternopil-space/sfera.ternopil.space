@@ -1,169 +1,118 @@
 <main class="mx-auto max-w-[var(--container)] px-3 pb-8 pt-3 sm:px-4 sm:pb-10">
-	<section
-		class="overflow-hidden rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] shadow-[var(--shadow-sm)]"
-	>
-		<div
-			class="border-b border-[var(--c-border)] bg-[linear-gradient(135deg,rgba(0,137,137,0.14),rgba(214,172,91,0.1))] px-4 py-6 sm:px-6"
-		>
-			<p
-				class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-			>
-				<span [translate]="'Contacts'">Контакти</span>
+	<section class="overflow-hidden rounded-[1.4rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] shadow-[var(--shadow-sm)]">
+		<div class="border-b border-[var(--c-border)] px-4 py-6 sm:px-6 lg:px-8">
+			<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">
+				Контакти
 			</p>
-			<h1 class="mt-2 text-3xl font-semibold leading-tight text-[var(--c-text-secondary)]">
-				<span [translate]="'Контакти SfeRa Restaurant'">Контакти SfeRa Restaurant</span>
+			<h1 class="mt-2 font-[var(--ff-display)] text-[2.2rem] font-semibold italic leading-tight text-[var(--c-text-secondary)]">
+				SfeRa Restaurant, Тернопіль
 			</h1>
-			<p class="mt-3 max-w-2xl text-sm leading-7 text-[var(--c-text-primary)]">
-				<span
-					[translate]="'Дзвоніть, щоб забронювати столик, обговорити банкет, уточнити доставку або доступність дати для події.'"
-				>
-					Дзвоніть, щоб забронювати столик, обговорити банкет, уточнити доставку або
-					доступність дати для події.
-				</span>
+			<p class="mt-3 max-w-[44rem] text-sm leading-7 text-[var(--c-text-muted)]">
+				Ресторан, бар, сніданки, бізнес-ланчі, меню, доставка і банкетні запити.
+				Для бронювання столика або уточнення події телефонуйте напряму.
 			</p>
 		</div>
 
 		<div class="grid gap-4 p-4 lg:grid-cols-[minmax(0,1fr)_18rem_minmax(0,1fr)] lg:p-6">
 			<div class="space-y-4">
 				<a
-					class="block rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 transition-transform duration-200 hover:-translate-y-0.5"
-					[href]="phoneHref"
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="tel:+380688545635"
+					aria-label="Подзвонити у SfeRa Restaurant"
 				>
-					<p
-						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-					>
-						<span [translate]="'Phone'">Телефон</span>
-					</p>
-					<p class="mt-2 text-xl font-semibold text-[var(--c-text-secondary)]">
-						{{ company.displayPhone }}
-					</p>
+					<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">Телефон</p>
+					<p class="mt-2 text-xl font-semibold text-[var(--c-text-secondary)]">+380 68 854 5635</p>
 					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
-						<span
-							[translate]="'Для бронювання столика, банкетів, дитячих свят і питань доставки або замовлення.'"
-						>
-							Для бронювання столика, банкетів, дитячих свят і питань доставки або
-							замовлення.
-						</span>
+						Бронювання столика, банкетний запит, меню, доставка або уточнення деталей.
 					</p>
 				</a>
 
 				<a
-					class="block rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 transition-transform duration-200 hover:-translate-y-0.5"
-					[href]="company.mapUrl"
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://maps.app.goo.gl/CfHHFyAL5RHUL5KMA"
 					target="_blank"
 					rel="noreferrer"
+					aria-label="Відкрити SfeRa Restaurant у Google Maps"
 				>
-					<p
-						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-					>
-						<span [translate]="'Address'">Адреса</span>
-					</p>
+					<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">Адреса</p>
 					<p class="mt-2 text-lg font-semibold leading-7 text-[var(--c-text-secondary)]">
-						{{ company.address }}
+						вулиця Білецька, 33а, Тернопіль, Тернопільська область, Україна
 					</p>
 					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
-						<span [translate]="'Відкрити маршрут на мапі'"
-							>Відкрити маршрут на мапі</span
-						>
+						Відкрийте мапу, прокладіть маршрут або поділіться локацією з гостями.
 					</p>
 				</a>
 
-				<div
-					class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4"
-				>
-					<p
-						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-					>
-						<span [translate]="'Hours'">Години роботи</span>
-					</p>
-					<p class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">
-						{{ company.hours }}
-					</p>
+				<div class="rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)]">
+					<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">Графік</p>
+					<p class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">щодня 11:00-23:00</p>
 					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
-						<span
-							[translate]="'Внутрішня примітка: фінальний графік варто підтвердити з власником перед запуском.'"
-						>
-							Внутрішня примітка: фінальний графік варто підтвердити з власником перед
-							запуском.
-						</span>
+						Для приватних подій або святкових дат режим краще підтвердити телефоном.
 					</p>
 				</div>
 			</div>
 
-			<div
-				class="flex min-h-[18rem] items-center justify-center rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-6"
-			>
-				<div class="text-center">
+			<div class="relative flex min-h-[18rem] items-center justify-center rounded-[1.25rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-6 shadow-[var(--shadow-sm)]">
+				<div class="relative text-center">
 					<img
-						class="mx-auto h-auto w-[11rem]"
-						ngSrc="/logo.webp"
+						class="mx-auto h-auto w-[11rem] drop-shadow-[0_14px_30px_rgba(0,0,0,0.16)] sm:w-[12.5rem]"
+						ngSrc="logo.webp"
 						alt="SfeRa Restaurant"
 						width="720"
 						height="720"
 						priority
 					/>
-					<p
-						class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-					>
+					<p class="mt-4 text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">
 						SfeRa Restaurant
-					</p>
-					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
-						<span [translate]="'вул. Білецька, 33А, Тернопіль'"
-							>вул. Білецька, 33А, Тернопіль</span
-						>
 					</p>
 				</div>
 			</div>
 
-			<div class="grid gap-4">
+			<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-1">
 				<a
-					class="block rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 transition-transform duration-200 hover:-translate-y-0.5"
-					[href]="company.socialLinks.instagram"
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://sfera.choiceqr.com/online-menu"
 					target="_blank"
 					rel="noreferrer"
+					aria-label="Відкрити меню SfeRa у ChoiceQR"
 				>
-					<p
-						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-					>
-						Instagram
-					</p>
-					<p class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">
-						@sfera.restaurant
+					<p class="text-sm font-semibold text-[var(--c-text-secondary)]">ChoiceQR меню</p>
+					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
+						Сніданки, бізнес-ланчі, основне меню, бар і банкетне меню.
 					</p>
 				</a>
+
 				<a
-					class="block rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 transition-transform duration-200 hover:-translate-y-0.5"
-					[href]="company.socialLinks.facebook"
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://www.korzyna.com/ternopil/sfera"
 					target="_blank"
 					rel="noreferrer"
+					aria-label="Відкрити SfeRa на Korzyna"
 				>
-					<p
-						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-					>
-						Facebook
-					</p>
-					<p class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">
-						Sfera.restaurant
+					<p class="text-sm font-semibold text-[var(--c-text-secondary)]">Korzyna</p>
+					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
+						Сторінка доставки/меню. Зони і умови доставки уточнюйте у сервісі.
 					</p>
 				</a>
-				<div
-					class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4"
+
+				<a
+					class="contact-card block rounded-[1.1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 shadow-[var(--shadow-sm)] transition-transform duration-200 hover:-translate-y-0.5"
+					href="https://www.instagram.com/sfera.restaurant/"
+					target="_blank"
+					rel="noreferrer"
+					aria-label="Відкрити Instagram SfeRa Restaurant"
 				>
-					<p
-						class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-					>
-						<span [translate]="'Доставка і замовлення'">Доставка і замовлення</span>
-					</p>
-					<p class="mt-2 text-sm leading-6 text-[var(--c-text-primary)]">
-						<span
-							[translate]="'SfeRa присутня у публічних меню та delivery-платформах. Найбезпечніший актуальний спосіб замовлення — уточнити телефоном, якщо власник не надасть підтримуване зовнішнє посилання.'"
-						>
-							SfeRa присутня у публічних меню та delivery-платформах. Найбезпечніший
-							актуальний спосіб замовлення — уточнити телефоном, якщо власник не
-							надасть підтримуване зовнішнє посилання.
-						</span>
-					</p>
-				</div>
+					<p class="text-sm font-semibold text-[var(--c-text-secondary)]">Instagram</p>
+					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">@sfera.restaurant</p>
+				</a>
+			</div>
+		</div>
+
+		<div class="border-t border-[var(--c-border)] px-4 py-6 sm:px-6 lg:px-8">
+			<div class="grid gap-4 md:grid-cols-3">
+				<a class="ui-btn ui-btn-primary" href="tel:+380688545635">Забронювати столик</a>
+				<a class="ui-btn ui-btn-secondary" href="https://sfera.choiceqr.com/online-menu" target="_blank" rel="noreferrer">Переглянути меню</a>
+				<a class="ui-btn ui-btn-secondary" routerLink="/events">Події та банкети</a>
 			</div>
 		</div>
 	</section>

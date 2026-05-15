@@ -28,7 +28,7 @@
 	<section class="about__intro">
 		<div class="about__introText">
 			<p class="about__eyebrow">
-				<span [translate]="'Restaurant and event venue'">Restaurant and event venue</span>
+				<span>SfeRa Restaurant</span>
 			</p>
 			<h2>
 				<span [translate]="page.intro.title">{{ page.intro.title }}</span>
@@ -52,10 +52,8 @@
 				/>
 			} @else {
 				<div class="about__imageFallback">
-					<span class="material-symbols-outlined" aria-hidden="true">room_service</span>
-					<span [translate]="'Hospitality, events, and rest'">
-						Hospitality, events, and rest
-					</span>
+					<span class="material-symbols-outlined" aria-hidden="true">restaurant</span>
+					<span>Ресторан, події і вечірній настрій</span>
 				</div>
 			}
 		</div>
@@ -76,9 +74,7 @@
 				<ul>
 					@for (item of section.items; track item) {
 						<li>
-							<span class="material-symbols-outlined" aria-hidden="true"
-								>check_circle</span
-							>
+							<span class="material-symbols-outlined" aria-hidden="true">check_circle</span>
 							<span [translate]="item">{{ item }}</span>
 						</li>
 					}
@@ -90,7 +86,7 @@
 	<section class="about__service">
 		<div>
 			<p class="about__eyebrow">
-				<span [translate]="'Verified positioning'">Verified positioning</span>
+				<span>Візит і бронювання</span>
 			</p>
 			<h2>
 				<span [translate]="page.service.title">{{ page.service.title }}</span>

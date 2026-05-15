@@ -2,19 +2,20 @@ import { DOCUMENT } from '@angular/common';
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
-import { NavigationEnd, Router, RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
+import { LanguageService, TranslateService } from '@wawjs/ngx-translate';
 import { filter } from 'rxjs';
 import { environment } from '../environments/environment';
 import { companyProfile } from './feature/company/company.data';
+import { FooterComponent } from './layouts/footer/footer.component';
 import { TopbarComponent } from './layouts/topbar/topbar.component';
 import { CanonicalService } from './services/canonical.service';
 import { ScrollService } from './services/scroll.service';
 
 @Component({
 	selector: 'app-root',
-	imports: [RouterLink, RouterLinkActive, RouterOutlet, TopbarComponent, TranslateDirective],
-	templateUrl: './app.component.html',
+	imports: [RouterOutlet, TopbarComponent, FooterComponent],
+	template: '<app-topbar /><div class="pb-24"><router-outlet /></div><app-footer />',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
@@ -29,14 +30,6 @@ export class App {
 		this._router.events.pipe(filter((event) => event instanceof NavigationEnd)),
 		{ initialValue: null },
 	);
-
-	protected readonly navItems = [
-		{ label: 'Навігація', icon: 'navigation', route: '/navigation', exact: true },
-		{ label: 'Меню', icon: 'restaurant_menu', route: '/menu', exact: true },
-		{ label: 'Події', icon: 'celebration', route: '/events', exact: true },
-		{ label: 'Галерея', icon: 'photo_library', route: '/gallery', exact: true },
-		{ label: 'Контакти', icon: 'call', route: '/contacts', exact: true },
-	];
 
 	constructor() {
 		this._canonicalService.initialize();
@@ -60,14 +53,15 @@ export class App {
 
 			if (
 				path.startsWith('/dish/') ||
+				path.startsWith('/discount/') ||
 				path.startsWith('/review/') ||
-				path.startsWith('/event/')
+				path.startsWith('/product/') ||
+				path.startsWith('/event/') ||
+				path.startsWith('/article/') ||
+				path.startsWith('/quest/') ||
+				path.startsWith('/job/') ||
+				path.startsWith('/profile/')
 			) {
-				return;
-			}
-
-			if (path === '/') {
-				this._title.setTitle(companyProfile.pageSeo['/']?.title ?? companyProfile.name);
 				return;
 			}
 
@@ -75,6 +69,7 @@ export class App {
 			const translatedTitle = titleKey
 				? this._translateService.translate(titleKey)()
 				: companyProfile.name;
+
 			this._title.setTitle(
 				translatedTitle === companyProfile.name
 					? translatedTitle
@@ -86,15 +81,22 @@ export class App {
 
 const _pageTitleKeys: Record<string, string> = {
 	'/': 'SfeRa Restaurant',
-	'/menu': 'Меню',
-	'/about': 'Про SfeRa',
-	'/favorites': 'Обране',
-	'/navigation': 'Навігація',
-	'/gallery': 'Галерея',
+	'/menu': 'Menu',
+	'/about': 'About us',
+	'/favorites': 'Favorites',
+	'/navigation': 'Navigation',
+	'/gallery': 'Gallery',
+	'/discounts': 'Discounts',
+	'/articles': 'Articles',
+	'/quests': 'Quests',
+	'/reviews': 'Reviews',
+	'/events': 'Events',
+	'/products': 'Products',
 	'/questions': 'FAQ',
-	'/reviews': 'Відгуки',
-	'/events': 'Події',
-	'/contacts': 'Контакти',
+	'/rules': 'Rules',
+	'/jobs': 'Jobs',
+	'/team': 'Team',
+	'/socials': 'Contacts',
 };
 
 function _normalizeTitlePath(url: string): string {

@@ -32,10 +32,13 @@ export function toDishCard(dish: Dish): DishCard {
 		id: dish.slug,
 		slug: dish.slug,
 		name: dish.name,
-		price: dish.price,
+		price: dish.price > 0 ? dish.price : null,
 		description: dish.description,
 		labels: dish.labels,
-		image: `/item/${dish.slug}.webp`,
+		image:
+			dish.slug === 'homemade-syrnyky-with-sour-cream' || dish.slug === 'cappuccino'
+				? `/item/${dish.slug}.webp`
+				: '/gallery/demo-1.webp',
 		imageAlt: dish.name,
 		soldOut: false,
 	};

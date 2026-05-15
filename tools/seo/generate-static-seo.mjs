@@ -13,24 +13,30 @@ const staticRoutes = [
 	'/about',
 	'/navigation',
 	'/gallery',
+	'/discounts',
+	'/loyalty',
+	'/articles',
+	'/quests',
 	'/questions',
+	'/rules',
 	'/reviews',
 	'/events',
-	'/contacts',
+	'/products',
+	'/jobs',
+	'/team',
+	'/socials',
 ];
 
 const company = await readJson('src/data/company.json');
 const dishes = await readJson('src/data/dishes.json');
-const events = await readJson('src/data/events.json');
-const reviews = await readJson('src/data/reviews.json');
-const siteUrl = trimTrailingSlash(company.siteUrl || 'https://sfera.ternopil.space');
+const articles = await readJson('src/data/articles.json');
+const siteUrl = trimTrailingSlash(company.siteUrl || 'https://example.com');
 const pageSeo = company.pageSeo ?? {};
 
 const routes = [
 	...staticRoutes.filter((route) => isIndexable(route, pageSeo)),
 	...toSlugRoutes('/dish', dishes),
-	...toSlugRoutes('/event', events),
-	...toSlugRoutes('/review', reviews),
+	...toSlugRoutes('/article', articles),
 ];
 const lastmod = new Date().toISOString().slice(0, 10);
 

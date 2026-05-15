@@ -15,6 +15,10 @@ The footer/bottom navigation is the compact primary navigation surface:
 - if removing a page/feature that was in the footer, promote the most important remaining
   Navigation page item into the footer
 - if a feature/page is removed entirely, remove its footer and Navigation page links together
+- protected feature/page groups from `feature-page-map.md` should remain discoverable from the
+  Navigation page even when they are not high-priority enough for the footer
+- when pruning an individual entry from a protected group, remove only links to that pruned entry,
+  not the whole feature's list page link unless the user explicitly asks
 
 Footer labels should remain short enough for the mobile layout.
 

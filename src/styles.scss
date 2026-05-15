@@ -27,12 +27,12 @@
 	}
 
 	.ui-btn-primary {
-		background: var(--c-secondary);
+		background: var(--c-primary);
 		color: var(--c-bg-primary);
 	}
 
 	.ui-btn-primary:hover {
-		background: var(--c-secondary-hover);
+		background: var(--c-primary-hover);
 	}
 
 	.ui-btn-secondary {
@@ -44,7 +44,7 @@
 	.ui-btn-secondary:hover {
 		border-color: var(--c-secondary);
 		background: var(--c-bg-tertiary);
-		color: var(--c-secondary);
+		color: var(--c-primary);
 	}
 }
 
@@ -54,6 +54,7 @@ body {
 	color: var(--c-text-primary);
 	font-family: var(--ff-base);
 	font-size: var(--fs);
+	line-height: 1.7;
 	letter-spacing: var(--letter-spacing);
 }
 

@@ -23,11 +23,7 @@ export interface CompanyStructuredData {
 	priceRange: string;
 	servesCuisine: string;
 	addressLocality: string;
-	addressRegion: string;
-	streetAddress: string;
-	postalCode: string;
 	addressCountry: string;
-	openingHours: string;
 	sameAs: string[];
 }
 
@@ -37,15 +33,8 @@ export interface CompanyProfile extends Company {
 	siteUrl: string;
 	logo: string;
 	phone: string;
-	displayPhone: string;
 	email: string;
 	address: string;
-	hours: string;
-	mapUrl: string;
-	socialLinks: {
-		instagram?: string;
-		facebook?: string;
-	};
 	defaultSeo: SeoMetadata;
 	pageSeo: Record<string, SeoPageOverride>;
 	structuredData: CompanyStructuredData;

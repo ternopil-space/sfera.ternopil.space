@@ -24,15 +24,8 @@ export const companyProfile: CompanyProfile = {
 	siteUrl: _trimTrailingSlash(_stringOrFallback(rawCompanyProfile.siteUrl)),
 	logo: _stringOrFallback(rawCompanyProfile.logo, '/logo.webp'),
 	phone: _stringOrFallback(rawCompanyProfile.phone),
-	displayPhone: _stringOrFallback(rawCompanyProfile.displayPhone, rawCompanyProfile.phone),
 	email: _stringOrFallback(rawCompanyProfile.email),
 	address: _stringOrFallback(rawCompanyProfile.address),
-	hours: _stringOrFallback(rawCompanyProfile.hours),
-	mapUrl: _stringOrFallback(rawCompanyProfile.mapUrl),
-	socialLinks: {
-		instagram: _optionalString(rawCompanyProfile.socialLinks?.instagram),
-		facebook: _optionalString(rawCompanyProfile.socialLinks?.facebook),
-	},
 	defaultSeo: _normalizeSeoMetadata(rawCompanyProfile.defaultSeo, rawCompanyProfile.name),
 	pageSeo: _normalizePageSeo(rawCompanyProfile.pageSeo),
 	structuredData: _normalizeStructuredData(rawCompanyProfile.structuredData),
@@ -90,11 +83,7 @@ function _normalizeStructuredData(
 		priceRange: _stringOrFallback(structuredData?.priceRange, '$$'),
 		servesCuisine: _stringOrFallback(structuredData?.servesCuisine, 'HoReCa'),
 		addressLocality: _stringOrFallback(structuredData?.addressLocality, 'Kamianets-Podilskyi'),
-		addressRegion: _stringOrFallback(structuredData?.addressRegion),
-		streetAddress: _stringOrFallback(structuredData?.streetAddress),
-		postalCode: _stringOrFallback(structuredData?.postalCode),
 		addressCountry: _stringOrFallback(structuredData?.addressCountry, 'UA'),
-		openingHours: _stringOrFallback(structuredData?.openingHours),
 		sameAs: _stringArrayOrFallback(structuredData?.sameAs),
 	};
 }

@@ -23,6 +23,13 @@ Before removing pages from this template, map the business category to feature/p
 Treat list and detail pages, data files, i18n files, SEO keys, and navigation links as one
 connected feature group.
 
+Default to preserving and rebranding existing feature/page groups. Do not touch `bootstrap` or
+`exhibit` during normal business adaptation. Keep `discount`, `event`, `product`, `quest`, and
+`loyalty` as feature groups and rebrand them. Keep `article`, `question`, `rule`, `job`, and
+`profile` as feature groups, but prune or replace individual entries that do not fit the
+business. Whole-feature removal is normally limited to `room` and `spa` when the researched
+business has no matching offer.
+
 Common mappings:
 - restaurant / cafe / bar / bakery / catering: usually keep menu, dish detail, gallery, about, reviews, socials, events/offers when real
 - hotel / accommodation: usually keep rooms and room detail, gallery, about, reviews, contacts, events/offers when real, spa only when real
@@ -42,10 +49,20 @@ Feature/page groups:
 - `review`: reviews, review detail, review data/i18n
 - `job` / `profile`: jobs, job detail, team, profile detail, related data/i18n
 - `quest` / `question` / `rule`: activity, FAQ, and policy/rule pages when they fit the business
+- `bootstrap`: out of scope for normal business adaptation; do not touch unless explicitly asked
+- `exhibit`: out of scope for normal business adaptation; do not touch unless explicitly asked
 
 For a normal restaurant, cafe, or bar that does not sell accommodation or private rooms,
 remove the `room` feature group instead of leaving generic rooms pages in place. For a hotel,
 rooms are usually primary and should stay.
+
+For a business with no real spa, wellness, sauna, massage, pool, or recovery offer, remove the
+`spa` feature group instead of leaving generic spa content in place.
+
+For protected feature groups, avoid removing the entire route/data/i18n/SEO structure. Rebrand
+the group and remove or replace only individual records that are clearly unrelated. For example,
+if the business has no spa, replace or remove an individual spa-themed article while preserving
+the articles feature.
 
 When a page is removed, remove or update its route, page component references, page title keys,
 navigation links, data, translations, and SEO metadata together.
@@ -58,6 +75,10 @@ Keep the footer/bottom navigation focused:
 - all other relevant pages belong on the Navigation page
 - if a footer page is removed, promote the most important remaining Navigation page item into the footer
 - if a footer page is still relevant but no longer primary, move it to the Navigation page
+- protected feature/page groups should remain discoverable from the Navigation page even when
+  they are not footer priorities
+- when pruning an individual protected entry, remove links to that entry without removing the
+  whole feature's list page link
 
 The header logo or business name always links to `/`.
 

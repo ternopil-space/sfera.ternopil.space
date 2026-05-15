@@ -9,7 +9,7 @@ const DISH_TRANSLATION_PATH = '/i18n/dish';
 
 const _fallbackDishes: Dish[] = (dishesData as Dish[]).map((dish) => ({
 	...dish,
-	price: typeof dish.price === 'number' ? dish.price : null,
+	price: dish.price ?? 0,
 	description: dish.description ?? '',
 	fullDescription: dish.fullDescription ?? '',
 	labels: dish.labels ?? [],
@@ -69,7 +69,8 @@ export class DishService {
 
 			return Array.isArray(favoriteDishes)
 				? favoriteDishes.filter(
-						(favoriteDish): favoriteDish is string => typeof favoriteDish === 'string',
+						(favoriteDish): favoriteDish is string =>
+							typeof favoriteDish === 'string',
 					)
 				: [];
 		} catch {
@@ -82,6 +83,9 @@ export class DishService {
 			return;
 		}
 
-		localStorage.setItem(FAVORITE_DISHES_STORAGE_KEY, JSON.stringify(favoriteDishes));
+		localStorage.setItem(
+			FAVORITE_DISHES_STORAGE_KEY,
+			JSON.stringify(favoriteDishes),
+		);
 	}
 }

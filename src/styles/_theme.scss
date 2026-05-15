@@ -2,29 +2,30 @@
 	color-scheme: light;
 
 	/* brand / actions */
-	--c-primary: #008989;
-	--c-primary-hover: #007070;
-	--c-secondary: #008989;
-	--c-secondary-hover: #006f6f;
+	--c-primary: #b89968;
+	--c-primary-hover: #c8aa79;
+	--c-secondary: #5a2a4a;
+	--c-secondary-hover: #6d355b;
 
 	/* surfaces */
-	--c-bg-primary: #f4f8f7;
-	--c-bg-secondary: #ffffff;
-	--c-bg-tertiary: #e3eeee;
+	--c-bg-primary: #f4efe0;
+	--c-bg-secondary: #fff8e8;
+	--c-bg-tertiary: #eadfbd;
 
 	/* content */
-	--c-text-primary: #526867;
-	--c-text-secondary: #102626;
-	--c-text-muted: #738988;
-	--c-placeholder: #738988b3;
+	--c-text-primary: #252e50;
+	--c-text-secondary: #0e1530;
+	--c-text-muted: #6f664f;
+	--c-placeholder: #7e7560b3;
 
 	/* borders & elevation */
-	--c-border: #c9dddd;
-	--shadow-sm: 0 1px 2px rgba(16, 38, 38, 0.08);
-	--shadow-md: 0 10px 30px rgba(16, 38, 38, 0.14);
+	--c-border: #d6ccad;
+	--shadow-sm: 0 1px 2px rgba(18, 32, 51, 0.08);
+	--shadow-md: 0 10px 30px rgba(14, 21, 48, 0.16);
 
 	/* typography */
-	--ff-base: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+	--ff-base: 'Lora', Georgia, 'Times New Roman', serif;
+	--ff-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
 	--fs: 16px;
 	--letter-spacing: 0;
 
@@ -59,36 +60,36 @@
 	--motion-slow: 0.4s;
 
 	/* focus */
-	--focus-ring: 0 0 0 3px rgba(0, 137, 137, 0.22);
+	--focus-ring: 0 0 0 3px rgba(184, 153, 104, 0.4);
 }
 
 html[data-mode='dark'] {
 	color-scheme: dark;
 
 	/* brand / actions */
-	--c-primary: #4fd2cd;
-	--c-primary-hover: #83e4e0;
-	--c-secondary: #d6ac5b;
-	--c-secondary-hover: #e4c57d;
+	--c-primary: #b89968;
+	--c-primary-hover: #d0b27d;
+	--c-secondary: #5a2a4a;
+	--c-secondary-hover: #7a3c65;
 
 	/* surfaces */
-	--c-bg-primary: #081414;
-	--c-bg-secondary: #102828;
-	--c-bg-tertiary: #183b3a;
+	--c-bg-primary: #0e1530;
+	--c-bg-secondary: #1a2240;
+	--c-bg-tertiary: #252e50;
 
 	/* borders & elevation */
-	--c-border: #2f5654;
+	--c-border: #28304d;
 	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
-	--shadow-md: 0 10px 30px rgba(0, 0, 0, 0.48);
+	--shadow-md: 0 10px 30px rgba(0, 0, 0, 0.5);
 
 	/* content */
-	--c-text-primary: #bfd8d6;
-	--c-text-secondary: #f4fbfa;
-	--c-text-muted: #94adab;
-	--c-placeholder: #94adabcc;
+	--c-text-primary: #c4b898;
+	--c-text-secondary: #f2ead3;
+	--c-text-muted: #9b9177;
+	--c-placeholder: #7e7560cc;
 
 	/* focus */
-	--focus-ring: 0 0 0 3px rgba(79, 210, 205, 0.28);
+	--focus-ring: 0 0 0 3px rgba(184, 153, 104, 0.4);
 }
 
 html[data-density='compact'] {

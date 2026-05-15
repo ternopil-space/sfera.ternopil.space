@@ -59,7 +59,7 @@ The copy-ready prompt must include:
 3. Business-category feature/page mapping: keep, adapt, remove, and why.
 4. Required pages/sections to update.
 5. Navigation/footer plan.
-6. Visual and content direction.
+6. Selected design direction, source link, selection reason, visual direction, and content direction.
 7. SEO/local SEO, `src/index.html`, company data, domain, and `CNAME` requirements.
 8. Repo constraints and implementation rules.
 9. Asset/media instructions.
@@ -70,6 +70,7 @@ The copy-ready prompt must include:
 - writing implementation code
 - telling the user the website has been built
 - copying the old website layout, wording, or branding too closely
+- copying a design demo exactly instead of adapting its direction to the researched business
 - inventing missing business facts
 - removing pages without mapping them to a feature and business-category reason
 - breaking the `/navigation` first footer rule or logo/name home link

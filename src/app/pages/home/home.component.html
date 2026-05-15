@@ -1,83 +1,53 @@
-<main class="pb-8 sm:pb-10">
-	<section class="bg-[var(--c-bg-secondary)]">
-		<div
-			class="mx-auto grid max-w-[var(--container)] gap-8 px-4 py-8 sm:px-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(20rem,0.92fr)] lg:items-center lg:py-12"
-		>
-			<div class="space-y-6">
-				<p
-					class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-				>
-					<span [translate]="'Ресторан і простір для подій у Тернополі'"
-						>Ресторан і простір для подій у Тернополі</span
-					>
+<main class="mx-auto max-w-[var(--container)] px-3 pb-8 pt-3 sm:px-4 sm:pb-10">
+	<section class="overflow-hidden rounded-[1.5rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] shadow-[var(--shadow-md)]">
+		<div class="grid gap-6 p-4 sm:p-6 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.82fr)] lg:items-center lg:p-8">
+			<div class="space-y-5">
+				<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">
+					<span>Ресторан • банкети • сніданки щодня</span>
 				</p>
-				<h1
-					class="max-w-[16ch] text-4xl font-semibold leading-tight text-[var(--c-text-secondary)] sm:text-5xl"
-				>
-					<span
-						[translate]="'SfeRa Restaurant — ресторан і простір для свят у Тернополі'"
-					>
-						SfeRa Restaurant — ресторан і простір для свят у Тернополі
-					</span>
+				<h1 class="max-w-[13ch] font-[var(--ff-display)] text-5xl font-semibold italic leading-none text-[var(--c-text-secondary)] sm:text-6xl">
+					SfeRa Restaurant
 				</h1>
-				<p class="max-w-2xl text-base leading-8 text-[var(--c-text-primary)]">
-					<span
-						[translate]="'Сучасний ресторан європейського стилю, банкети, весілля, конференції, сімейні свята, дитяче меню та кімната, а також можливість замовлення для гостей у Тернополі.'"
-					>
-						Сучасний ресторан європейського стилю, банкети, весілля, конференції,
-						сімейні свята, дитяче меню та кімната, а також можливість замовлення для
-						гостей у Тернополі.
-					</span>
+				<p class="max-w-2xl text-sm leading-7 text-[var(--c-text-primary)] sm:text-[15px]">
+					Ресторан у Тернополі для сніданків, вечері, барного настрою, сімейних зустрічей,
+					банкетів і приватних святкувань. Вулиця Білецька, 33а. Щодня 11:00-23:00.
 				</p>
 				<div class="flex flex-wrap gap-3">
-					<a class="ui-btn ui-btn-primary" [href]="phoneHref">
-						<span [translate]="'Забронювати столик'">Забронювати столик</span>
-					</a>
-					<a class="ui-btn ui-btn-secondary" routerLink="/events">
-						<span [translate]="'Обговорити банкет'">Обговорити банкет</span>
+					<a class="ui-btn ui-btn-primary" href="tel:+380688545635">
+						<span>Забронювати столик</span>
 					</a>
 					<a class="ui-btn ui-btn-secondary" routerLink="/menu">
-						<span [translate]="'Переглянути меню'">Переглянути меню</span>
+						<span>Переглянути меню</span>
 					</a>
 				</div>
 			</div>
 
-			<div class="grid gap-3">
+			<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
 				<img
-					class="h-72 w-full rounded-[1.1rem] border border-[var(--c-border)] object-cover shadow-[var(--shadow-md)] sm:h-[25rem]"
+					class="h-52 w-full rounded-[1.2rem] border border-[var(--c-border)] object-cover sm:h-60 lg:h-56"
 					ngSrc="/gallery/demo-1.webp"
 					translate
-					[translate]="{ alt: 'SfeRa Restaurant interior placeholder' }"
+					[translate]="{ alt: 'Hospitality venue preview' }"
 					width="900"
 					height="600"
 					priority
 				/>
-				<div class="grid gap-3 sm:grid-cols-2">
-					<div
-						class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4"
-					>
-						<p
-							class="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--c-secondary)]"
-						>
-							<span [translate]="'Address'">Адреса</span>
+				<div class="rounded-[1.2rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4">
+					<p class="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--c-text-muted)]">
+						<span>Візит</span>
+					</p>
+					<div class="mt-3 space-y-3 text-sm leading-6 text-[var(--c-text-primary)]">
+						<p>
+							<span class="font-semibold text-[var(--c-text-secondary)]" [translate]="'Phone'">{{ 'Phone' }}</span>
+							<span class="ml-2">{{ company.phone }}</span>
 						</p>
-						<p class="mt-2 text-sm leading-6 text-[var(--c-text-secondary)]">
-							{{ company.address }}
+						<p>
+							<span class="font-semibold text-[var(--c-text-secondary)]">Графік</span>
+							<span class="ml-2">щодня 11:00-23:00</span>
 						</p>
-					</div>
-					<div
-						class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4"
-					>
-						<p
-							class="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--c-secondary)]"
-						>
-							<span [translate]="'Графік і телефон'">Графік і телефон</span>
-						</p>
-						<p class="mt-2 text-sm leading-6 text-[var(--c-text-secondary)]">
-							{{ company.hours }}
-						</p>
-						<p class="text-sm leading-6 text-[var(--c-text-secondary)]">
-							{{ company.displayPhone }}
+						<p>
+							<span class="font-semibold text-[var(--c-text-secondary)]" [translate]="'Address'">{{ 'Address' }}</span>
+							<span class="ml-2">{{ company.address }}</span>
 						</p>
 					</div>
 				</div>
@@ -85,190 +55,108 @@
 		</div>
 	</section>
 
-	<section class="mx-auto mt-4 max-w-[var(--container)] px-4 sm:px-6">
-		<div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-			<div
-				class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-4"
-			>
-				<p
-					class="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--c-secondary)]"
-				>
-					01
-				</p>
-				<h2 class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">
-					<span [translate]="'Банкетний зал до 150 гостей'"
-						>Банкетний зал до 150 гостей</span
-					>
-				</h2>
-				<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
-					<span [translate]="'Більші формати — тільки після уточнення з рестораном.'"
-						>Більші формати — тільки після уточнення з рестораном.</span
-					>
-				</p>
-			</div>
-			<div
-				class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-4"
-			>
-				<p
-					class="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--c-secondary)]"
-				>
-					02
-				</p>
-				<h2 class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">
-					<span [translate]="'Європейське меню'">Європейське меню</span>
-				</h2>
-				<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
-					<span
-						[translate]="'Салати, meat grill, seafood, паста, супи, десерти і дитяче меню.'"
-						>Салати, meat grill, seafood, паста, супи, десерти і дитяче меню.</span
-					>
-				</p>
-			</div>
-			<div
-				class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-4"
-			>
-				<p
-					class="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--c-secondary)]"
-				>
-					03
-				</p>
-				<h2 class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">
-					<span [translate]="'Сімейний формат'">Сімейний формат</span>
-				</h2>
-				<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
-					<span
-						[translate]="'Дитяча кімната, дитяче меню і формат для сімейних зустрічей.'"
-						>Дитяча кімната, дитяче меню і формат для сімейних зустрічей.</span
-					>
-				</p>
-			</div>
-			<div
-				class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-4"
-			>
-				<p
-					class="text-[12px] font-semibold uppercase tracking-[0.16em] text-[var(--c-secondary)]"
-				>
-					04
-				</p>
-				<h2 class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">
-					<span [translate]="'Доставка / замовлення'">Доставка / замовлення</span>
-				</h2>
-				<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
-					<span [translate]="'Актуальний спосіб замовлення краще уточнити телефоном.'"
-						>Актуальний спосіб замовлення краще уточнити телефоном.</span
-					>
-				</p>
-			</div>
-		</div>
-	</section>
-
-	<section class="mx-auto mt-6 max-w-[var(--container)] px-4 sm:px-6">
-		<div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+	<section class="mt-4 rounded-[1.2rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-4 sm:p-6">
+		<div class="flex flex-col gap-3 border-b border-[var(--c-border)] pb-5 sm:flex-row sm:items-end sm:justify-between">
 			<div>
-				<p
-					class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-				>
-					<span [translate]="'Події і банкети'">Події і банкети</span>
+				<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">
+					<span>Сьогодні у SfeRa</span>
 				</p>
-				<h2 class="mt-2 text-2xl font-semibold text-[var(--c-text-secondary)]">
-					<span [translate]="'Формати подій у SfeRa'">Формати подій у SfeRa</span>
+				<h2 class="mt-3 text-2xl font-semibold leading-tight text-[var(--c-text-secondary)]">
+					<span>Підтверджені сервіси без вигаданого розкладу</span>
 				</h2>
 			</div>
-			<a class="ui-btn ui-btn-secondary self-start sm:self-auto" routerLink="/events">
-				<span [translate]="'Усі події'">Усі події</span>
+			<a class="ui-btn ui-btn-secondary self-start sm:self-auto" href="https://sfera.choiceqr.com/online-menu" target="_blank" rel="noreferrer">
+				<span>ChoiceQR меню</span>
 			</a>
 		</div>
 
-		<div class="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
-			@for (format of eventFormats; track format.route) {
-				<a
-					class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-4 transition-transform duration-200 hover:-translate-y-0.5"
-					[routerLink]="format.route"
-				>
-					<span
-						class="material-symbols-outlined text-[28px] text-[var(--c-secondary)]"
-						aria-hidden="true"
-						>{{ format.icon }}</span
-					>
-					<h3 class="mt-3 text-lg font-semibold text-[var(--c-text-secondary)]">
-						<span [translate]="format.title">{{ format.title }}</span>
-					</h3>
-					<p class="mt-2 text-sm leading-6 text-[var(--c-text-muted)]">
-						<span [translate]="format.text">{{ format.text }}</span>
-					</p>
-				</a>
+		<div class="mt-5 grid gap-4 md:grid-cols-3">
+			@for (item of todayItems; track item.label) {
+				<article class="rounded-[1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4">
+					<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">{{ item.label }}</p>
+					<p class="mt-3 text-sm leading-7 text-[var(--c-text-primary)]">{{ item.text }}</p>
+				</article>
 			}
 		</div>
 	</section>
 
-	<section
-		class="mx-auto mt-6 grid max-w-[var(--container)] gap-4 px-4 sm:px-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]"
-	>
-		<div
-			class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-5"
-		>
-			<p
-				class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-			>
-				<span [translate]="'Акценти меню'">Акценти меню</span>
-			</p>
-			<h2 class="mt-2 text-2xl font-semibold text-[var(--c-text-secondary)]">
-				<span [translate]="'Страви для вечері, банкету і доставки'"
-					>Страви для вечері, банкету і доставки</span
-				>
-			</h2>
-			<ul class="mt-4 space-y-3">
-				@for (item of menuHighlights; track item) {
-					<li class="flex gap-3 text-sm leading-6 text-[var(--c-text-primary)]">
-						<span
-							class="material-symbols-outlined mt-0.5 text-[18px] text-[var(--c-secondary)]"
-							aria-hidden="true"
-							>check_circle</span
-						>
-						<span [translate]="item">{{ item }}</span>
-					</li>
-				}
-			</ul>
-			<a class="ui-btn ui-btn-primary mt-5" routerLink="/menu">
-				<span [translate]="'Переглянути меню'">Переглянути меню</span>
+	<section class="mt-4 rounded-[1.2rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-4 sm:p-6">
+		<div class="flex flex-col gap-3 border-b border-[var(--c-border)] pb-5 sm:flex-row sm:items-end sm:justify-between">
+			<div>
+				<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">
+					<span>Розділи</span>
+				</p>
+				<h2 class="mt-3 text-2xl font-semibold leading-tight text-[var(--c-text-secondary)]">
+					<span>Меню, банкети, пропозиції і контакти</span>
+				</h2>
+			</div>
+			<a class="ui-btn ui-btn-secondary self-start sm:self-auto" routerLink="/navigation">
+				<span>Вся навігація</span>
 			</a>
 		</div>
 
-		<div class="grid gap-3 sm:grid-cols-2">
-			<img
-				class="h-56 w-full rounded-[0.9rem] border border-[var(--c-border)] object-cover sm:h-full"
-				ngSrc="/gallery/demo-2.webp"
-				translate
-				[translate]="{ alt: 'SfeRa Restaurant event setup placeholder' }"
-				width="700"
-				height="520"
-			/>
-			<div
-				class="rounded-[0.9rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-5"
-			>
-				<p
-					class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
-				>
-					<span [translate]="'Contact'">Контакт</span>
-				</p>
-				<h2 class="mt-2 text-2xl font-semibold text-[var(--c-text-secondary)]">
-					<span [translate]="'Столик або подія — телефоном'"
-						>Столик або подія — телефоном</span
+		<div class="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+			@for (section of featurePreviews(); track section.itemRoute) {
+				<article class="flex min-h-[21rem] flex-col rounded-[1.2rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-4 sm:p-5">
+					<a
+						class="group flex flex-1 flex-col focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--c-secondary)]"
+						[routerLink]="section.itemRoute"
 					>
-				</h2>
-				<p class="mt-3 text-sm leading-7 text-[var(--c-text-primary)]">
-					{{ company.displayPhone }}<br />
-					{{ company.hours }}<br />
-					{{ company.address }}
+						@if (section.imageSrc) {
+							<img
+								class="mb-4 h-44 w-full rounded-[1rem] border border-[var(--c-border)] object-cover"
+								[ngSrc]="section.imageSrc"
+								translate
+								[translate]="{ alt: section.imageAlt ?? section.title }"
+								width="640"
+								height="420"
+							/>
+						}
+
+						<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">
+							<span [translate]="section.eyebrow">{{ section.eyebrow }}</span>
+						</p>
+
+						<h3 class="mt-3 text-xl font-semibold leading-tight text-[var(--c-text-secondary)] transition-colors duration-200 group-hover:text-[var(--c-secondary)]">
+							<span [translate]="section.title">{{ section.title }}</span>
+						</h3>
+
+						<p class="mt-3 line-clamp-4 text-sm leading-7 text-[var(--c-text-primary)]">
+							<span [translate]="section.summary">{{ section.summary }}</span>
+						</p>
+
+						@if (section.meta) {
+							<p class="mt-auto pt-4 text-xs font-semibold uppercase tracking-[0.14em] text-[var(--c-text-muted)]">
+								<span [translate]="section.meta">{{ section.meta }}</span>
+							</p>
+						}
+					</a>
+
+					<a class="mt-4 text-sm font-semibold text-[var(--c-secondary)] transition-opacity hover:opacity-80" [routerLink]="section.allRoute">
+						<span [translate]="section.seeAllLabel">{{ section.seeAllLabel }}</span>
+					</a>
+				</article>
+			}
+		</div>
+	</section>
+
+	<section class="mt-4 rounded-[1.2rem] border border-[var(--c-border)] bg-[var(--c-bg-secondary)] p-4 sm:p-6">
+		<div class="grid gap-5 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] lg:items-start">
+			<div>
+				<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">
+					<span>SfeRa для гостей</span>
 				</p>
-				<div class="mt-5 flex flex-wrap gap-3">
-					<a class="ui-btn ui-btn-primary" [href]="phoneHref">
-						<span [translate]="'Подзвонити'">Подзвонити</span>
-					</a>
-					<a class="ui-btn ui-btn-secondary" routerLink="/contacts">
-						<span [translate]="'Контакти і карта'">Контакти і карта</span>
-					</a>
-				</div>
+				<h2 class="mt-3 text-2xl font-semibold leading-tight text-[var(--c-text-secondary)]">
+					<span>Коротко про місце, меню і бронювання</span>
+				</h2>
+			</div>
+
+			<div class="grid gap-3">
+				@for (highlight of horecaHighlights; track highlight) {
+					<p class="rounded-[1rem] bg-[var(--c-bg-primary)] p-4 text-sm leading-7 text-[var(--c-text-primary)]">
+						<span>{{ highlight }}</span>
+					</p>
+				}
 			</div>
 		</div>
 	</section>
