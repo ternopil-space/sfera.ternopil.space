@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { EventService } from '../../feature/event/event.service';
+import { EventService } from '@wawjs/ngx-horeca';
 import { TranslateDirective } from '@wawjs/ngx-translate';
 
 @Component({

@@ -2,7 +2,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { ChangeDetectionStrategy, Component, effect, inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
-import loyaltyData from '../../../data/loyalty.json';
+import loyaltyData from '../../../data/loyalty/loyalty.json';
 
 interface LoyaltyStep {
 	title: string;
@@ -54,7 +54,7 @@ interface LoyaltyPageData {
 	};
 }
 
-const LOYALTY_TRANSLATION_PATH = '/i18n/loyalty';
+const LOYALTY_TRANSLATION_PATH = '/data/loyalty/i18n';
 const BENEFIT_ICONS = ['cake', 'local_cafe', 'sell', 'hotel', 'spa', 'event', 'groups'];
 const REWARD_ICONS = [
 	'restaurant',

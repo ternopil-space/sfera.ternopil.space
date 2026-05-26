@@ -5,10 +5,10 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MetaService } from '@wawjs/ngx-core';
 import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
 import { ImageComponent } from '../../components/image/image.component';
+import { findDishDetailBySlug, rawDishDetails } from '../../feature/bootstrap/fallback-data';
 import { companyProfile } from '../../feature/company/company.data';
-import { findDishDetailBySlug, rawDishDetails } from '../../feature/dish/dish.data';
-import type { Dish, DishCategory } from '../../feature/dish/dish.interface';
-import { DishService } from '../../feature/dish/dish.service';
+import type { Dish, DishCategory } from '@wawjs/ngx-horeca';
+import { DishService } from '@wawjs/ngx-horeca';
 import { CanonicalService } from '../../services/canonical.service';
 import { buildAbsoluteUrl } from '../../services/seo.utils';
 
@@ -24,6 +24,7 @@ interface DishSuggestion {
 	name: string;
 	description: string;
 	hasDescription: boolean;
+	image: string;
 	price: number | null;
 }
 
@@ -37,6 +38,7 @@ interface DishViewModel {
 	hasDescription: boolean;
 	hasFullDescription: boolean;
 	labels: string[];
+	image: string;
 	price: number | null;
 	facts: DishFact[];
 	suggestions: DishSuggestion[];
@@ -88,7 +90,7 @@ export class DishComponent {
 			this._metaService.applyMeta({
 				title: translatedTitle,
 				description,
-				image: buildAbsoluteUrl(_dishImage(dish.slug)),
+				image: buildAbsoluteUrl(dish.image),
 			});
 			this._canonicalService.setCanonicalUrl(`/dish/${dish.slug}`);
 		});
@@ -110,7 +112,8 @@ function _buildDishViewModel(category: DishCategory | null, item: Dish): DishVie
 		hasDescription: Boolean(item.description?.trim()),
 		hasFullDescription: Boolean(item.fullDescription?.trim()),
 		labels: item.labels,
-		price: item.price > 0 ? item.price : null,
+		image: item.image,
+		price: item.price,
 		facts: _buildFacts(item, category),
 		suggestions: _buildSuggestions(item),
 	};
@@ -169,14 +172,9 @@ function _buildSuggestions(currentItem: Dish): DishSuggestion[] {
 			name: item.name,
 			description: item.description,
 			hasDescription: Boolean(item.description?.trim()),
-			price: item.price > 0 ? item.price : null,
+			image: item.image,
+			price: item.price,
 		}));
-}
-
-function _dishImage(slug: string): string {
-	return slug === 'homemade-syrnyky-with-sour-cream' || slug === 'cappuccino'
-		? `/item/${slug}.webp`
-		: '/gallery/demo-1.webp';
 }
 
 function _resolveFallbackEntry() {

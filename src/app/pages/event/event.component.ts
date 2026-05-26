@@ -4,9 +4,10 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MetaService } from '@wawjs/ngx-core';
 import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
+import { findFallbackEventBySlug } from '../../feature/bootstrap/fallback-data';
 import { companyProfile } from '../../feature/company/company.data';
-import type { EventItem } from '../../feature/event/event.interface';
-import { EventService, findFallbackEventBySlug } from '../../feature/event/event.service';
+import type { EventItem } from '@wawjs/ngx-horeca';
+import { EventService } from '@wawjs/ngx-horeca';
 import { CanonicalService } from '../../services/canonical.service';
 import { buildAbsoluteUrl } from '../../services/seo.utils';
 

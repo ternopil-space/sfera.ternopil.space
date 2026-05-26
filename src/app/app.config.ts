@@ -9,6 +9,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { provideRouter, withRouterConfig } from '@angular/router';
 import { provideNgxCore } from '@wawjs/ngx-core';
+import { provideNgxHttp } from '@wawjs/ngx-http';
 import { provideTranslate } from '@wawjs/ngx-translate';
 import { environment } from '../environments/environment';
 import { routes } from './app.routes';
@@ -30,6 +31,11 @@ export const appConfig: ApplicationConfig = {
 			}),
 		),
 		provideHttpClient(withFetch()),
+		provideNgxHttp({
+			http: {
+				url: environment.apiUrl,
+			},
+		}),
 		provideClientHydration(withEventReplay()),
 		provideNgxCore({
 			meta: {
@@ -47,7 +53,7 @@ export const appConfig: ApplicationConfig = {
 		provideTranslate({
 			defaultLanguage: environment.defaultLanguage,
 			languages: environment.languages,
-			folder: '/i18n/interface/',
+			folder: '/i18n/',
 		}),
 		{
 			provide: APP_INITIALIZER,

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslateDirective } from '@wawjs/ngx-translate';
 import { ImageComponent } from '../../components/image/image.component';
-import { ExhibitService } from '../../feature/exhibit/exhibit.service';
+import { ExhibitService } from '@wawjs/ngx-horeca';
 
 @Component({
 	imports: [ImageComponent, TranslateDirective],

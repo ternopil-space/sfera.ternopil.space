@@ -1,4 +1,4 @@
-import companyData from '../../../data/company.json';
+import companyData from '../../../data/company/company.json';
 import {
 	CompanyProfile,
 	CompanyStructuredData,
@@ -18,7 +18,7 @@ const rawCompanyProfile = companyData as RawCompanyProfile;
 
 export const companyProfile: CompanyProfile = {
 	_id: _stringOrFallback(rawCompanyProfile._id, 'demo'),
-	name: _stringOrFallback(rawCompanyProfile.name, 'Horeca'),
+	name: _stringOrFallback(rawCompanyProfile.name, 'SfeRa Restaurant'),
 	lang: _stringOrFallback(rawCompanyProfile.lang, 'uk'),
 	locale: _stringOrFallback(rawCompanyProfile.locale, 'uk_UA'),
 	siteUrl: _trimTrailingSlash(_stringOrFallback(rawCompanyProfile.siteUrl)),
@@ -36,10 +36,10 @@ function _normalizeSeoMetadata(
 	companyName: string | undefined,
 ): SeoMetadata {
 	return {
-		title: _stringOrFallback(metadata?.title, _stringOrFallback(companyName, 'Horeca')),
+		title: _stringOrFallback(metadata?.title, _stringOrFallback(companyName, 'SfeRa Restaurant')),
 		description: _stringOrFallback(metadata?.description),
 		keywords: _stringArrayOrFallback(metadata?.keywords),
-		author: _stringOrFallback(metadata?.author, _stringOrFallback(companyName, 'Horeca')),
+		author: _stringOrFallback(metadata?.author, _stringOrFallback(companyName, 'SfeRa Restaurant')),
 		robots: _stringOrFallback(metadata?.robots, 'index, follow'),
 		image: _stringOrFallback(metadata?.image, '/logo.webp'),
 		type: _stringOrFallback(metadata?.type, 'website'),
@@ -79,12 +79,20 @@ function _normalizeStructuredData(
 	structuredData: RawCompanyProfile['structuredData'],
 ): CompanyStructuredData {
 	return {
-		type: _stringOrFallback(structuredData?.type, 'Restaurant'),
+		type: _stringOrStringArrayOrFallback(structuredData?.type, 'Restaurant'),
 		priceRange: _stringOrFallback(structuredData?.priceRange, '$$'),
-		servesCuisine: _stringOrFallback(structuredData?.servesCuisine, 'HoReCa'),
+		servesCuisine: _stringOrStringArrayOrFallback(structuredData?.servesCuisine, 'Restaurant'),
 		addressLocality: _stringOrFallback(structuredData?.addressLocality, 'Kamianets-Podilskyi'),
+		addressRegion: _optionalString(structuredData?.addressRegion),
 		addressCountry: _stringOrFallback(structuredData?.addressCountry, 'UA'),
+		openingHours: _stringArrayOrFallback(structuredData?.openingHours),
+		telephone: _optionalString(structuredData?.telephone),
+		map: _optionalString(structuredData?.map),
 		sameAs: _stringArrayOrFallback(structuredData?.sameAs),
+		custom:
+			structuredData?.custom && typeof structuredData.custom === 'object'
+				? structuredData.custom
+				: undefined,
 	};
 }
 
@@ -102,6 +110,19 @@ function _stringArrayOrFallback(value: string[] | null | undefined): string[] {
 				(entry): entry is string => typeof entry === 'string' && entry.trim().length > 0,
 			)
 		: [];
+}
+
+function _stringOrStringArrayOrFallback(
+	value: string | string[] | null | undefined,
+	fallback: string,
+): string | string[] {
+	if (Array.isArray(value)) {
+		const normalized = _stringArrayOrFallback(value);
+
+		return normalized.length > 0 ? normalized : fallback;
+	}
+
+	return _stringOrFallback(value, fallback);
 }
 
 function _trimTrailingSlash(value: string): string {

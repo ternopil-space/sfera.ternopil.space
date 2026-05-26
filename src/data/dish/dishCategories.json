@@ -1,0 +1,62 @@
+[
+	{
+		"name": "Меню SfeRa",
+		"description": "Основні розділи ресторанного меню SfeRa.",
+		"parent": "",
+		"slug": "menu-sfera"
+	},
+	{
+		"name": "Бар SfeRa",
+		"description": "Напої, коктейлі та барні позиції.",
+		"parent": "",
+		"slug": "bar-sfera"
+	},
+	{
+		"name": "Сніданки",
+		"description": "Сніданки щодня 11:00-14:00.",
+		"parent": "menu-sfera",
+		"slug": "breakfasts"
+	},
+	{
+		"name": "Бізнес-ланчі",
+		"description": "Будні 12:00-16:00: збалансовані ланчі з супами та основними стравами.",
+		"parent": "menu-sfera",
+		"slug": "business-lunches"
+	},
+	{
+		"name": "Холодні закуски",
+		"description": "Тартари, антипасті, брускети та тарілки для спільного столу.",
+		"parent": "menu-sfera",
+		"slug": "cold-appetizers"
+	},
+	{
+		"name": "Салати",
+		"description": "Класичні та фірмові салати для легкого обіду або вечері.",
+		"parent": "menu-sfera",
+		"slug": "salads"
+	},
+	{
+		"name": "Пасти",
+		"description": "Європейські пасти з мʼясом, морепродуктами та класичними соусами.",
+		"parent": "menu-sfera",
+		"slug": "pastas"
+	},
+	{
+		"name": "Основні страви",
+		"description": "Українські та європейські гарячі страви для обіду, вечері або бенкету.",
+		"parent": "menu-sfera",
+		"slug": "main-dishes"
+	},
+	{
+		"name": "Бенкетне меню",
+		"description": "Позиції та сети для весіль, банкетів, корпоративів і випускних.",
+		"parent": "menu-sfera",
+		"slug": "banquet-menu"
+	},
+	{
+		"name": "Коктейлі та напої",
+		"description": "Барні акценти для вечері, тераси або події.",
+		"parent": "bar-sfera",
+		"slug": "bar"
+	}
+]

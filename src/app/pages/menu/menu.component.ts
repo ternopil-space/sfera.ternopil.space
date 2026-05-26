@@ -1,18 +1,73 @@
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 import {
 	ChangeDetectionStrategy,
 	Component,
 	computed,
+	DestroyRef,
 	effect,
 	inject,
+	PLATFORM_ID,
+	signal,
 	untracked,
 } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
-import { MenuCategoriesComponent } from '../../components/menu-categories/menu-categories.component';
-import { MenuDishesComponent } from '../../components/menu-dishes/menu-dishes.component';
-import { DishCategoryService } from '../../feature/dish/dish-category.service';
-import { Dish, DishCategory } from '../../feature/dish/dish.interface';
-import { DishService } from '../../feature/dish/dish.service';
+import {
+	buildFocusedDishCategoryPath,
+	buildRenderedDishCategoryPath,
+	DishCategory,
+	DishMenuPage,
+	filterCategoriesByDishes,
+	filterDishesByMenuPage,
+	findDishCategoryPath,
+	findFirstDishCategory,
+} from '@wawjs/ngx-horeca';
+import { DishCategoryService } from '@wawjs/ngx-horeca';
+import { DishService } from '@wawjs/ngx-horeca';
 import { TranslateDirective } from '@wawjs/ngx-translate';
+import {
+	MenuCategoriesComponent,
+	MenuCategorySelection,
+} from '../../components/menu-categories/menu-categories.component';
+import { MenuDishesComponent } from '../../components/menu-dishes/menu-dishes.component';
+
+interface MenuPageConfig {
+	emptyDescription: string;
+	emptyTitle: string;
+	icon: string;
+	title: string;
+	url: string;
+}
+
+const MENU_PAGE_CONFIG: Record<DishMenuPage, MenuPageConfig> = {
+	menu: {
+		emptyDescription: '',
+		emptyTitle: '',
+		icon: 'restaurant_menu',
+		title: 'Menu',
+		url: '/menu',
+	},
+	favorites: {
+		emptyDescription: 'Додавайте позиції з меню SfeRa до обраного, і вони зʼявляться тут.',
+		emptyTitle: 'Немає обраних позицій',
+		icon: 'favorite',
+		title: 'Обране',
+		url: '/favorites',
+	},
+	seasonal: {
+		emptyDescription: 'Сезонні позиції SfeRa зʼявляються тут, коли вони доступні.',
+		emptyTitle: 'Сезонні позиції тимчасово недоступні',
+		icon: 'local_florist',
+		title: 'Сезонні позиції',
+		url: '/seasonal',
+	},
+	daily: {
+		emptyDescription: 'Бізнес-ланчі SfeRa подаються у будні 12:00-16:00.',
+		emptyTitle: 'Бізнес-ланчі зараз недоступні',
+		icon: 'today',
+		title: 'Бізнес-ланчі',
+		url: '/daily',
+	},
+};
 
 @Component({
 	imports: [MenuCategoriesComponent, MenuDishesComponent, RouterLink, TranslateDirective],
@@ -21,35 +76,72 @@ import { TranslateDirective } from '@wawjs/ngx-translate';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MenuComponent {
-	readonly showOnlyFavorites = inject(Router).url === '/favorites';
+	private readonly _destroyRef = inject(DestroyRef);
+	private readonly _document = inject(DOCUMENT);
+	private readonly _isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+	private readonly _router = inject(Router);
+	private _sectionRefreshTimer: ReturnType<typeof setTimeout> | null = null;
+	private _scrollFrame: number | null = null;
+	private _scrollStartTimer: ReturnType<typeof setTimeout> | null = null;
+	private _scrollEndTimer: ReturnType<typeof setTimeout> | null = null;
+	private _programmaticScroll = false;
+
+	readonly activePage = this._resolvePage(this._router.url);
+	readonly pageConfig = MENU_PAGE_CONFIG[this.activePage];
 	readonly dishCategoryService = inject(DishCategoryService);
 	readonly dishService = inject(DishService);
-	private readonly dishes = computed(() => {
-		const favoriteDishes = this.dishService.favoriteDishes();
-		return this.dishService.dishes().filter((dish) => favoriteDishes.includes(dish.slug));
+	readonly focusedCategories = signal<DishCategory[]>([]);
+	readonly categoryLinks = Object.values(MENU_PAGE_CONFIG).map((config) => ({
+		icon: config.icon,
+		label: config.title,
+		url: config.url,
+	}));
+	readonly filteredDishes = computed(() => {
+		const dishes = this.dishService.dishes();
+
+		return filterDishesByMenuPage(dishes, this.activePage, this.dishService.favoriteDishes());
 	});
 	readonly filteredCategories = computed(() => {
 		const categories = this.dishCategoryService.categories();
-		const dishes = this.dishes();
-		return this.showOnlyFavorites
-			? categories.filter((category) => this._hasFavorite(category, dishes))
-			: categories;
+		const dishes = this.filteredDishes();
+
+		return this.activePage === 'menu'
+			? categories
+			: filterCategoriesByDishes(categories, dishes);
 	});
 	readonly filteredSelectedCategories = computed(() => {
 		const selectedCategories = this.dishCategoryService.selectedCategories();
-		const dishes = this.dishes();
-		return this.showOnlyFavorites
-			? selectedCategories.filter((category) => this._hasFavorite(category, dishes))
-			: selectedCategories;
+		const dishes = this.filteredDishes();
+
+		return this.activePage === 'menu'
+			? selectedCategories
+			: filterCategoriesByDishes(selectedCategories, dishes);
 	});
-	private _hasFavorite(category: DishCategory, dishes: Dish[]): boolean {
-		return (
-			!!dishes.filter((dish) => dish.categorySlug === category.slug).length ||
-			!!category.children?.filter((_category) => this._hasFavorite(_category, dishes))?.length
-		);
-	}
+	readonly showEmptyState = computed(
+		() => this.activePage !== 'menu' && this.filteredDishes().length === 0,
+	);
 
 	constructor() {
+		this._destroyRef.onDestroy(() => {
+			if (this._sectionRefreshTimer) {
+				clearTimeout(this._sectionRefreshTimer);
+			}
+
+			if (this._scrollFrame !== null) {
+				this._document.defaultView?.cancelAnimationFrame(this._scrollFrame);
+			}
+
+			this._document.defaultView?.removeEventListener('scroll', this._onWindowScroll);
+
+			if (this._scrollStartTimer) {
+				clearTimeout(this._scrollStartTimer);
+			}
+
+			if (this._scrollEndTimer) {
+				clearTimeout(this._scrollEndTimer);
+			}
+		});
+
 		effect(() => {
 			this.dishService.loadTranslations();
 		});
@@ -61,12 +153,160 @@ export class MenuComponent {
 					categories.length &&
 					this.dishCategoryService.selectedCategories()[0]?.slug !== categories[0].slug
 				) {
-					this.dishCategoryService.selectCategory(
-						categories[0],
-						categories[0].children ?? [],
+					const selectedCategories = [categories[0]];
+
+					this.dishCategoryService.selectedCategories.set(selectedCategories);
+					this.focusedCategories.set(
+						buildFocusedDishCategoryPath(categories[0], this.filteredDishes()),
 					);
 				}
 			});
 		});
+
+		effect(() => {
+			this.filteredDishes();
+			this.filteredSelectedCategories();
+
+			untracked(() => {
+				this._queueSectionTrackingRefresh();
+			});
+		});
+	}
+
+	onCategorySelected(selection: MenuCategorySelection) {
+		const selectedCategories = buildRenderedDishCategoryPath(
+			selection.category,
+			selection.ancestors,
+		);
+		const focusedCategories = buildFocusedDishCategoryPath(
+			selection.category,
+			this.filteredDishes(),
+			selection.ancestors,
+		);
+		const targetCategory =
+			selection.ancestors.length > 0
+				? selection.category
+				: findFirstDishCategory(selection.category, this.filteredDishes());
+
+		this.dishCategoryService.selectedCategories.set(selectedCategories);
+		this.focusedCategories.set(focusedCategories);
+		this._scrollToCategory(targetCategory.slug);
+	}
+
+	private _queueSectionTrackingRefresh() {
+		if (!this._isBrowser) {
+			return;
+		}
+
+		if (this._sectionRefreshTimer) {
+			clearTimeout(this._sectionRefreshTimer);
+		}
+
+		this._sectionRefreshTimer = setTimeout(() => {
+			this._sectionRefreshTimer = null;
+			this._bindMenuSectionScroll();
+		});
+	}
+
+	private _bindMenuSectionScroll() {
+		const view = this._document.defaultView;
+
+		view?.removeEventListener('scroll', this._onWindowScroll);
+
+		if (!view) {
+			return;
+		}
+
+		view.addEventListener('scroll', this._onWindowScroll, { passive: true });
+		this._updateFocusedCategoryFromScroll();
+	}
+
+	private readonly _onWindowScroll = () => {
+		if (this._programmaticScroll) {
+			return;
+		}
+
+		const view = this._document.defaultView;
+
+		if (!view || this._scrollFrame !== null) {
+			return;
+		}
+
+		this._scrollFrame = view.requestAnimationFrame(() => {
+			this._scrollFrame = null;
+			this._updateFocusedCategoryFromScroll();
+		});
+	};
+
+	private _updateFocusedCategoryFromScroll() {
+		const sections = Array.from(
+			this._document.querySelectorAll<HTMLElement>('[data-menu-section]'),
+		);
+		const focusOffset = 140;
+		const visibleSection =
+			sections.find((section, index) => {
+				const currentTop = section.getBoundingClientRect().top - focusOffset;
+				const nextTop =
+					sections[index + 1]?.getBoundingClientRect().top ?? Number.POSITIVE_INFINITY;
+
+				return currentTop <= 0 && nextTop - focusOffset > 0;
+			}) ??
+			sections
+				.filter((section) => section.getBoundingClientRect().top >= 0)
+				.sort(
+					(first, second) =>
+						first.getBoundingClientRect().top - second.getBoundingClientRect().top,
+				)[0] ??
+			sections[0];
+		const slug = visibleSection?.id;
+
+		if (!slug || this.focusedCategories().at(-1)?.slug === slug) {
+			return;
+		}
+
+		const categoryPath = findDishCategoryPath(slug, this.filteredCategories());
+
+		if (categoryPath.length) {
+			this.focusedCategories.set(categoryPath);
+		}
+	}
+
+	private _scrollToCategory(slug: string) {
+		if (!this._isBrowser) {
+			return;
+		}
+
+		if (this._scrollStartTimer) {
+			clearTimeout(this._scrollStartTimer);
+		}
+
+		this._programmaticScroll = true;
+		this._scrollStartTimer = setTimeout(() => {
+			this._scrollStartTimer = null;
+			const target = this._document.getElementById(slug);
+
+			if (target) {
+				target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+			}
+
+			if (this._scrollEndTimer) {
+				clearTimeout(this._scrollEndTimer);
+			}
+
+			this._scrollEndTimer = setTimeout(() => {
+				this._programmaticScroll = false;
+				this._scrollEndTimer = null;
+			}, 700);
+		});
+	}
+
+	private _resolvePage(url: string): DishMenuPage {
+		const path = (url.split(/[?#]/)[0] || '/menu').replace(/\/+$/, '');
+
+		if (path === '/favorites' || path === '/seasonal' || path === '/daily') {
+			return path.slice(1) as DishMenuPage;
+		}
+
+		return 'menu';
 	}
 }

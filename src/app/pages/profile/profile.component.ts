@@ -5,9 +5,10 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MetaService } from '@wawjs/ngx-core';
 import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
+import { findFallbackProfileBySlug } from '../../feature/bootstrap/fallback-data';
 import { companyProfile } from '../../feature/company/company.data';
-import type { Profile } from '../../feature/profile/profile.interface';
-import { ProfileService, findFallbackProfileBySlug } from '../../feature/profile/profile.service';
+import type { Profile } from '@wawjs/ngx-horeca';
+import { ProfileService } from '@wawjs/ngx-horeca';
 import { CanonicalService } from '../../services/canonical.service';
 import { buildAbsoluteUrl } from '../../services/seo.utils';
 

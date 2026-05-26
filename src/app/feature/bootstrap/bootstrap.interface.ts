@@ -1,17 +1,17 @@
-import { Article } from '../article/article.interface';
+import { Article } from '@wawjs/ngx-horeca';
 import { Company } from '../company/company.interface';
-import { Discount } from '../discount/discount.interface';
-import { Dish, DishCategory } from '../dish/dish.interface';
-import { EventItem } from '../event/event.interface';
-import { Exhibit } from '../exhibit/exhibit.interface';
-import { Job } from '../job/job.interface';
-import { Profile } from '../profile/profile.interface';
-import { Product } from '../product/product.interface';
-import { Question } from '../question/question.interface';
-import { Quest } from '../quest/quest.interface';
-import { Review } from '../review/review.interface';
-import { Room } from '../room/room.interface';
-import { Rule } from '../rule/rule.interface';
+import { Discount } from '@wawjs/ngx-horeca';
+import { Dish, DishCategory } from '@wawjs/ngx-horeca';
+import { EventItem } from '@wawjs/ngx-horeca';
+import { Exhibit } from '@wawjs/ngx-horeca';
+import { Job } from '@wawjs/ngx-horeca';
+import { Profile } from '@wawjs/ngx-horeca';
+import { Product } from '@wawjs/ngx-horeca';
+import { Question } from '@wawjs/ngx-horeca';
+import { Quest } from '@wawjs/ngx-horeca';
+import { Review } from '@wawjs/ngx-horeca';
+import { Room } from '@wawjs/ngx-horeca';
+import { Rule } from '@wawjs/ngx-horeca';
 
 export interface BootstrapData {
 	articles?: Partial<Article>[] | null;

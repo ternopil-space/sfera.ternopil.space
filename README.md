@@ -1,8 +1,26 @@
-# Angular Landing HeRoCa industry Template (SSR + Prerender)
+# Angular Landing HoReCa Industry Template (SSR + Prerender)
 
 Modern Angular 21 starter template for building fast landing pages with **SSR prerendering**, **TailwindCSS**, and **GitHub Pages deployment**.
 
 This template is optimized for static landing sites where pages are rendered at **build time** for SEO and performance.
+
+---
+
+# AI Usage
+
+If you use AI outside the IDE and it does not automatically read repository instructions, copy the
+contents of `AGENTS.md` into the AI prompt/context first.
+
+This ensures the AI follows the same project-specific rules that Codex uses inside the IDE.
+
+Detailed AI guidance lives in `projects/ngx-horeca/ai/`. The paste-ready Custom GPT instructions
+and uploaded Knowledge files live in root `custom-gpt/`.
+
+For business research and implementation-prompt generation, use the HoReCa Web Art Work Custom GPT:
+
+```
+https://chatgpt.com/g/g-6a04779f2e2481918bde1f0801eb6ed4-horeca-web-art-work
+```
 
 ---
 
@@ -105,6 +123,24 @@ app.routes.server.ts
 
 ---
 
+# Versioning
+
+The source workspace project version and the local `@wawjs/ngx-horeca` package version are the
+same platform release version.
+
+When bumping a release, keep these aligned:
+
+- root `package.json` `version`
+- `projects/ngx-horeca/package.json` `version`
+- root `package.json` dependency on `@wawjs/ngx-horeca`
+- root lockfile metadata when `package-lock.json` is present
+- `projects/ngx-horeca/RELEASES.md`
+
+Do not change Angular peer ranges such as `^21.0.0` or `>=21.0.0` just because the platform version
+changes; those are compatibility ranges, not this template's release version.
+
+---
+
 # Development
 
 Start the development server:
@@ -144,7 +180,7 @@ After bootstrap has resolved, a feature has three possible content states:
 1. API/bootstrap data exists.
    Use the API data as the source of truth.
 2. API/bootstrap data is missing, `null`, `undefined`, or an empty array.
-   Use the matching local fallback file from `src/data/{featureName}s.json`.
+   Use the matching local fallback file from `src/data/<feature>/<file>.json`.
 3. API/bootstrap data and local fallback data are both empty.
    Show the standard empty state.
 
@@ -159,7 +195,7 @@ true zero-data state.
 Example service pattern:
 
 ```ts
-import fallbackItems from '../../../data/items.json';
+import fallbackItems from '../../../data/item/items.json';
 
 readonly loading = signal(true);
 readonly items = signal<Item[]>([]);
@@ -207,13 +243,7 @@ Pages are **prerendered at build time** using Angular SSR.
 
 # Running the SSR server (optional)
 
-The template includes a Node server for SSR:
-
-```
-npm run serve:ssr:app
-```
-
-This runs:
+The template includes a Node server for SSR output. After `npm run build`, it can be run manually:
 
 ```
 node dist/app/server/server.mjs
@@ -315,7 +345,13 @@ For accessible buttons, keep the icon decorative and provide a text label or `ar
 UI translations live in:
 
 ```text
-src/i18n/interface/<code>.json
+src/i18n/<code>.json
+```
+
+Feature-owned content translations live beside fallback data:
+
+```text
+src/data/<feature>/i18n/<code>.json
 ```
 
 Language metadata lives in:
@@ -332,18 +368,19 @@ src/app/app.config.ts
 
 The app uses the `@wawjs/ngx-translate` translation stack:
 
-- `provideTranslate(...)` registers the default interface bundle from `/i18n/interface/`
+- `provideTranslate(...)` registers the default interface bundle from `/i18n/`
 - `TranslateDirective` and `TranslateService` are the default translation primitives
 - English source text is used as the translation key, including content that comes from `src/data`
 
 When adding or updating translations:
 
-- add or update the matching `src/i18n/interface/<code>.json` dictionary
+- add or update the matching `src/i18n/<code>.json` dictionary for shared UI text
+- add or update `src/data/<feature>/i18n/<code>.json` for feature content sourced from `src/data`
 - update `environment.languages` when adding or renaming a supported language
-- keep English source text identical across templates, components, and `src/i18n/*`
+- keep English source text identical across templates, components, `src/i18n/*`, and `src/data/*/i18n/*`
 - store translation text and language labels as real UTF-8 characters, not escaped or re-encoded mojibake
 - remove unused translation keys when they are no longer referenced anywhere in the app
-- keep fallback content in `src/data` as plain source data, not duplicated localized maps
+- keep fallback content in `src/data` as plain source data, with translations in the feature's `i18n` folder
 
 Supported usage patterns:
 
@@ -485,21 +522,6 @@ Key conventions:
 
 ---
 
-# AI Usage
-
-If you use AI outside the IDE and it does not automatically read repository instructions, copy the
-contents of `AGENTS.md` into the AI prompt/context first.
-
-This ensures the AI follows the same project-specific rules that Codex uses inside the IDE.
-
-For business research and implementation-prompt generation, use the HoReCa Web Art Work Custom GPT:
-
-```
-https://chatgpt.com/g/g-6a04779f2e2481918bde1f0801eb6ed4-horeca-web-art-work
-```
-
----
-
 # NPM Scripts
 
 Start development:
@@ -512,12 +534,6 @@ Build project:
 
 ```
 npm run build
-```
-
-Run SSR server:
-
-```
-npm run serve:ssr:app
 ```
 
 ---
@@ -658,7 +674,7 @@ feature simpler.
 Feature-backed list pages should also keep their static fallback data in:
 
 ```text
-src/data/{featureName}s.json
+src/data/<feature>/<file>.json
 ```
 
 Use that file only when bootstrap/API data for the feature is missing or empty. Do not merge fallback

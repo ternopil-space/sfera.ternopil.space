@@ -2,7 +2,7 @@
 <html lang="uk">
 	<head>
 		<meta charset="utf-8" />
-		<title>SfeRa Restaurant у Тернополі | сніданки, меню, банкети</title>
+		<title>Ресторан SfeRa у Тернополі | Бенкети, тераса, українська та європейська кухня</title>
 		<base href="/" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<script>
@@ -11,89 +11,66 @@
 				const preferredMode =
 					storedMode === 'dark' || storedMode === 'light'
 						? storedMode
-						: 'dark';
-				if (!storedMode) {
-					localStorage.setItem('app-mode', preferredMode);
-				}
+						: window.matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light';
 				document.documentElement.setAttribute('data-mode', preferredMode);
 			} catch {}
 		</script>
 
 		<meta
 			name="description"
-			content="SfeRa Restaurant у Тернополі на вулиці Білецькій, 33а: ресторан і бар, сніданки щодня, бізнес-ланчі у будні 12:00-16:00, банкети, доставка і бронювання +380 68 854 5635."
+			content="Ресторан SfeRa у Тернополі на вул. Білецька, 33а: українська та європейська кухня, сніданки, бізнес-ланчі, банкетне меню, літня тераса з видом на воду та події до 150 гостей."
 		/>
 		<meta
 			name="keywords"
-			content="SfeRa Restaurant, Сфера ресторан, ресторан Тернопіль, сніданки Тернопіль, бізнес ланч Тернопіль, банкети Тернопіль, Білецька 33а"
+			content="SfeRa, ресторан Тернопіль, банкет Тернопіль, весілля Тернопіль, ресторан з терасою Тернопіль, українська кухня Тернопіль, європейська кухня Тернопіль, бізнес-ланч Тернопіль"
 		/>
 		<meta name="author" content="SfeRa Restaurant" />
 		<meta name="robots" content="index, follow" />
-		<meta name="theme-color" content="#F4EFE0" media="(prefers-color-scheme: light)" />
-		<meta name="theme-color" content="#0E1530" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#f7f1e8" media="(prefers-color-scheme: light)" />
+		<meta name="theme-color" content="#211713" media="(prefers-color-scheme: dark)" />
 
 		<meta itemprop="name" content="SfeRa Restaurant" />
 		<meta
 			itemprop="description"
-			content="Ресторан SfeRa у Тернополі: меню, сніданки, бізнес-ланчі, бар, банкети, весілля, доставка і бронювання столика."
+			content="Ресторан SfeRa у Тернополі на вул. Білецька, 33а: українська та європейська кухня, сніданки, бізнес-ланчі, банкетне меню, літня тераса з видом на воду та події до 150 гостей."
 		/>
-		<meta itemprop="image" content="https://sfera.ternopil.space/logo.webp" />
+		<meta itemprop="image" content="https://sfera.ternopil.space/gallery/demo-1.webp" />
 
 		<meta property="og:type" content="website" />
 		<meta property="og:site_name" content="SfeRa Restaurant" />
 		<meta property="og:locale" content="uk_UA" />
 		<meta property="og:url" content="https://sfera.ternopil.space" />
-		<meta property="og:title" content="SfeRa Restaurant у Тернополі" />
+		<meta
+			property="og:title"
+			content="Ресторан SfeRa у Тернополі | Бенкети, тераса, українська та європейська кухня"
+		/>
 		<meta
 			property="og:description"
-			content="Ресторан і бар на вулиці Білецькій, 33а: щодня 11:00-23:00, сніданки, бізнес-ланчі, меню, банкети та бронювання."
+			content="Ресторан SfeRa у Тернополі на вул. Білецька, 33а: українська та європейська кухня, сніданки, бізнес-ланчі, банкетне меню, літня тераса з видом на воду та події до 150 гостей."
 		/>
-		<meta property="og:image" content="https://sfera.ternopil.space/logo.webp" />
+		<meta property="og:image" content="https://sfera.ternopil.space/gallery/demo-1.webp" />
 
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="SfeRa Restaurant у Тернополі" />
+		<meta
+			name="twitter:title"
+			content="Ресторан SfeRa у Тернополі | Бенкети, тераса, українська та європейська кухня"
+		/>
 		<meta
 			name="twitter:description"
-			content="Сніданки, бізнес-ланчі, ресторанне меню, бар, банкети, доставка і бронювання столика у SfeRa Restaurant."
+			content="Ресторан SfeRa у Тернополі на вул. Білецька, 33а: українська та європейська кухня, сніданки, бізнес-ланчі, банкетне меню, літня тераса з видом на воду та події до 150 гостей."
 		/>
-		<meta name="twitter:image" content="https://sfera.ternopil.space/logo.webp" />
-		<meta name="twitter:image:src" content="https://sfera.ternopil.space/logo.webp" />
+		<meta name="twitter:image" content="https://sfera.ternopil.space/gallery/demo-1.webp" />
+		<meta name="twitter:image:src" content="https://sfera.ternopil.space/gallery/demo-1.webp" />
 
 		<link rel="canonical" href="https://sfera.ternopil.space" />
 		<link rel="icon" type="image/webp" href="favicon.webp" />
 
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Restaurant",
-				"name": "SfeRa Restaurant",
-				"url": "https://sfera.ternopil.space",
-				"image": "https://sfera.ternopil.space/logo.webp",
-				"telephone": "+380688545635",
-				"priceRange": "$$",
-				"servesCuisine": "Європейська та міжнародна ресторанна кухня",
-				"address": {
-					"@type": "PostalAddress",
-					"streetAddress": "вулиця Білецька, 33а",
-					"addressLocality": "Тернопіль",
-					"addressRegion": "Тернопільська область",
-					"postalCode": "46000",
-					"addressCountry": "UA"
-				},
-				"openingHours": "Mo-Su 11:00-23:00",
-				"sameAs": [
-					"https://www.instagram.com/sfera.restaurant/",
-					"https://sfera.choiceqr.com/online-menu",
-					"https://www.korzyna.com/ternopil/sfera",
-					"https://maps.app.goo.gl/CfHHFyAL5RHUL5KMA"
-				]
-			}
-		</script>
-
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&family=Lora:wght@400;500;600;700&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
 			rel="stylesheet"
 		/>
 		<link

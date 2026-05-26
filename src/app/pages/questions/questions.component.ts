@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { TranslateDirective } from '@wawjs/ngx-translate';
-import { QuestionService } from '../../feature/question/question.service';
+import { QuestionService } from '@wawjs/ngx-horeca';
 
 @Component({
 	imports: [TranslateDirective],

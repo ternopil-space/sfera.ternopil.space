@@ -42,17 +42,19 @@ Keep contributions aligned with the current template conventions described in [R
 ## Translations
 
 - This repo uses the `@wawjs/ngx-translate` translation stack: `provideTranslate`, `TranslateService`, and `TranslateDirective`
-- Translation dictionaries live in JSON bundles under `src/i18n/<bundle>/<code>.json`; the base UI bundle is `src/i18n/interface`
+- Shared UI translation dictionaries live in `src/i18n/<code>.json`
+- Feature fallback data lives in `src/data/<feature>/<file>.json`
+- Feature-owned content translations live beside fallback data in `src/data/<feature>/i18n/<code>.json`
 - Language metadata lives in `src/environments/environment.prod.ts`
 - Keep translation keys aligned with the English source text used in templates and components
 - Use one of these three patterns only:
 - Prefer the `translate` directive for plain element text content. Use `[translate]` for an explicit key or bare `translate` when the element text is the key
 - Use `TranslateDirective` for text and translated attributes: `<span [translate]="'Key'">Key</span>` or `[translate]="{ ariaLabel: 'Key' }"`
 - In component TypeScript, use `TranslateService.translate('Key')()` inside reactive code such as `computed()` when you need translated labels in TS
-- Keep bootstrap on `provideTranslate({ folder: '/i18n/interface/' })`; feature pages can lazy-load their bundle with `TranslateService.loadExtraTranslation('/i18n/<feature>')`
+- Keep bootstrap on `provideTranslate({ folder: '/i18n/' })`; feature pages can lazy-load their bundle with `TranslateService.loadExtraTranslation('/data/<feature>/i18n')`
 - Do not add another translation registry such as `src/app/app.translates.ts`; `src/i18n` is the source of truth
 - When removing code, check whether its translation keys are still used elsewhere; if a key is no longer referenced anywhere in the app, remove it from the translation dictionaries in the same change
-- If you add a language, update each required `src/i18n/<bundle>/<code>.json` and `environment.languages`
+- If you add a language, update each required `src/i18n/<code>.json` and `src/data/<feature>/i18n/<code>.json`, then update `environment.languages`
 - Save translation files as UTF-8 and use proper native characters for labels and translated text
 - Do not replace native characters with mojibake, HTML entities, or ad hoc transliterations
 

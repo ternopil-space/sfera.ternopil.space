@@ -1,13 +1,16 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
-import { articleSlugs } from './feature/article/article.service';
-import { discountSlugs } from './feature/discount/discount.service';
-import { dishSlugs } from './feature/dish/dish.data';
-import { eventSlugs } from './feature/event/event.service';
-import { jobSlugs } from './feature/job/job.service';
-import { profileSlugs } from './feature/profile/profile.service';
-import { reviewSlugs } from './feature/review/review.service';
-import { questSlugs } from './feature/quest/quest.service';
-import { productSlugs } from './feature/product/product.service';
+import {
+	articleSlugs,
+	discountSlugs,
+	dishSlugs,
+	eventSlugs,
+	jobSlugs,
+	productSlugs,
+	profileSlugs,
+	questSlugs,
+	reviewSlugs,
+	roomSlugs,
+} from './feature/bootstrap/fallback-data';
 
 export const serverRoutes: ServerRoute[] = [
 	{
@@ -43,6 +46,13 @@ export const serverRoutes: ServerRoute[] = [
 		renderMode: RenderMode.Prerender,
 		async getPrerenderParams() {
 			return jobSlugs.map((slug) => ({ slug }));
+		},
+	},
+	{
+		path: 'room/:slug',
+		renderMode: RenderMode.Prerender,
+		async getPrerenderParams() {
+			return roomSlugs.map((slug) => ({ slug }));
 		},
 	},
 	{

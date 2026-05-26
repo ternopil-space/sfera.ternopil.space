@@ -2,7 +2,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, effect, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateDirective } from '@wawjs/ngx-translate';
-import { ProfileService } from '../../feature/profile/profile.service';
+import { ProfileService } from '@wawjs/ngx-horeca';
 
 @Component({
 	imports: [NgOptimizedImage, RouterLink, TranslateDirective],

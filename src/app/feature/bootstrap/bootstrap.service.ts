@@ -1,23 +1,40 @@
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { inject, Injectable, PLATFORM_ID, TransferState } from '@angular/core';
 import { environment } from '../../../environments/environment';
-import { ArticleService } from '../article/article.service';
+import { ArticleService } from '@wawjs/ngx-horeca';
 import { CompanyService } from '../company/company.service';
-import { DiscountService } from '../discount/discount.service';
-import { DishCategoryService } from '../dish/dish-category.service';
-import { DishService } from '../dish/dish.service';
-import { EventService } from '../event/event.service';
-import { ExhibitService } from '../exhibit/exhibit.service';
-import { JobService } from '../job/job.service';
-import { ProfileService } from '../profile/profile.service';
-import { ProductService } from '../product/product.service';
-import { QuestionService } from '../question/question.service';
-import { QuestService } from '../quest/quest.service';
-import { ReviewService } from '../review/review.service';
-import { RoomService } from '../room/room.service';
-import { RuleService } from '../rule/rule.service';
+import { DiscountService } from '@wawjs/ngx-horeca';
+import { DishCategoryService } from '@wawjs/ngx-horeca';
+import { DishService } from '@wawjs/ngx-horeca';
+import { EventService } from '@wawjs/ngx-horeca';
+import { ExhibitService } from '@wawjs/ngx-horeca';
+import { JobService } from '@wawjs/ngx-horeca';
+import { ProfileService } from '@wawjs/ngx-horeca';
+import { ProductService } from '@wawjs/ngx-horeca';
+import { QuestionService } from '@wawjs/ngx-horeca';
+import { QuestService } from '@wawjs/ngx-horeca';
+import { ReviewService } from '@wawjs/ngx-horeca';
+import { RoomService } from '@wawjs/ngx-horeca';
+import { RuleService } from '@wawjs/ngx-horeca';
 import { BOOTSTRAP_STATE_KEY } from './bootstrap.const';
+import {
+	fallbackArticles,
+	fallbackDiscounts,
+	fallbackDishCategories,
+	fallbackDishes,
+	fallbackEvents,
+	fallbackExhibits,
+	fallbackJobs,
+	fallbackProducts,
+	fallbackProfiles,
+	fallbackQuestions,
+	fallbackQuests,
+	fallbackReviews,
+	fallbackRooms,
+	fallbackRules,
+} from './fallback-data';
 import { BootstrapData } from './bootstrap.interface';
+import { companyProfile } from '../company/company.data';
 
 @Injectable({
 	providedIn: 'root',
@@ -40,8 +57,11 @@ export class BootstrapService {
 	private _roomService = inject(RoomService);
 	private _ruleService = inject(RuleService);
 	private _discountService = inject(DiscountService);
+	private _fallbackDataApplied = false;
 
 	async initialize() {
+		this._applyFallbackData();
+
 		const transferData = this._transferState.get<BootstrapData | null>(
 			BOOTSTRAP_STATE_KEY,
 			null,
@@ -93,9 +113,7 @@ export class BootstrapService {
 
 		this._dishCategoryService.setCategories(data.categories);
 
-		if (Array.isArray(data.dishes) && data.dishes.length > 0) {
-			this._dishService.dishes.set(data.dishes);
-		}
+		this._dishService.resolveDishes(data.dishes);
 
 		this._eventService.resolveEvents(data.events);
 		this._exhibitService.resolveExhibits(data.exhibits);
@@ -108,6 +126,29 @@ export class BootstrapService {
 		this._roomService.resolveRooms(data.rooms);
 		this._ruleService.resolveRules(data.rules);
 		this._discountService.resolveDiscounts(data.discounts);
+	}
+
+	private _applyFallbackData() {
+		if (this._fallbackDataApplied) {
+			return;
+		}
+
+		this._fallbackDataApplied = true;
+		this._articleService.setFallbackArticles(fallbackArticles);
+		this._companyService.setFallbackCompany(companyProfile);
+		this._dishCategoryService.setFallbackCategories(fallbackDishCategories);
+		this._dishService.setFallbackDishes(fallbackDishes);
+		this._eventService.setFallbackEvents(fallbackEvents);
+		this._exhibitService.setFallbackExhibits(fallbackExhibits);
+		this._jobService.setFallbackJobs(fallbackJobs);
+		this._profileService.setFallbackProfiles(fallbackProfiles);
+		this._productService.setFallbackProducts(fallbackProducts);
+		this._questionService.setFallbackQuestions(fallbackQuestions);
+		this._questService.setFallbackQuests(fallbackQuests);
+		this._reviewService.setFallbackReviews(fallbackReviews);
+		this._roomService.setFallbackRooms(fallbackRooms);
+		this._ruleService.setFallbackRules(fallbackRules);
+		this._discountService.setFallbackDiscounts(fallbackDiscounts);
 	}
 
 	private async _refreshInBrowser() {

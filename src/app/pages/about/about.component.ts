@@ -1,7 +1,14 @@
 import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, effect, inject, PLATFORM_ID, signal } from '@angular/core';
+import {
+	ChangeDetectionStrategy,
+	Component,
+	effect,
+	inject,
+	PLATFORM_ID,
+	signal,
+} from '@angular/core';
 import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
-import aboutData from '../../../data/about.json';
+import aboutData from '../../../data/about/about.json';
 
 interface AboutIntro {
 	title: string;
@@ -28,7 +35,7 @@ interface AboutPageData {
 	};
 }
 
-const ABOUT_TRANSLATION_PATH = '/i18n/about';
+const ABOUT_TRANSLATION_PATH = '/data/about/i18n';
 
 @Component({
 	imports: [NgOptimizedImage, TranslateDirective],

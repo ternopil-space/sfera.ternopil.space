@@ -7,21 +7,36 @@
 		<a
 			translate
 			[translate]="{ ariaLabel: 'Go to homepage' }"
-			class="inline-flex items-center gap-3 text-xs font-semibold tracking-[0.18em] text-[var(--c-text-secondary)] uppercase"
+			class="inline-flex items-center gap-2 text-sm font-semibold text-[var(--c-text-secondary)]"
 			routerLink="/"
 		>
-			<img
-				class="h-9 w-9 rounded-full border border-[var(--c-border)] object-cover"
-				ngSrc="logo.webp"
-				alt=""
-				width="36"
-				height="36"
-				priority
-			/>
-			<span>SfeRa</span>
+			<span class="text-xl leading-none">SfeRa</span>
+			<span class="hidden text-[11px] uppercase tracking-[0.18em] text-[var(--c-text-muted)] sm:inline">
+				Restaurant
+			</span>
 		</a>
 
 		<div class="flex items-center gap-2">
+			<nav class="hidden items-center gap-1 lg:flex" aria-label="Primary navigation">
+				<a class="rounded-full px-3 py-2 text-sm font-semibold text-[var(--c-text-primary)] hover:bg-[var(--c-bg-primary)]" routerLink="/">
+					Головна
+				</a>
+				<a class="rounded-full px-3 py-2 text-sm font-semibold text-[var(--c-text-primary)] hover:bg-[var(--c-bg-primary)]" routerLink="/menu">
+					Меню
+				</a>
+				<a class="rounded-full px-3 py-2 text-sm font-semibold text-[var(--c-text-primary)] hover:bg-[var(--c-bg-primary)]" routerLink="/events">
+					Події
+				</a>
+				<a class="rounded-full px-3 py-2 text-sm font-semibold text-[var(--c-text-primary)] hover:bg-[var(--c-bg-primary)]" routerLink="/rooms">
+					Простори
+				</a>
+				<a class="rounded-full px-3 py-2 text-sm font-semibold text-[var(--c-text-primary)] hover:bg-[var(--c-bg-primary)]" routerLink="/socials">
+					Контакти
+				</a>
+			</nav>
+			<a class="ui-btn ui-btn-primary hidden min-h-10 px-4 py-2 sm:inline-flex" href="tel:+380688545635">
+				+380 68 854 56 35
+			</a>
 			<div
 				class="relative flex items-center gap-1 rounded-full border border-[var(--c-border)] bg-[var(--c-bg-primary)] p-1 shadow-[var(--shadow-sm)]"
 			>

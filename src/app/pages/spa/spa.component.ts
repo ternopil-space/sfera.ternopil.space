@@ -1,8 +1,9 @@
 import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, effect, inject, PLATFORM_ID, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { FormField, FormRoot, form, required } from '@angular/forms/signals';
 import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
-import spaData from '../../../data/spa.json';
+import spaData from '../../../data/spa/spa.json';
+import { ContactService } from '../../feature/contact/contact.service';
 
 interface SpaScheduleItem {
 	label: string;
@@ -37,21 +38,68 @@ interface SpaPageData {
 	};
 }
 
-const SPA_TRANSLATION_PATH = '/i18n/spa';
+interface SpaBookingRequest {
+	phone: string;
+	date: string;
+	time: string;
+	message: string;
+}
+
+const initialSpaBookingRequest = (phone = ''): SpaBookingRequest => ({
+	phone,
+	date: '',
+	time: '',
+	message: '',
+});
+
+const SPA_TRANSLATION_PATH = '/data/spa/i18n';
 
 @Component({
-	imports: [NgOptimizedImage, RouterLink, TranslateDirective],
+	imports: [FormField, FormRoot, NgOptimizedImage, TranslateDirective],
 	templateUrl: './spa.component.html',
 	styleUrl: './spa.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpaComponent {
 	private readonly _isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+	private readonly _contactService = inject(ContactService);
 	private readonly _languageService = inject(LanguageService);
 	private readonly _translateService = inject(TranslateService);
 
 	protected readonly page = spaData as SpaPageData;
 	protected readonly unavailableImages = signal<ReadonlySet<string>>(new Set());
+	protected readonly submittedRequest = signal<SpaBookingRequest | null>(null);
+	protected readonly submitMessage = signal('');
+	protected readonly submitError = signal('');
+	protected readonly bookingRequest = signal(initialSpaBookingRequest(this._contactService.getSavedPhone()));
+	protected readonly bookingForm = form(
+		this.bookingRequest,
+		(path) => {
+			required(path.phone, { message: 'Phone number is required' });
+		},
+		{
+			name: 'spaBooking',
+			submission: {
+				action: async () => {
+					if (this.submittedRequest()) {
+						return null;
+					}
+
+					const request = this._normalizeRequest(this.bookingRequest());
+
+					this.submitMessage.set('');
+					this.submitError.set('');
+					this._contactService.savePhone(request.phone);
+					this._sendReport(request);
+
+					return null;
+				},
+				onInvalid: (field) => {
+					field.phone().focusBoundControl();
+				},
+			},
+		},
+	);
 
 	constructor() {
 		effect(() => {
@@ -77,6 +125,39 @@ export class SpaComponent {
 
 	protected markImageUnavailable(path: string) {
 		this.unavailableImages.update((images) => new Set(images).add(path));
+	}
+
+	private _sendReport(request: SpaBookingRequest): void {
+		this._contactService.sendReport(this._buildMessage(request)).subscribe({
+			next: () => {
+				this.submittedRequest.set(request);
+				this.submitMessage.set('Request saved');
+			},
+			error: () => {
+				this.submitError.set('Could not send request. Please try again or call us.');
+			},
+		});
+	}
+
+	private _buildMessage(request: SpaBookingRequest): string {
+		return [
+			'New event service request',
+			`Phone: ${request.phone}`,
+			request.date ? `Date: ${request.date}` : '',
+			request.time ? `Time: ${request.time}` : '',
+			request.message ? `Comment: ${request.message}` : '',
+		]
+			.filter(Boolean)
+			.join('\n');
+	}
+
+	private _normalizeRequest(request: SpaBookingRequest): SpaBookingRequest {
+		return {
+			phone: request.phone.trim(),
+			date: request.date.trim(),
+			time: request.time.trim(),
+			message: request.message.trim(),
+		};
 	}
 }
 

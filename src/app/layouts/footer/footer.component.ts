@@ -12,8 +12,8 @@ export class FooterComponent {
 	protected readonly navItems = [
 		{ label: 'Навігація', icon: 'navigation', route: '/navigation', exact: true },
 		{ label: 'Меню', icon: 'restaurant_menu', route: '/menu', exact: true },
-		{ label: 'Банкети', icon: 'event', route: '/events', exact: true },
-		{ label: 'Ланчі', icon: 'local_offer', route: '/discounts', exact: true },
+		{ label: 'Події', icon: 'event', route: '/events', exact: true },
+		{ label: 'Простори', icon: 'deck', route: '/rooms', exact: true },
 		{ label: 'Контакти', icon: 'call', route: '/socials', exact: true },
 	];
 }

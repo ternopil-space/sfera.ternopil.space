@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateDirective } from '@wawjs/ngx-translate';
-import { DiscountService } from '../../feature/discount/discount.service';
+import { DiscountService } from '@wawjs/ngx-horeca';
 
 @Component({
 	imports: [RouterLink, TranslateDirective],

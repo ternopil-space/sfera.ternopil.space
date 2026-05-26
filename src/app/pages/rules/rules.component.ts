@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
 import { TranslateDirective } from '@wawjs/ngx-translate';
-import { Rule } from '../../feature/rule/rule.interface';
-import { RuleService } from '../../feature/rule/rule.service';
+import { Rule } from '@wawjs/ngx-horeca';
+import { RuleService } from '@wawjs/ngx-horeca';
 
 interface RuleGroup {
 	category: string;

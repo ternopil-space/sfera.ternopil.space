@@ -1,0 +1,519 @@
+[
+	{
+		"slug": "business-lunch-sfera",
+		"categorySlug": "business-lunches",
+		"image": "/dish/business-lunch-sfera.webp",
+		"name": "Бізнес-ланч SfeRa",
+		"description": "Будній збалансований обід із першою стравою та основною позицією.",
+		"price": null,
+		"labels": [
+			"будні 12:00-16:00",
+			"ланч"
+		],
+		"fullDescription": "Бізнес-ланч у SfeRa подається у будні з 12:00 до 16:00. Формат підходить для робочої перерви, зустрічі або швидкого обіду в ресторані.",
+		"suggested": [
+			"borshch-and-broth-set",
+			"salat-sfera"
+		],
+		"cookTimeMinutes": 25,
+		"caloriesKcal": null,
+		"portion": "сет",
+		"allergens": [],
+		"custom": {
+			"menuPages": [
+				"daily"
+			]
+		}
+	},
+	{
+		"slug": "borshch-and-broth-set",
+		"categorySlug": "business-lunches",
+		"image": "/dish/borshch-and-broth-set.webp",
+		"name": "Борщ або бульйон до ланчу",
+		"description": "Перші страви у ланч-сетах: борщ або легкий бульйон залежно від актуального меню.",
+		"price": null,
+		"labels": [
+			"гаряче",
+			"ланч"
+		],
+		"fullDescription": "Перші страви додають бізнес-ланчу домашнього ритму і добре поєднуються з основними позиціями української та європейської кухні.",
+		"suggested": [
+			"business-lunch-sfera"
+		],
+		"cookTimeMinutes": 15,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "king-breakfast",
+		"categorySlug": "breakfasts",
+		"image": "/dish/king-breakfast.webp",
+		"name": "KING BREAKFAST",
+		"description": "Ситний сніданок для повільного старту дня у ресторані.",
+		"price": null,
+		"labels": [
+			"сніданок",
+			"щодня 11:00-14:00"
+		],
+		"fullDescription": "KING BREAKFAST відображає публічну сніданкову лінійку SfeRa: щедрий формат для гостей, які хочуть почати день у ресторані або на терасі.",
+		"suggested": [
+			"shrimp-toast-tower",
+			"oatmeal-with-berries"
+		],
+		"cookTimeMinutes": 20,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {
+			"menuPages": [
+				"seasonal"
+			]
+		}
+	},
+	{
+		"slug": "shrimp-toast-tower",
+		"categorySlug": "breakfasts",
+		"image": "/dish/shrimp-toast-tower.webp",
+		"name": "Вежа з креветкою",
+		"description": "Сніданкова позиція з креветкою та тостом у виразній подачі.",
+		"price": null,
+		"labels": [
+			"сніданок",
+			"креветка"
+		],
+		"fullDescription": "Вежа з креветкою підходить для гостей, які шукають легший, але помітний сніданок з європейським настроєм.",
+		"suggested": [
+			"king-breakfast"
+		],
+		"cookTimeMinutes": 18,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "oatmeal-with-berries",
+		"categorySlug": "breakfasts",
+		"image": "/dish/oatmeal-with-berries.webp",
+		"name": "Вівсянка з ягодами",
+		"description": "Легкий сніданок з ягодами для спокійного ранкового візиту.",
+		"price": null,
+		"labels": [
+			"сніданок",
+			"легка страва"
+		],
+		"fullDescription": "Вівсянка з ягодами добре працює для гостей, які хочуть простий, теплий і не надто важкий сніданок.",
+		"suggested": [
+			"king-breakfast"
+		],
+		"cookTimeMinutes": 12,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "salmon-tartare",
+		"categorySlug": "cold-appetizers",
+		"image": "/dish/salmon-tartare.webp",
+		"name": "Тартар з лосося",
+		"description": "Холодна закуска з лосося для вечері, тераси або початку банкету.",
+		"price": null,
+		"labels": [
+			"закуска",
+			"риба"
+		],
+		"fullDescription": "Тартар з лосося додає меню делікатного європейського акценту і добре підходить для старту вечері або фуршетного формату.",
+		"suggested": [
+			"antipasti",
+			"bruschetta-set"
+		],
+		"cookTimeMinutes": 18,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {
+			"menuPages": [
+				"seasonal"
+			]
+		}
+	},
+	{
+		"slug": "veal-carpaccio",
+		"categorySlug": "cold-appetizers",
+		"image": "/dish/veal-carpaccio.webp",
+		"name": "Карпачо з телятини",
+		"description": "Тонко нарізана телятина у форматі холодної ресторанної закуски.",
+		"price": null,
+		"labels": [
+			"закуска",
+			"телятина"
+		],
+		"fullDescription": "Карпачо з телятини доречне для гостей, які починають вечір із легких мʼясних закусок і келиха напою.",
+		"suggested": [
+			"antipasti"
+		],
+		"cookTimeMinutes": 18,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "antipasti",
+		"categorySlug": "cold-appetizers",
+		"image": "/dish/antipasti.webp",
+		"name": "Антипасті",
+		"description": "Добірка холодних закусок для спільного столу або фуршету.",
+		"price": null,
+		"labels": [
+			"для компанії",
+			"фуршет"
+		],
+		"fullDescription": "Антипасті зручно додавати до бенкетного або терасного столу, коли гості хочуть кілька різних смаків у центрі столу.",
+		"suggested": [
+			"bruschetta-set",
+			"cheese-plate"
+		],
+		"cookTimeMinutes": 15,
+		"caloriesKcal": null,
+		"portion": "тарілка",
+		"allergens": [],
+		"custom": {
+			"menuPages": [
+				"seasonal"
+			]
+		}
+	},
+	{
+		"slug": "bruschetta-set",
+		"categorySlug": "cold-appetizers",
+		"image": "/dish/bruschetta-set.webp",
+		"name": "Сет брускет",
+		"description": "Брускети для фуршету, зустрічі або легкої вечері.",
+		"price": null,
+		"labels": [
+			"сет",
+			"фуршет"
+		],
+		"fullDescription": "Сет брускет підходить для корпоративів, камерних зустрічей і банкетних пауз перед основною подачею.",
+		"suggested": [
+			"antipasti"
+		],
+		"cookTimeMinutes": 12,
+		"caloriesKcal": null,
+		"portion": "сет",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "cheese-plate",
+		"categorySlug": "cold-appetizers",
+		"image": "/dish/cheese-plate.webp",
+		"name": "Сирна тарілка",
+		"description": "Сирна тарілка для вина, терасної вечері або святкового столу.",
+		"price": null,
+		"labels": [
+			"для компанії"
+		],
+		"fullDescription": "Сирна тарілка допомагає легко доповнити барне меню та створити неспішний формат для розмови.",
+		"suggested": [
+			"sangria",
+			"mojito"
+		],
+		"cookTimeMinutes": 10,
+		"caloriesKcal": null,
+		"portion": "тарілка",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "salat-sfera",
+		"categorySlug": "salads",
+		"image": "/dish/salat-sfera.webp",
+		"name": "Салат \"Сфера\"",
+		"description": "Фірмовий салат SfeRa для легкого обіду або вечері.",
+		"price": null,
+		"labels": [
+			"фірмове",
+			"салат"
+		],
+		"fullDescription": "Салат \"Сфера\" подає фірмовий характер ресторану у легшому форматі, доречному і для щоденного меню, і для банкетної подачі.",
+		"suggested": [
+			"seafood-salad"
+		],
+		"cookTimeMinutes": 14,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {
+			"menuPages": [
+				"seasonal"
+			]
+		}
+	},
+	{
+		"slug": "seafood-salad",
+		"categorySlug": "salads",
+		"image": "/dish/seafood-salad.webp",
+		"name": "Салат з морепродуктами",
+		"description": "Салат із морепродуктами для гостей, які обирають легкий європейський смак.",
+		"price": null,
+		"labels": [
+			"морепродукти",
+			"салат"
+		],
+		"fullDescription": "Салат з морепродуктами добре поєднується з літньою терасою і вечерею біля води.",
+		"suggested": [
+			"seafood-pasta"
+		],
+		"cookTimeMinutes": 14,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {
+			"menuPages": [
+				"seasonal"
+			]
+		}
+	},
+	{
+		"slug": "greek-salad",
+		"categorySlug": "salads",
+		"image": "/dish/greek-salad.webp",
+		"name": "Грецький салат",
+		"description": "Класичний салат із овочами та сиром для щоденного меню.",
+		"price": null,
+		"labels": [
+			"класика"
+		],
+		"fullDescription": "Грецький салат залишається зрозумілим вибором для легкої вечері, бізнес-ланчу або сімейного столу.",
+		"suggested": [
+			"carbonara"
+		],
+		"cookTimeMinutes": 12,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "carbonara",
+		"categorySlug": "pastas",
+		"image": "/dish/carbonara.webp",
+		"name": "Паста карбонара",
+		"description": "Класична паста з вершковим настроєм для обіду чи вечері.",
+		"price": null,
+		"labels": [
+			"паста",
+			"класика"
+		],
+		"fullDescription": "Карбонара підходить для гостей, які хочуть знайомий європейський смак у ресторані SfeRa.",
+		"suggested": [
+			"caesar-chicken"
+		],
+		"cookTimeMinutes": 18,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "seafood-pasta",
+		"categorySlug": "pastas",
+		"image": "/dish/seafood-pasta.webp",
+		"name": "Паста з морепродуктами",
+		"description": "Європейська паста з морепродуктами для вечері або терасного формату.",
+		"price": null,
+		"labels": [
+			"паста",
+			"морепродукти"
+		],
+		"fullDescription": "Паста з морепродуктами підтримує водний і терасний настрій SfeRa та добре працює для неспішної вечері.",
+		"suggested": [
+			"seafood-salad"
+		],
+		"cookTimeMinutes": 18,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {
+			"menuPages": [
+				"seasonal"
+			]
+		}
+	},
+	{
+		"slug": "veal-cheeks-pasta",
+		"categorySlug": "pastas",
+		"image": "/dish/veal-cheeks-pasta.webp",
+		"name": "Паста з телячими щічками",
+		"description": "Ситніша паста з мʼясним акцентом для основної подачі.",
+		"price": null,
+		"labels": [
+			"паста",
+			"телятина"
+		],
+		"fullDescription": "Паста з телячими щічками підходить для гостей, які хочуть глибший смак і основну страву в європейському стилі.",
+		"suggested": [
+			"veal-carpaccio"
+		],
+		"cookTimeMinutes": 20,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "caesar-chicken",
+		"categorySlug": "salads",
+		"image": "/dish/caesar-chicken.webp",
+		"name": "Цезар з куркою",
+		"description": "Знайомий салат із куркою для обіду, вечері або меню події.",
+		"price": null,
+		"labels": [
+			"курка",
+			"класика"
+		],
+		"fullDescription": "Цезар з куркою залишається універсальним вибором для різних компаній і форматів.",
+		"suggested": [
+			"carbonara"
+		],
+		"cookTimeMinutes": 14,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "ukrainian-main-course",
+		"categorySlug": "main-dishes",
+		"image": "/dish/ukrainian-main-course.webp",
+		"name": "Українська основна страва",
+		"description": "Гаряча позиція з українським характером для щоденного або банкетного меню.",
+		"price": null,
+		"labels": [
+			"українська кухня"
+		],
+		"fullDescription": "SfeRa поєднує українську і європейську кухню, тому гарячі страви можна добирати під сімейну вечерю, банкет або бізнес-ланч.",
+		"suggested": [
+			"business-lunch-sfera"
+		],
+		"cookTimeMinutes": 25,
+		"caloriesKcal": null,
+		"portion": "порція",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "banquet-appetizer-set",
+		"categorySlug": "banquet-menu",
+		"image": "/dish/banquet-appetizer-set.webp",
+		"name": "Фуршетні закуски для події",
+		"description": "Брускети, антипасті та холодні закуски для старту банкету.",
+		"price": null,
+		"labels": [
+			"бенкет",
+			"фуршет"
+		],
+		"fullDescription": "Фуршетні закуски допомагають зібрати гостей до основної подачі та зручно працюють для весіль, корпоративів і випускних.",
+		"suggested": [
+			"banquet-dessert-table"
+		],
+		"cookTimeMinutes": 30,
+		"caloriesKcal": null,
+		"portion": "сет",
+		"allergens": [],
+		"custom": {
+			"menuPages": [
+				"seasonal"
+			]
+		}
+	},
+	{
+		"slug": "banquet-dessert-table",
+		"categorySlug": "banquet-menu",
+		"image": "/dish/banquet-dessert-table.webp",
+		"name": "Десертний стіл для святкування",
+		"description": "Солодкий фінал для дня народження, випускного, весілля або корпоративу.",
+		"price": null,
+		"labels": [
+			"бенкет",
+			"десерт"
+		],
+		"fullDescription": "Десертний стіл варто узгоджувати під формат події, кількість гостей і час подачі.",
+		"suggested": [
+			"banquet-appetizer-set"
+		],
+		"cookTimeMinutes": 20,
+		"caloriesKcal": null,
+		"portion": "сет",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "sangria",
+		"categorySlug": "bar",
+		"image": "/dish/sangria.webp",
+		"name": "Sangria",
+		"description": "Фруктовий барний акцент для вечері або терасного формату.",
+		"price": null,
+		"labels": [
+			"бар",
+			"коктейль"
+		],
+		"fullDescription": "Sangria доречна як легший коктейльний акцент для теплої вечері, компанії друзів або літньої тераси.",
+		"suggested": [
+			"cheese-plate"
+		],
+		"cookTimeMinutes": 8,
+		"caloriesKcal": null,
+		"portion": "келих",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "mojito",
+		"categorySlug": "bar",
+		"image": "/dish/mojito.webp",
+		"name": "Mojito",
+		"description": "Класичний освіжаючий коктейль для барного меню.",
+		"price": null,
+		"labels": [
+			"бар",
+			"коктейль"
+		],
+		"fullDescription": "Mojito підтримує легкий настрій вечора і добре працює для терасного сезону.",
+		"suggested": [
+			"seafood-salad"
+		],
+		"cookTimeMinutes": 8,
+		"caloriesKcal": null,
+		"portion": "келих",
+		"allergens": [],
+		"custom": {}
+	},
+	{
+		"slug": "pina-colada",
+		"categorySlug": "bar",
+		"image": "/dish/pina-colada.webp",
+		"name": "Pina Colada",
+		"description": "Мʼякий тропічний коктейль для вечірнього меню.",
+		"price": null,
+		"labels": [
+			"бар",
+			"коктейль"
+		],
+		"fullDescription": "Pina Colada додає барному меню святкового настрою без зайвих обіцянок щодо формату події.",
+		"suggested": [
+			"banquet-dessert-table"
+		],
+		"cookTimeMinutes": 8,
+		"caloriesKcal": null,
+		"portion": "келих",
+		"allergens": [],
+		"custom": {}
+	}
+]

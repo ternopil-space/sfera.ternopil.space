@@ -2,15 +2,16 @@ import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateDirective } from '@wawjs/ngx-translate';
-import { ArticleService } from '../../feature/article/article.service';
+import { ArticleService } from '@wawjs/ngx-horeca';
 import { companyProfile } from '../../feature/company/company.data';
-import { DiscountService } from '../../feature/discount/discount.service';
-import { EventService } from '../../feature/event/event.service';
-import { JobService } from '../../feature/job/job.service';
-import { ProductService } from '../../feature/product/product.service';
-import { ProfileService } from '../../feature/profile/profile.service';
-import { QuestService } from '../../feature/quest/quest.service';
-import { ReviewService } from '../../feature/review/review.service';
+import { DiscountService } from '@wawjs/ngx-horeca';
+import { EventService } from '@wawjs/ngx-horeca';
+import { JobService } from '@wawjs/ngx-horeca';
+import { ProductService } from '@wawjs/ngx-horeca';
+import { ProfileService } from '@wawjs/ngx-horeca';
+import { QuestService } from '@wawjs/ngx-horeca';
+import { ReviewService } from '@wawjs/ngx-horeca';
+import { RoomService } from '@wawjs/ngx-horeca';
 
 type FeaturePreview = {
 	eyebrow: string;
@@ -39,26 +40,30 @@ export class HomeComponent {
 	private readonly _profileService = inject(ProfileService);
 	private readonly _questService = inject(QuestService);
 	private readonly _reviewService = inject(ReviewService);
+	private readonly _roomService = inject(RoomService);
 
 	protected readonly company = companyProfile;
-	protected readonly horecaHighlights = [
-		'SfeRa працює щодня 11:00-23:00 на вулиці Білецькій, 33а у Тернополі.',
-		'У меню є сніданки, бізнес-ланчі у будні 12:00-16:00, основні страви, морепродукти, десерти, дитяче меню, бар і коктейлі.',
-		'Для весілля, дня народження, корпоративу, банкету або конференц-запиту краще одразу дзвонити і підтверджувати дату, місткість та меню.',
+	protected readonly quickFacts = [
+		{ icon: 'location_on', label: 'вул. Білецька, 33а' },
+		{ icon: 'schedule', label: 'щодня 11:00-23:00' },
+		{ icon: 'groups', label: 'банкет до 150 гостей' },
+		{ icon: 'restaurant', label: 'українська та європейська кухня' },
+		{ icon: 'deck', label: 'літня тераса з видом на воду' },
 	];
-	protected readonly todayItems = [
-		{
-			label: 'Сніданки',
-			text: 'Сирники, англійський сніданок, скрембл з лососем або креветками у публічному меню.',
-		},
-		{
-			label: 'Бізнес-ланч',
-			text: 'Будні 12:00-16:00, склад і ціну перевіряйте у ChoiceQR.',
-		},
-		{
-			label: 'Банкети',
-			text: 'Весілля, дні народження, корпоративи і сімейні події за попереднім узгодженням.',
-		},
+	protected readonly eventFormats = [
+		'Весілля',
+		'День народження',
+		'Корпоратив',
+		'Випускний',
+		'Банкет',
+		'Камерна зустріч',
+	];
+	protected readonly menuHighlights = [
+		'Сніданки щодня 11:00-14:00',
+		'Бізнес-ланчі у будні 12:00-16:00',
+		'Основне меню',
+		'Бар',
+		'Банкетне меню',
 	];
 	protected readonly featurePreviews = computed(() => {
 		const article = this._articleService.articles()[0];
@@ -69,16 +74,30 @@ export class HomeComponent {
 		const profile = this._profileService.profiles()[0];
 		const quest = this._questService.quests()[0];
 		const review = this._reviewService.reviews()[0];
+		const room = this._roomService.rooms()[0];
 		const previews: Array<FeaturePreview | null> = [
-			event
+			article
 				? {
-						eyebrow: 'Банкети',
-						title: event.title,
-						summary: event.summary,
-						meta: event.format,
-						itemRoute: `/event/${event.slug}`,
-						allRoute: '/events',
-						seeAllLabel: 'Всі події',
+						eyebrow: 'Стаття',
+						title: article.title,
+						summary: article.summary,
+						meta: article.category,
+						itemRoute: `/article/${article.slug}`,
+						allRoute: '/articles',
+						seeAllLabel: 'Всі статті',
+					}
+				: null,
+			room
+				? {
+						eyebrow: 'Простір',
+						title: room.name,
+						summary: room.description,
+						meta: room.price,
+						itemRoute: `/room/${room.slug}`,
+						allRoute: '/rooms',
+						seeAllLabel: 'Всі простори',
+						imageSrc: room.image,
+						imageAlt: room.imageAlt,
 					}
 				: null,
 			discount
@@ -92,20 +111,20 @@ export class HomeComponent {
 						seeAllLabel: 'Всі пропозиції',
 					}
 				: null,
-			article
+			event
 				? {
-						eyebrow: 'Стаття',
-						title: article.title,
-						summary: article.summary,
-						meta: article.category,
-						itemRoute: `/article/${article.slug}`,
-						allRoute: '/articles',
-						seeAllLabel: 'Всі статті',
+						eyebrow: 'Подія',
+						title: event.title,
+						summary: event.summary,
+						meta: event.dateLabel,
+						itemRoute: `/event/${event.slug}`,
+						allRoute: '/events',
+						seeAllLabel: 'Всі події',
 					}
 				: null,
 			product
 				? {
-						eyebrow: 'Пакети',
+						eyebrow: 'Пакет',
 						title: product.title,
 						summary: product.summary,
 						meta: product.price,
@@ -116,7 +135,7 @@ export class HomeComponent {
 				: null,
 			review
 				? {
-						eyebrow: 'Відгуки',
+						eyebrow: 'Соціальний доказ',
 						title: review.title,
 						summary: review.body,
 						meta: review.author,
@@ -127,7 +146,7 @@ export class HomeComponent {
 				: null,
 			quest
 				? {
-						eyebrow: 'Сценарій',
+						eyebrow: 'Планування',
 						title: quest.title,
 						summary: quest.summary,
 						meta: quest.duration,
@@ -144,12 +163,12 @@ export class HomeComponent {
 						meta: job.location,
 						itemRoute: `/job/${job.slug}`,
 						allRoute: '/jobs',
-						seeAllLabel: 'Всі вакансії',
+						seeAllLabel: 'Всі ролі',
 					}
 				: null,
 			profile
 				? {
-						eyebrow: 'Роль',
+						eyebrow: 'Роль команди',
 						title: profile.name,
 						summary: profile.description,
 						meta: profile.role,
@@ -175,6 +194,7 @@ export class HomeComponent {
 			this._profileService.loadTranslations();
 			this._questService.loadTranslations();
 			this._reviewService.loadTranslations();
+			this._roomService.loadTranslations();
 		});
 	}
 }

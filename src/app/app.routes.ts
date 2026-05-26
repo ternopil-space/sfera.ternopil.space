@@ -24,11 +24,46 @@ export const routes: Routes = [
 		loadComponent: () => import('./pages/about/about.component').then((m) => m.AboutComponent),
 	},
 	{
+		path: 'spa',
+		data: {
+			meta: buildRouteMeta('/spa'),
+		},
+		loadComponent: () => import('./pages/spa/spa.component').then((m) => m.SpaComponent),
+	},
+	{
+		path: 'book',
+		data: {
+			meta: buildRouteMeta('/book'),
+		},
+		loadComponent: () => import('./pages/book/book.component').then((m) => m.BookComponent),
+	},
+	{
 		path: 'favorites',
 		data: {
 			meta: buildRouteMeta('/favorites'),
 		},
 		loadComponent: () => import('./pages/menu/menu.component').then((m) => m.MenuComponent),
+	},
+	{
+		path: 'seasonal',
+		data: {
+			meta: buildRouteMeta('/seasonal'),
+		},
+		loadComponent: () => import('./pages/menu/menu.component').then((m) => m.MenuComponent),
+	},
+	{
+		path: 'daily',
+		data: {
+			meta: buildRouteMeta('/daily'),
+		},
+		loadComponent: () => import('./pages/menu/menu.component').then((m) => m.MenuComponent),
+	},
+	{
+		path: 'rooms',
+		data: {
+			meta: buildRouteMeta('/rooms'),
+		},
+		loadComponent: () => import('./pages/rooms/rooms.component').then((m) => m.RoomsComponent),
 	},
 	{
 		path: 'navigation',
@@ -51,6 +86,10 @@ export const routes: Routes = [
 		loadComponent: () => import('./pages/dish/dish.component').then((m) => m.DishComponent),
 	},
 	{
+		path: 'room/:slug',
+		loadComponent: () => import('./pages/room/room.component').then((m) => m.RoomComponent),
+	},
+	{
 		path: 'discounts',
 		data: {
 			meta: buildRouteMeta('/discounts'),
@@ -70,6 +109,22 @@ export const routes: Routes = [
 		},
 		loadComponent: () =>
 			import('./pages/loyalty/loyalty.component').then((m) => m.LoyaltyComponent),
+	},
+	{
+		path: 'takeaway',
+		data: {
+			meta: buildRouteMeta('/takeaway'),
+		},
+		loadComponent: () =>
+			import('./pages/takeaway/takeaway.component').then((m) => m.TakeawayComponent),
+	},
+	{
+		path: 'catering',
+		data: {
+			meta: buildRouteMeta('/catering'),
+		},
+		loadComponent: () =>
+			import('./pages/catering/catering.component').then((m) => m.CateringComponent),
 	},
 	{
 		path: 'articles',

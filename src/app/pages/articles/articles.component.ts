@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateDirective } from '@wawjs/ngx-translate';
-import { ArticleService } from '../../feature/article/article.service';
+import { ArticleService } from '@wawjs/ngx-horeca';
 
 @Component({
 	imports: [RouterLink, TranslateDirective],

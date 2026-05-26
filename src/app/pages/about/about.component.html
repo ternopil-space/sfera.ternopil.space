@@ -28,7 +28,7 @@
 	<section class="about__intro">
 		<div class="about__introText">
 			<p class="about__eyebrow">
-				<span>SfeRa Restaurant</span>
+				<span [translate]="'Hospitality complex'">Hospitality complex</span>
 			</p>
 			<h2>
 				<span [translate]="page.intro.title">{{ page.intro.title }}</span>
@@ -52,8 +52,10 @@
 				/>
 			} @else {
 				<div class="about__imageFallback">
-					<span class="material-symbols-outlined" aria-hidden="true">restaurant</span>
-					<span>Ресторан, події і вечірній настрій</span>
+					<span class="material-symbols-outlined" aria-hidden="true">room_service</span>
+					<span [translate]="'Hospitality, events, and rest'">
+						Hospitality, events, and rest
+					</span>
 				</div>
 			}
 		</div>
@@ -86,7 +88,7 @@
 	<section class="about__service">
 		<div>
 			<p class="about__eyebrow">
-				<span>Візит і бронювання</span>
+				<span [translate]="'Guest care'">Guest care</span>
 			</p>
 			<h2>
 				<span [translate]="page.service.title">{{ page.service.title }}</span>

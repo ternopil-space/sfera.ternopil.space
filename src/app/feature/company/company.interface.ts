@@ -1,6 +1,7 @@
 export interface Company {
 	_id: string;
 	name: string;
+	custom?: Record<string, unknown>;
 }
 
 export interface SeoMetadata {
@@ -19,12 +20,17 @@ export interface SeoPageOverride extends Partial<SeoMetadata> {
 }
 
 export interface CompanyStructuredData {
-	type: string;
+	type: string | string[];
 	priceRange: string;
-	servesCuisine: string;
+	servesCuisine: string | string[];
 	addressLocality: string;
+	addressRegion?: string;
 	addressCountry: string;
+	openingHours?: string[];
+	telephone?: string;
+	map?: string;
 	sameAs: string[];
+	custom?: Record<string, unknown>;
 }
 
 export interface CompanyProfile extends Company {
@@ -38,4 +44,5 @@ export interface CompanyProfile extends Company {
 	defaultSeo: SeoMetadata;
 	pageSeo: Record<string, SeoPageOverride>;
 	structuredData: CompanyStructuredData;
+	custom?: Record<string, unknown>;
 }

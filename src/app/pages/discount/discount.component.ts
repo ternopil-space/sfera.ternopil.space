@@ -4,12 +4,10 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MetaService } from '@wawjs/ngx-core';
 import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
+import { findFallbackDiscountBySlug } from '../../feature/bootstrap/fallback-data';
 import { companyProfile } from '../../feature/company/company.data';
-import type { Discount } from '../../feature/discount/discount.interface';
-import {
-	DiscountService,
-	findFallbackDiscountBySlug,
-} from '../../feature/discount/discount.service';
+import type { Discount } from '@wawjs/ngx-horeca';
+import { DiscountService } from '@wawjs/ngx-horeca';
 import { CanonicalService } from '../../services/canonical.service';
 import { buildAbsoluteUrl } from '../../services/seo.utils';
 

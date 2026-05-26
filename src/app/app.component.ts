@@ -34,6 +34,7 @@ export class App {
 	constructor() {
 		this._canonicalService.initialize();
 		this._scrollService.initialize();
+		this._appendStructuredData();
 
 		effect(() => {
 			const language = this._languageService.language();
@@ -55,12 +56,7 @@ export class App {
 				path.startsWith('/dish/') ||
 				path.startsWith('/discount/') ||
 				path.startsWith('/review/') ||
-				path.startsWith('/product/') ||
-				path.startsWith('/event/') ||
-				path.startsWith('/article/') ||
-				path.startsWith('/quest/') ||
-				path.startsWith('/job/') ||
-				path.startsWith('/profile/')
+				path.startsWith('/room/')
 			) {
 				return;
 			}
@@ -77,13 +73,32 @@ export class App {
 			);
 		});
 	}
+
+	private _appendStructuredData(): void {
+		const existing = this._document.head.querySelector<HTMLScriptElement>(
+			'script[data-sfera-structured-data]',
+		);
+		const script = existing ?? this._document.createElement('script');
+
+		if (!existing) {
+			script.type = 'application/ld+json';
+			script.setAttribute('data-sfera-structured-data', 'true');
+			this._document.head.appendChild(script);
+		}
+
+		script.text = JSON.stringify(_buildStructuredData());
+	}
 }
 
 const _pageTitleKeys: Record<string, string> = {
-	'/': 'SfeRa Restaurant',
+	'/': 'SfeRa',
 	'/menu': 'Menu',
 	'/about': 'About us',
+	'/spa': 'Spa',
 	'/favorites': 'Favorites',
+	'/seasonal': 'Seasonal specials',
+	'/daily': "Today's menu",
+	'/rooms': 'Rooms',
 	'/navigation': 'Navigation',
 	'/gallery': 'Gallery',
 	'/discounts': 'Discounts',
@@ -92,12 +107,39 @@ const _pageTitleKeys: Record<string, string> = {
 	'/reviews': 'Reviews',
 	'/events': 'Events',
 	'/products': 'Products',
-	'/questions': 'FAQ',
-	'/rules': 'Rules',
 	'/jobs': 'Jobs',
 	'/team': 'Team',
-	'/socials': 'Contacts',
+	'/socials': 'Socials',
+	'/takeaway': 'Takeaway',
+	'/catering': 'Catering',
 };
+
+function _buildStructuredData() {
+	const custom = companyProfile.structuredData.custom ?? {};
+
+	return {
+		'@context': 'https://schema.org',
+		'@type': companyProfile.structuredData.type,
+		name: companyProfile.name,
+		url: companyProfile.siteUrl,
+		logo: `${companyProfile.siteUrl}${companyProfile.logo}`,
+		image: `${companyProfile.siteUrl}${companyProfile.defaultSeo.image}`,
+		telephone: companyProfile.structuredData.telephone || companyProfile.phone.replace(/\s+/g, ''),
+		priceRange: companyProfile.structuredData.priceRange,
+		servesCuisine: companyProfile.structuredData.servesCuisine,
+		openingHours: companyProfile.structuredData.openingHours,
+		address: {
+			'@type': 'PostalAddress',
+			streetAddress: 'вулиця Білецька, 33а',
+			addressLocality: companyProfile.structuredData.addressLocality,
+			addressRegion: companyProfile.structuredData.addressRegion,
+			addressCountry: companyProfile.structuredData.addressCountry,
+		},
+		sameAs: companyProfile.structuredData.sameAs,
+		...custom,
+	};
+}
+
 
 function _normalizeTitlePath(url: string): string {
 	return (url.split(/[?#]/)[0] || '/').replace(/\/+$/, '') || '/';

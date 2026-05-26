@@ -9,56 +9,37 @@
 				class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
 				translate
 			>
-				Navigation
+				Навігація SfeRa
 			</h1>
 		</div>
 
 		<div class="p-3 sm:p-4">
 			<div class="grid gap-3 sm:grid-cols-2">
 				@for (item of navItems; track item.route; let i = $index) {
-					@if (item.route.startsWith('http')) {
-						<a
-							class="flex items-center justify-between gap-3 rounded-[1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] px-4 py-4 transition-transform duration-200 hover:-translate-y-0.5"
-							[href]="item.route"
-							target="_blank"
-							rel="noreferrer"
+					<a
+						class="flex items-center justify-between gap-3 rounded-[1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] px-4 py-4 transition-transform duration-200 hover:-translate-y-0.5"
+						[routerLink]="item.route"
+					>
+						<div class="min-w-0">
+							<p
+								class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]"
+							>
+								{{ i < 9 ? '0' + (i + 1) : i + 1 }}
+							</p>
+							<h2 class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">
+								<span [translate]="item.label">{{ item.label }}</span>
+							</h2>
+						</div>
+
+						<span
+							class="material-symbols-outlined shrink-0 text-[24px] text-[var(--c-secondary)]"
+							aria-hidden="true"
 						>
-							<ng-container
-								[ngTemplateOutlet]="navItemContent"
-								[ngTemplateOutletContext]="{ item, index: i }"
-							/>
-						</a>
-					} @else {
-						<a
-							class="flex items-center justify-between gap-3 rounded-[1rem] border border-[var(--c-border)] bg-[var(--c-bg-primary)] px-4 py-4 transition-transform duration-200 hover:-translate-y-0.5"
-							[routerLink]="item.route"
-						>
-							<ng-container
-								[ngTemplateOutlet]="navItemContent"
-								[ngTemplateOutletContext]="{ item, index: i }"
-							/>
-						</a>
-					}
+							{{ item.icon }}
+						</span>
+					</a>
 				}
 			</div>
 		</div>
 	</section>
 </main>
-
-<ng-template #navItemContent let-item="item" let-i="index">
-	<div class="min-w-0">
-		<p class="text-[12px] font-semibold uppercase tracking-[0.18em] text-[var(--c-secondary)]">
-			{{ i < 9 ? '0' + (i + 1) : i + 1 }}
-		</p>
-		<h2 class="mt-2 text-lg font-semibold text-[var(--c-text-secondary)]">
-			<span [translate]="item.label">{{ item.label }}</span>
-		</h2>
-	</div>
-
-	<span
-		class="material-symbols-outlined shrink-0 text-[24px] text-[var(--c-secondary)]"
-		aria-hidden="true"
-	>
-		{{ item.icon }}
-	</span>
-</ng-template>

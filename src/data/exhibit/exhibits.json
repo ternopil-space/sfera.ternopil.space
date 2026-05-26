@@ -1,0 +1,17 @@
+[
+	{
+		"slug": "sfera-restaurant-atmosphere",
+		"src": "gallery/demo-1.webp",
+		"alt": "SfeRa restaurant atmosphere"
+	},
+	{
+		"slug": "sfera-event-detail",
+		"src": "gallery/demo-2.webp",
+		"alt": "SfeRa event detail"
+	},
+	{
+		"slug": "sfera-terrace-mood",
+		"src": "gallery/demo-3.webp",
+		"alt": "SfeRa terrace and banquet mood"
+	}
+]

@@ -4,9 +4,10 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MetaService } from '@wawjs/ngx-core';
 import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
+import { findFallbackReviewBySlug } from '../../feature/bootstrap/fallback-data';
 import { companyProfile } from '../../feature/company/company.data';
-import type { Review } from '../../feature/review/review.interface';
-import { ReviewService, findFallbackReviewBySlug } from '../../feature/review/review.service';
+import type { Review } from '@wawjs/ngx-horeca';
+import { ReviewService } from '@wawjs/ngx-horeca';
 import { CanonicalService } from '../../services/canonical.service';
 import { buildAbsoluteUrl } from '../../services/seo.utils';
 

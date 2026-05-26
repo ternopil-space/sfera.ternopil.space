@@ -5,16 +5,18 @@ import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MetaService } from '@wawjs/ngx-core';
 import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
+import { findFallbackRoomBySlug } from '../../feature/bootstrap/fallback-data';
 import { companyProfile } from '../../feature/company/company.data';
-import type { Room } from '../../feature/room/room.interface';
-import { findFallbackRoomBySlug, RoomService } from '../../feature/room/room.service';
+import type { Room } from '@wawjs/ngx-horeca';
+import { RoomService } from '@wawjs/ngx-horeca';
+import { RoomBookingFormComponent } from '../../components/room-booking-form/room-booking-form.component';
 import { CanonicalService } from '../../services/canonical.service';
 import { buildAbsoluteUrl } from '../../services/seo.utils';
 
 const _fallbackRoom = _resolveFallbackRoom();
 
 @Component({
-	imports: [NgOptimizedImage, RouterLink, TranslateDirective],
+	imports: [NgOptimizedImage, RoomBookingFormComponent, RouterLink, TranslateDirective],
 	templateUrl: './room.component.html',
 	styleUrl: './room.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,6 +47,7 @@ export class RoomComponent {
 			{ label: 'Bathroom', value: this.room().bathroom },
 		].filter((fact) => fact.value),
 	);
+	protected readonly roomBookingOptions = computed(() => [this.room()]);
 
 	constructor() {
 		effect(() => {

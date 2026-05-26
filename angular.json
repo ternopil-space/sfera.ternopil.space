@@ -55,6 +55,11 @@
 								"glob": "**/*.json",
 								"input": "src/i18n",
 								"output": "/i18n"
+							},
+							{
+								"glob": "*/i18n/*.json",
+								"input": "src/data",
+								"output": "/data"
 							}
 						],
 						"styles": ["src/styles.scss"],
@@ -108,6 +113,32 @@
 						}
 					},
 					"defaultConfiguration": "development"
+				}
+			}
+		},
+		"ngx-horeca": {
+			"projectType": "library",
+			"root": "projects/ngx-horeca",
+			"sourceRoot": "projects/ngx-horeca/src",
+			"prefix": "horeca",
+			"architect": {
+				"build": {
+					"builder": "@angular/build:ng-packagr",
+					"configurations": {
+						"production": {
+							"tsConfig": "projects/ngx-horeca/tsconfig.lib.prod.json"
+						},
+						"development": {
+							"tsConfig": "projects/ngx-horeca/tsconfig.lib.json"
+						}
+					},
+					"defaultConfiguration": "production"
+				},
+				"test": {
+					"builder": "@angular/build:unit-test",
+					"options": {
+						"tsConfig": "projects/ngx-horeca/tsconfig.spec.json"
+					}
 				}
 			}
 		}

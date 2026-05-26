@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, computed, inject, input } from '@angular/core';
-import { DishCard } from '../../feature/dish/dish.interface';
-import { DishService } from '../../feature/dish/dish.service';
+import { DishCard } from '@wawjs/ngx-horeca';
+import { DishService } from '@wawjs/ngx-horeca';
 import { ImageComponent } from '../image/image.component';
 import { TranslateDirective } from '@wawjs/ngx-translate';
 

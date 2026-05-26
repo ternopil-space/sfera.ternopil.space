@@ -1,6 +1,11 @@
 # Agent Guide
 
-This repository contains a single Angular 21 website for a HoReCa business. It is a static, prerender-first marketing website with a few simple pages such as home, menu, about, contacts, gallery, reservation, delivery, or events.
+This repository contains an Angular 21 HoReCa template workspace with two targets:
+
+- `app`: the local static, prerender-first marketing website used for development and verification
+- `ngx-horeca`: the publishable library under `projects/ngx-horeca`, intended to be released as `@wawjs/ngx-horeca`
+
+When working inside this repository, the app can use the local library project. When this template is applied to a real business project, do not assume `projects/ngx-horeca` exists; reusable HoReCa code must be consumed from the npm package `@wawjs/ngx-horeca`.
 
 ## Quick Reference
 
@@ -8,6 +13,12 @@ This repository contains a single Angular 21 website for a HoReCa business. It i
 - Package manager: `npm`
 - Main goal: fast, clean, SEO-friendly HoReCa landing pages
 - Primary output: prerendered static site from `dist/app/browser`
+- Local app source: `src/`
+- Local library source: `projects/ngx-horeca/src/`
+- Reusable feature contracts/services: `projects/ngx-horeca/src/feature/`
+- App-owned data bridge and company profile: `src/app/feature/bootstrap/` and
+  `src/app/feature/company/`
+- AI guidance source: `projects/ngx-horeca/ai/`
 
 ## Universal Rules
 
@@ -41,49 +52,29 @@ Use these as defaults unless the local code or the task gives a concrete reason 
 
 ## Decision Memory
 
-Durable repo-wide rules belong in `.ai/decisions/`, not duplicated ad hoc across docs or task notes.
+Durable repo-wide rules belong in `projects/ngx-horeca/ai/decisions/`, not duplicated ad hoc across docs or task notes.
 
-Read `.ai/decisions/index.md` when:
+Read `projects/ngx-horeca/ai/decisions/index.md` when:
 
 - a task changes a long-lived repo convention
 - a task resolves an ambiguity likely to come up again
 - you are unsure whether a rule is temporary guidance or a durable policy
 
-## Custom GPT Instructions Sync
-
-`.ai/custom-gpt.md` is the paste-ready instruction source for the external Custom GPT used to
-generate implementation prompts for this template. It must stay under the Custom GPT
-Instructions field limit of 8000 characters.
-
-Detailed Custom GPT knowledge files live in `.ai/custom-gpt/*.md` and are intended to be uploaded
-to the Custom GPT Knowledge section.
-
-When a task changes anything an external prompt-building GPT should know, update
-`.ai/custom-gpt.md` and the relevant `.ai/custom-gpt/*.md` file in the same change. Examples include:
-- routes, supported pages, feature/page mapping, or removal rules
-- navigation, header, footer, layout, asset, SEO, domain, CNAME, or prerender behavior
-- Angular, styling, i18n, media, company-profile, or verification expectations
-- durable repo rules in `AGENTS.md`, `.ai/`, or `.ai/decisions/`
-
-Keep `.ai/custom-gpt.md` as raw copy-paste content only. Do not wrap it in guide text,
-Markdown fences, descriptions, or conversation starters. Put longer explanatory details in
-`.ai/custom-gpt/*.md`.
-
 ## Read Only What You Need
 
-Start here, then open only the one or two relevant files in `.ai/`:
+Start here, then open only the one or two relevant files in `projects/ngx-horeca/ai/`:
 
-- `.ai/onboarding.md`
-- `.ai/architecture.md`
-- `.ai/code-style.md`
-- `.ai/content-pages.md`
-- `.ai/seo.md`
-- `.ai/media.md`
-- `.ai/tooling.md`
-- `.ai/task-execution.md`
+- `projects/ngx-horeca/ai/onboarding.md`
+- `projects/ngx-horeca/ai/architecture.md`
+- `projects/ngx-horeca/ai/code-style.md`
+- `projects/ngx-horeca/ai/content-pages.md`
+- `projects/ngx-horeca/ai/seo.md`
+- `projects/ngx-horeca/ai/media.md`
+- `projects/ngx-horeca/ai/tooling.md`
+- `projects/ngx-horeca/ai/task-execution.md`
 
 Suggested loading order:
 
 1. `AGENTS.md`
-2. one or two relevant `.ai` guides
-3. `.ai/decisions/index.md` only if the task may affect durable policy
+2. one or two relevant `projects/ngx-horeca/ai` guides
+3. `projects/ngx-horeca/ai/decisions/index.md` only if the task may affect durable policy
