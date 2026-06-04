@@ -47,24 +47,24 @@ const MENU_PAGE_CONFIG: Record<DishMenuPage, MenuPageConfig> = {
 		url: '/menu',
 	},
 	favorites: {
-		emptyDescription: 'Додавайте позиції з меню SfeRa до обраного, і вони зʼявляться тут.',
-		emptyTitle: 'Немає обраних позицій',
+		emptyDescription: 'Add items from the menu to favorites, and they will appear here.',
+		emptyTitle: 'No saved dishes',
 		icon: 'favorite',
-		title: 'Обране',
+		title: 'Favorites',
 		url: '/favorites',
 	},
 	seasonal: {
-		emptyDescription: 'Сезонні позиції SfeRa зʼявляються тут, коли вони доступні.',
-		emptyTitle: 'Сезонні позиції тимчасово недоступні',
+		emptyDescription: 'Seasonal specials will appear here when they are available.',
+		emptyTitle: 'No seasonal specials',
 		icon: 'local_florist',
-		title: 'Сезонні позиції',
+		title: 'Seasonal specials',
 		url: '/seasonal',
 	},
 	daily: {
-		emptyDescription: 'Бізнес-ланчі SfeRa подаються у будні 12:00-16:00.',
-		emptyTitle: 'Бізнес-ланчі зараз недоступні',
+		emptyDescription: "Today's menu will appear here when it is available.",
+		emptyTitle: "Today's menu is not available",
 		icon: 'today',
-		title: 'Бізнес-ланчі',
+		title: "Today's menu",
 		url: '/daily',
 	},
 };
@@ -239,6 +239,10 @@ export class MenuComponent {
 	};
 
 	private _updateFocusedCategoryFromScroll() {
+		if (this._programmaticScroll) {
+			return;
+		}
+
 		const sections = Array.from(
 			this._document.querySelectorAll<HTMLElement>('[data-menu-section]'),
 		);

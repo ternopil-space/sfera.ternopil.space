@@ -25,7 +25,7 @@ package-lock.json
 .claude/
 
 # Angular / tooling
-/.angular/cache
+/.angular/
 .sass-cache/
 /coverage
 /connect.lock

@@ -1,15 +1,15 @@
 {
-	"Доставка та самовивіз": "Доставка та самовивіз",
-	"Уточніть замовлення телефоном або через зовнішнє меню": "Уточніть замовлення телефоном або через зовнішнє меню",
-	"Публічні джерела згадують доставку SfeRa, тому на сайті це подано як зовнішню опцію без власного live-cart.": "Публічні джерела згадують доставку SfeRa, тому на сайті це подано як зовнішню опцію без власного live-cart.",
-	"Перегляньте меню": "Перегляньте меню",
-	"Оберіть позиції з меню SfeRa або зовнішнього сервісу.": "Оберіть позиції з меню SfeRa або зовнішнього сервісу.",
-	"Підтвердьте час": "Підтвердьте час",
-	"Час приготування і наявність позицій потрібно уточнити напряму.": "Час приготування і наявність позицій потрібно уточнити напряму.",
-	"Отримайте замовлення": "Отримайте замовлення",
-	"Приходьте у погоджений час або користуйтеся зовнішнім сервісом доставки.": "Приходьте у погоджений час або користуйтеся зовнішнім сервісом доставки.",
-	"Локація": "Локація",
-	"SfeRa, вул. Білецька, 33а": "SfeRa, вул. Білецька, 33а",
-	"Для самовивозу або доставки уточнюйте актуальні умови телефоном.": "Для самовивозу або доставки уточнюйте актуальні умови телефоном.",
-	"Переглянути меню": "Переглянути меню"
+	"Takeaway": "Elvitel",
+	"Order ahead and pick up fresh meals without waiting": "Rendeljen előre, és vegye át friss ételeit várakozás nélkül",
+	"Choose dishes from the menu, confirm pickup time, and collect your order from the restaurant pickup point.": "Válasszon ételeket az étlapról, erősítse meg az átvételi időt, majd vegye át rendelését az étterem átvételi pontján.",
+	"Choose from the menu": "Válasszon az étlapról",
+	"Select dishes, drinks, and desserts that travel well for pickup.": "Válasszon olyan ételeket, italokat és desszerteket, amelyek jól szállíthatók elvitelre.",
+	"Confirm preparation time": "Erősítse meg az elkészítési időt",
+	"Most orders can be prepared quickly, while larger orders may need extra time.": "A legtöbb rendelés gyorsan elkészíthető, a nagyobb rendelésekhez azonban több időre lehet szükség.",
+	"Pick up your order": "Vegye át rendelését",
+	"Arrive at the agreed time and collect everything packed and ready to go.": "Érkezzen a megbeszélt időpontban, és vegyen át mindent becsomagolva, indulásra készen.",
+	"Pickup location": "Átvételi hely",
+	"Collect orders at the main counter": "A rendeléseket a főpultnál veheti át",
+	"Come to the restaurant entrance, tell us your name or order number, and our team will hand over the packed order.": "Jöjjön az étterem bejáratához, mondja meg a nevét vagy rendelési számát, és csapatunk átadja a becsomagolt rendelést.",
+	"Browse full menu": "Teljes étlap megtekintése"
 }

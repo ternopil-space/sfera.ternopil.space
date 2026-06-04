@@ -1,7 +1,14 @@
+import { NgOptimizedImage } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { FormField, FormRoot, form, required } from '@angular/forms/signals';
 import { TranslateDirective } from '@wawjs/ngx-translate';
 import { ContactService } from '../../feature/contact/contact.service';
+import {
+	companyEmailHref,
+	companyPhoneHref,
+	companyProfile,
+	companyTranslateVars,
+} from '../../feature/company/company.data';
 
 interface SocialContactRequest {
 	phone: string;
@@ -14,7 +21,7 @@ const initialSocialContactRequest = (phone = ''): SocialContactRequest => ({
 });
 
 @Component({
-	imports: [FormField, FormRoot, TranslateDirective],
+	imports: [FormField, FormRoot, NgOptimizedImage, TranslateDirective],
 	templateUrl: './socials.component.html',
 	styleUrl: './socials.component.scss',
 	changeDetection: ChangeDetectionStrategy.OnPush,
@@ -25,6 +32,10 @@ export class SocialsComponent {
 	protected readonly submittedRequest = signal<SocialContactRequest | null>(null);
 	protected readonly submitMessage = signal('');
 	protected readonly submitError = signal('');
+	protected readonly company = companyProfile;
+	protected readonly companyVars = companyTranslateVars;
+	protected readonly companyPhoneHref = companyPhoneHref;
+	protected readonly companyEmailHref = companyEmailHref;
 	protected readonly contactRequest = signal(initialSocialContactRequest(this._contactService.getSavedPhone()));
 	protected readonly contactForm = form(
 		this.contactRequest,

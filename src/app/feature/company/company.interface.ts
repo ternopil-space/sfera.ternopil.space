@@ -4,6 +4,11 @@ export interface Company {
 	custom?: Record<string, unknown>;
 }
 
+export interface CompanyCurrency {
+	code: string;
+	icon: string;
+}
+
 export interface SeoMetadata {
 	title: string;
 	description: string;
@@ -20,15 +25,11 @@ export interface SeoPageOverride extends Partial<SeoMetadata> {
 }
 
 export interface CompanyStructuredData {
-	type: string | string[];
+	type: string;
 	priceRange: string;
-	servesCuisine: string | string[];
+	servesCuisine: string;
 	addressLocality: string;
-	addressRegion?: string;
 	addressCountry: string;
-	openingHours?: string[];
-	telephone?: string;
-	map?: string;
 	sameAs: string[];
 	custom?: Record<string, unknown>;
 }
@@ -41,6 +42,7 @@ export interface CompanyProfile extends Company {
 	phone: string;
 	email: string;
 	address: string;
+	currency: CompanyCurrency;
 	defaultSeo: SeoMetadata;
 	pageSeo: Record<string, SeoPageOverride>;
 	structuredData: CompanyStructuredData;

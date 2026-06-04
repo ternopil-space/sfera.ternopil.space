@@ -12,6 +12,7 @@ import questsData from '../../../data/quest/quests.json';
 import reviewsData from '../../../data/review/reviews.json';
 import roomsData from '../../../data/room/rooms.json';
 import rulesData from '../../../data/rule/rules.json';
+import { companyProfile } from '../company/company.data';
 import { Article } from '@wawjs/ngx-horeca';
 import { Discount } from '@wawjs/ngx-horeca';
 import { Dish, DishCategory } from '@wawjs/ngx-horeca';
@@ -34,13 +35,17 @@ interface DishDetail {
 export const fallbackArticles = articlesData as Article[];
 export const fallbackDiscounts = discountsData as Discount[];
 export const fallbackDishCategories = dishCategoriesData as DishCategory[];
-export const fallbackDishes = (dishesData as unknown as Dish[]).map((dish) => ({
+export const fallbackDishes = (dishesData as Dish[]).map((dish) => ({
 	...dish,
 	image: dish.image || `/dish/${dish.slug}.webp`,
 }));
 export const fallbackEvents = eventsData as EventItem[];
 export const fallbackExhibits = exhibitsData as Exhibit[];
-export const fallbackJobs = jobsData as Job[];
+export const fallbackJobs = (jobsData as Job[]).map((job) => ({
+	...job,
+	contactEmail: job.contactEmail || companyProfile.email,
+	contactPhone: job.contactPhone || companyProfile.phone,
+}));
 export const fallbackProducts = productsData as Product[];
 export const fallbackProfiles = profilesData as Profile[];
 export const fallbackQuestions = questionsData as Question[];

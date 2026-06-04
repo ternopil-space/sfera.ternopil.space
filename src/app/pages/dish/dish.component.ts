@@ -73,6 +73,7 @@ export class DishComponent {
 	protected readonly isFavorite = computed(() =>
 		this._dishService.favoriteDishes().includes(this.dish().slug),
 	);
+	protected readonly currency = companyProfile.currency;
 
 	constructor() {
 		effect(() => {

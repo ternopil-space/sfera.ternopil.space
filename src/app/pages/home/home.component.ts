@@ -1,7 +1,8 @@
-import { NgOptimizedImage } from '@angular/common';
-import { ChangeDetectionStrategy, Component, computed, effect, inject } from '@angular/core';
+import { isPlatformBrowser, NgOptimizedImage } from '@angular/common';
+import { ChangeDetectionStrategy, Component, computed, effect, inject, PLATFORM_ID } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { TranslateDirective } from '@wawjs/ngx-translate';
+import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
+
 import { ArticleService } from '@wawjs/ngx-horeca';
 import { companyProfile } from '../../feature/company/company.data';
 import { DiscountService } from '@wawjs/ngx-horeca';
@@ -12,6 +13,8 @@ import { ProfileService } from '@wawjs/ngx-horeca';
 import { QuestService } from '@wawjs/ngx-horeca';
 import { ReviewService } from '@wawjs/ngx-horeca';
 import { RoomService } from '@wawjs/ngx-horeca';
+
+const HOME_TRANSLATION_PATH = '/data/home/i18n';
 
 type FeaturePreview = {
 	eyebrow: string;
@@ -32,6 +35,9 @@ type FeaturePreview = {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
+	private readonly _isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+	private readonly _languageService = inject(LanguageService);
+	private readonly _translateService = inject(TranslateService);
 	private readonly _articleService = inject(ArticleService);
 	private readonly _discountService = inject(DiscountService);
 	private readonly _eventService = inject(EventService);
@@ -43,27 +49,10 @@ export class HomeComponent {
 	private readonly _roomService = inject(RoomService);
 
 	protected readonly company = companyProfile;
-	protected readonly quickFacts = [
-		{ icon: 'location_on', label: 'вул. Білецька, 33а' },
-		{ icon: 'schedule', label: 'щодня 11:00-23:00' },
-		{ icon: 'groups', label: 'банкет до 150 гостей' },
-		{ icon: 'restaurant', label: 'українська та європейська кухня' },
-		{ icon: 'deck', label: 'літня тераса з видом на воду' },
-	];
-	protected readonly eventFormats = [
-		'Весілля',
-		'День народження',
-		'Корпоратив',
-		'Випускний',
-		'Банкет',
-		'Камерна зустріч',
-	];
-	protected readonly menuHighlights = [
-		'Сніданки щодня 11:00-14:00',
-		'Бізнес-ланчі у будні 12:00-16:00',
-		'Основне меню',
-		'Бар',
-		'Банкетне меню',
+	protected readonly horecaHighlights = [
+		'Restaurants, cafes, hotels, bars, and catering teams can present the essentials in one place.',
+		'Guests can move from discovery to action through menu browsing, venue context, social proof, and contact options.',
+		'Static, SEO-friendly pages keep core business information easy to scan on desktop and mobile.',
 	];
 	protected readonly featurePreviews = computed(() => {
 		const article = this._articleService.articles()[0];
@@ -78,103 +67,103 @@ export class HomeComponent {
 		const previews: Array<FeaturePreview | null> = [
 			article
 				? {
-						eyebrow: 'Стаття',
+						eyebrow: 'Article',
 						title: article.title,
 						summary: article.summary,
 						meta: article.category,
 						itemRoute: `/article/${article.slug}`,
 						allRoute: '/articles',
-						seeAllLabel: 'Всі статті',
+						seeAllLabel: 'See all articles',
 					}
 				: null,
 			room
 				? {
-						eyebrow: 'Простір',
+						eyebrow: 'Room',
 						title: room.name,
 						summary: room.description,
 						meta: room.price,
 						itemRoute: `/room/${room.slug}`,
 						allRoute: '/rooms',
-						seeAllLabel: 'Всі простори',
+						seeAllLabel: 'See all rooms',
 						imageSrc: room.image,
 						imageAlt: room.imageAlt,
 					}
 				: null,
 			discount
 				? {
-						eyebrow: 'Пропозиція',
+						eyebrow: 'Discount',
 						title: discount.title,
 						summary: discount.summary,
 						meta: discount.period,
 						itemRoute: `/discount/${discount.slug}`,
 						allRoute: '/discounts',
-						seeAllLabel: 'Всі пропозиції',
+						seeAllLabel: 'See all discounts',
 					}
 				: null,
 			event
 				? {
-						eyebrow: 'Подія',
+						eyebrow: 'Event',
 						title: event.title,
 						summary: event.summary,
 						meta: event.dateLabel,
 						itemRoute: `/event/${event.slug}`,
 						allRoute: '/events',
-						seeAllLabel: 'Всі події',
+						seeAllLabel: 'See all events',
 					}
 				: null,
 			product
 				? {
-						eyebrow: 'Пакет',
+						eyebrow: 'Product',
 						title: product.title,
 						summary: product.summary,
 						meta: product.price,
 						itemRoute: `/product/${product.slug}`,
 						allRoute: '/products',
-						seeAllLabel: 'Всі пакети',
+						seeAllLabel: 'See all products',
 					}
 				: null,
 			review
 				? {
-						eyebrow: 'Соціальний доказ',
+						eyebrow: 'Review',
 						title: review.title,
 						summary: review.body,
 						meta: review.author,
 						itemRoute: `/review/${review.slug}`,
 						allRoute: '/reviews',
-						seeAllLabel: 'Всі відгуки',
+						seeAllLabel: 'See all reviews',
 					}
 				: null,
 			quest
 				? {
-						eyebrow: 'Планування',
+						eyebrow: 'Quest',
 						title: quest.title,
 						summary: quest.summary,
 						meta: quest.duration,
 						itemRoute: `/quest/${quest.slug}`,
 						allRoute: '/quests',
-						seeAllLabel: 'Всі сценарії',
+						seeAllLabel: 'See all quests',
 					}
 				: null,
 			job
 				? {
-						eyebrow: 'Команда',
+						eyebrow: 'Job',
 						title: job.title,
 						summary: job.summary,
 						meta: job.location,
 						itemRoute: `/job/${job.slug}`,
 						allRoute: '/jobs',
-						seeAllLabel: 'Всі ролі',
+						seeAllLabel: 'See all jobs',
 					}
 				: null,
 			profile
 				? {
-						eyebrow: 'Роль команди',
+						eyebrow: 'Team profile',
 						title: profile.name,
 						summary: profile.description,
 						meta: profile.role,
 						itemRoute: `/profile/${profile.slug}`,
 						allRoute: '/team',
-						seeAllLabel: 'Вся команда',
+						seeAllLabel: 'See all team members',
 						imageSrc: profile.image,
 						imageAlt: profile.name,
 					}
@@ -186,15 +175,24 @@ export class HomeComponent {
 
 	constructor() {
 		effect(() => {
-			this._articleService.loadTranslations();
-			this._discountService.loadTranslations();
-			this._eventService.loadTranslations();
-			this._jobService.loadTranslations();
-			this._productService.loadTranslations();
-			this._profileService.loadTranslations();
-			this._questService.loadTranslations();
-			this._reviewService.loadTranslations();
-			this._roomService.loadTranslations();
+			if (!this._isBrowser) {
+				return;
+			}
+
+			const language = this._languageService.language();
+
+			void this._translateService.loadExtraTranslations([
+				HOME_TRANSLATION_PATH,
+				'/data/article/i18n',
+				'/data/discount/i18n',
+				'/data/event/i18n',
+				'/data/job/i18n',
+				'/data/product/i18n',
+				'/data/profile/i18n',
+				'/data/quest/i18n',
+				'/data/review/i18n',
+				'/data/room/i18n',
+			], { language });
 		});
 	}
 }

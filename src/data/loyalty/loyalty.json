@@ -1,100 +1,106 @@
 {
 	"hero": {
-		"title": "Для постійних гостей SfeRa",
-		"subtitle": "Більше приводів повертатися",
-		"description": "Лояльність у SfeRa доречно будувати навколо регулярних бізнес-ланчів, сімейних вечерь, терасних візитів і подій."
+		"title": "Loyalty program",
+		"subtitle": "More visits, more benefits",
+		"description": "A simple loyalty program for regular guests who visit the restaurant, book rooms, enjoy coffee, use the spa, or celebrate special moments with us."
 	},
 	"howItWorks": {
-		"title": "Як це працює",
+		"title": "How it works",
 		"steps": [
 			{
-				"title": "Залиште контакт",
-				"description": "Повідомте телефон під час бронювання столика або події."
+				"title": "Join the program",
+				"description": "Ask the team to add you to the loyalty program or join through our contact channels."
 			},
 			{
-				"title": "Відвідуйте SfeRa",
-				"description": "Приходьте на сніданки, бізнес-ланчі, вечері або плануйте святкування."
+				"title": "Visit, book, or order",
+				"description": "Use restaurant, hotel, cafe, spa, event, or takeaway services as usual."
 			},
 			{
-				"title": "Уточнюйте переваги",
-				"description": "Актуальні пропозиції для регулярних гостей підтверджуються командою ресторану."
+				"title": "Receive guest benefits",
+				"description": "Get rewards, personal offers, birthday bonuses, and special conditions when available."
 			}
 		]
 	},
 	"benefits": {
-		"title": "Можливі переваги",
+		"title": "Guest benefits",
 		"items": [
-			"Нагадування про бізнес-ланчі",
-			"Інформація про терасні формати",
-			"Увага до сімейних дат",
-			"Підказки щодо банкетного меню"
+			"Birthday bonus",
+			"Coffee or dessert gift",
+			"Special offers for regular guests",
+			"Room upgrade when available",
+			"Spa discount for returning guests",
+			"Early access to events",
+			"Family and group visit benefits"
 		]
 	},
 	"earnRewards": {
-		"title": "Коли доречно згадати про переваги",
+		"title": "Ways to earn rewards",
 		"items": [
-			"Регулярні обіди",
-			"Сімейні вечері",
-			"Дні народження",
-			"Банкетні запити",
-			"Корпоративні події"
+			"Restaurant visits",
+			"Hotel stays",
+			"Coffee orders",
+			"Spa bookings",
+			"Event reservations",
+			"Referring friends",
+			"Seasonal promotions"
 		]
 	},
 	"levels": {
-		"title": "Формати гостей",
+		"title": "Loyalty levels",
 		"items": [
 			{
-				"name": "Гість",
-				"description": "Перший візит або знайомство з меню.",
+				"name": "Guest",
+				"description": "The starting level for new guests who want to receive simple offers and updates.",
 				"benefits": [
-					"Меню",
-					"Контакти",
-					"Бронювання телефоном"
+					"Access to active offers",
+					"Birthday reminder bonus",
+					"Invitations to selected events"
 				]
 			},
 			{
-				"name": "Постійний гість",
-				"description": "Регулярні обіди або вечері у SfeRa.",
+				"name": "Regular guest",
+				"description": "A level for returning guests who visit more often and use several services.",
 				"benefits": [
-					"Зручний повторний контакт",
-					"Підказки щодо ланчів",
-					"Пріоритетне уточнення столика"
+					"Personal restaurant or cafe offers",
+					"Spa or room discount when available",
+					"Priority information about seasonal promotions"
 				]
 			},
 			{
-				"name": "Гість події",
-				"description": "Клієнт, який планує банкет або святкування.",
+				"name": "VIP guest",
+				"description": "A special level for loyal guests, frequent visitors, and private event clients.",
 				"benefits": [
-					"Консультація щодо простору",
-					"Меню під формат",
-					"Узгодження таймінгу"
+					"Personal conditions for selected services",
+					"Early access to private events",
+					"Special attention for birthdays and family celebrations"
 				]
 			}
 		]
 	},
 	"specialDates": {
-		"title": "Особливі дати",
+		"title": "Birthday and special dates",
+		"description": "Guests can receive small gifts, discounts, or personal offers for birthdays, anniversaries, family celebrations, and other important dates.",
 		"items": [
-			"День народження",
-			"Весілля",
-			"Випускний",
-			"Корпоратив",
-			"Сімейна річниця"
-		],
-		"description": "Особливі дати краще обговорювати заздалегідь, щоб команда підготувала столик, простір або банкетний формат."
+			"Birthday dessert or drink",
+			"Anniversary offer",
+			"Family celebration bonus",
+			"Special conditions for private events"
+		]
 	},
 	"terms": {
-		"title": "Умови",
+		"title": "Simple terms",
 		"items": [
-			"Переваги не є публічною фіксованою знижкою.",
-			"Актуальні умови підтверджуються телефоном.",
-			"Бронювання події потребує узгодження деталей."
+			"Benefits may depend on availability",
+			"Offers cannot always be combined",
+			"Some rewards may require advance reservation",
+			"Room upgrades depend on free room availability",
+			"The team can explain current active offers before your visit"
 		]
 	},
 	"cta": {
-		"title": "Уточнити деталі",
-		"label": "Зателефонувати",
-		"href": "tel:+380688545635",
-		"description": "Телефонуйте +380 68 854 56 35, щоб дізнатися актуальні можливості для вашого візиту або події."
+		"title": "Join the loyalty program",
+		"description": "Ask our team about current loyalty benefits, active offers, and the easiest way to join.",
+		"label": "Ask about loyalty",
+		"href": "/socials"
 	}
 }

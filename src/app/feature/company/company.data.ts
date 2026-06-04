@@ -1,5 +1,6 @@
 import companyData from '../../../data/company/company.json';
 import {
+	CompanyCurrency,
 	CompanyProfile,
 	CompanyStructuredData,
 	SeoMetadata,
@@ -9,6 +10,7 @@ import {
 type RawCompanyProfile = Partial<
 	Omit<CompanyProfile, 'defaultSeo' | 'pageSeo' | 'structuredData'>
 > & {
+	currency?: Partial<CompanyCurrency>;
 	defaultSeo?: Partial<SeoMetadata>;
 	pageSeo?: Record<string, SeoPageOverride | undefined>;
 	structuredData?: Partial<CompanyStructuredData>;
@@ -18,7 +20,7 @@ const rawCompanyProfile = companyData as RawCompanyProfile;
 
 export const companyProfile: CompanyProfile = {
 	_id: _stringOrFallback(rawCompanyProfile._id, 'demo'),
-	name: _stringOrFallback(rawCompanyProfile.name, 'SfeRa Restaurant'),
+	name: _stringOrFallback(rawCompanyProfile.name, 'Horeca'),
 	lang: _stringOrFallback(rawCompanyProfile.lang, 'uk'),
 	locale: _stringOrFallback(rawCompanyProfile.locale, 'uk_UA'),
 	siteUrl: _trimTrailingSlash(_stringOrFallback(rawCompanyProfile.siteUrl)),
@@ -26,20 +28,40 @@ export const companyProfile: CompanyProfile = {
 	phone: _stringOrFallback(rawCompanyProfile.phone),
 	email: _stringOrFallback(rawCompanyProfile.email),
 	address: _stringOrFallback(rawCompanyProfile.address),
+	currency: _normalizeCurrency(rawCompanyProfile.currency),
 	defaultSeo: _normalizeSeoMetadata(rawCompanyProfile.defaultSeo, rawCompanyProfile.name),
 	pageSeo: _normalizePageSeo(rawCompanyProfile.pageSeo),
 	structuredData: _normalizeStructuredData(rawCompanyProfile.structuredData),
 };
+
+export const companyTranslateVars = {
+	companyName: companyProfile.name,
+	companyPhone: companyProfile.phone,
+	companyEmail: companyProfile.email,
+	companyAddress: companyProfile.address,
+	companyAddressLocality: companyProfile.structuredData.addressLocality,
+	companySiteUrl: companyProfile.siteUrl,
+};
+
+export const companyPhoneHref = _phoneHref(companyProfile.phone);
+export const companyEmailHref = companyProfile.email ? `mailto:${companyProfile.email}` : '';
+
+function _normalizeCurrency(currency: RawCompanyProfile['currency']): CompanyCurrency {
+	return {
+		code: _stringOrFallback(currency?.code, 'UAH'),
+		icon: _stringOrFallback(currency?.icon, '₴'),
+	};
+}
 
 function _normalizeSeoMetadata(
 	metadata: RawCompanyProfile['defaultSeo'],
 	companyName: string | undefined,
 ): SeoMetadata {
 	return {
-		title: _stringOrFallback(metadata?.title, _stringOrFallback(companyName, 'SfeRa Restaurant')),
+		title: _stringOrFallback(metadata?.title, _stringOrFallback(companyName, 'Horeca')),
 		description: _stringOrFallback(metadata?.description),
 		keywords: _stringArrayOrFallback(metadata?.keywords),
-		author: _stringOrFallback(metadata?.author, _stringOrFallback(companyName, 'SfeRa Restaurant')),
+		author: _stringOrFallback(metadata?.author, _stringOrFallback(companyName, 'Horeca')),
 		robots: _stringOrFallback(metadata?.robots, 'index, follow'),
 		image: _stringOrFallback(metadata?.image, '/logo.webp'),
 		type: _stringOrFallback(metadata?.type, 'website'),
@@ -79,20 +101,12 @@ function _normalizeStructuredData(
 	structuredData: RawCompanyProfile['structuredData'],
 ): CompanyStructuredData {
 	return {
-		type: _stringOrStringArrayOrFallback(structuredData?.type, 'Restaurant'),
+		type: _stringOrFallback(structuredData?.type, 'Restaurant'),
 		priceRange: _stringOrFallback(structuredData?.priceRange, '$$'),
-		servesCuisine: _stringOrStringArrayOrFallback(structuredData?.servesCuisine, 'Restaurant'),
+		servesCuisine: _stringOrFallback(structuredData?.servesCuisine, 'HoReCa'),
 		addressLocality: _stringOrFallback(structuredData?.addressLocality, 'Kamianets-Podilskyi'),
-		addressRegion: _optionalString(structuredData?.addressRegion),
 		addressCountry: _stringOrFallback(structuredData?.addressCountry, 'UA'),
-		openingHours: _stringArrayOrFallback(structuredData?.openingHours),
-		telephone: _optionalString(structuredData?.telephone),
-		map: _optionalString(structuredData?.map),
 		sameAs: _stringArrayOrFallback(structuredData?.sameAs),
-		custom:
-			structuredData?.custom && typeof structuredData.custom === 'object'
-				? structuredData.custom
-				: undefined,
 	};
 }
 
@@ -112,19 +126,19 @@ function _stringArrayOrFallback(value: string[] | null | undefined): string[] {
 		: [];
 }
 
-function _stringOrStringArrayOrFallback(
-	value: string | string[] | null | undefined,
-	fallback: string,
-): string | string[] {
-	if (Array.isArray(value)) {
-		const normalized = _stringArrayOrFallback(value);
-
-		return normalized.length > 0 ? normalized : fallback;
-	}
-
-	return _stringOrFallback(value, fallback);
-}
-
 function _trimTrailingSlash(value: string): string {
 	return value.endsWith('/') ? value.slice(0, -1) : value;
+}
+
+function _phoneHref(phone: string): string {
+	const trimmedPhone = phone.trim();
+
+	if (!trimmedPhone) {
+		return '';
+	}
+
+	const prefix = trimmedPhone.startsWith('+') ? '+' : '';
+	const digits = trimmedPhone.replace(/\D/g, '');
+
+	return digits ? `tel:${prefix}${digits}` : '';
 }

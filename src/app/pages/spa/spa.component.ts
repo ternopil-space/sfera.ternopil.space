@@ -4,6 +4,7 @@ import { FormField, FormRoot, form, required } from '@angular/forms/signals';
 import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ngx-translate';
 import spaData from '../../../data/spa/spa.json';
 import { ContactService } from '../../feature/contact/contact.service';
+import { companyProfile } from '../../feature/company/company.data';
 
 interface SpaScheduleItem {
 	label: string;
@@ -71,6 +72,7 @@ export class SpaComponent {
 	protected readonly submittedRequest = signal<SpaBookingRequest | null>(null);
 	protected readonly submitMessage = signal('');
 	protected readonly submitError = signal('');
+	protected readonly company = companyProfile;
 	protected readonly bookingRequest = signal(initialSpaBookingRequest(this._contactService.getSavedPhone()));
 	protected readonly bookingForm = form(
 		this.bookingRequest,
@@ -141,7 +143,7 @@ export class SpaComponent {
 
 	private _buildMessage(request: SpaBookingRequest): string {
 		return [
-			'New event service request',
+			'New spa request',
 			`Phone: ${request.phone}`,
 			request.date ? `Date: ${request.date}` : '',
 			request.time ? `Time: ${request.time}` : '',

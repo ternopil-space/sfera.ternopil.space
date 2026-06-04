@@ -1,62 +1,26 @@
 [
 	{
-		"name": "Меню SfeRa",
-		"description": "Основні розділи ресторанного меню SfeRa.",
+		"name": "Food",
+		"description": "",
 		"parent": "",
-		"slug": "menu-sfera"
+		"slug": "food"
 	},
 	{
-		"name": "Бар SfeRa",
-		"description": "Напої, коктейлі та барні позиції.",
+		"name": "Drinks",
+		"description": "",
 		"parent": "",
-		"slug": "bar-sfera"
+		"slug": "drinks"
 	},
 	{
-		"name": "Сніданки",
-		"description": "Сніданки щодня 11:00-14:00.",
-		"parent": "menu-sfera",
+		"name": "Breakfasts",
+		"description": "Morning dishes with comforting flavors, balanced portions, and fresh cafe-style sides.",
+		"parent": "food",
 		"slug": "breakfasts"
 	},
 	{
-		"name": "Бізнес-ланчі",
-		"description": "Будні 12:00-16:00: збалансовані ланчі з супами та основними стравами.",
-		"parent": "menu-sfera",
-		"slug": "business-lunches"
-	},
-	{
-		"name": "Холодні закуски",
-		"description": "Тартари, антипасті, брускети та тарілки для спільного столу.",
-		"parent": "menu-sfera",
-		"slug": "cold-appetizers"
-	},
-	{
-		"name": "Салати",
-		"description": "Класичні та фірмові салати для легкого обіду або вечері.",
-		"parent": "menu-sfera",
-		"slug": "salads"
-	},
-	{
-		"name": "Пасти",
-		"description": "Європейські пасти з мʼясом, морепродуктами та класичними соусами.",
-		"parent": "menu-sfera",
-		"slug": "pastas"
-	},
-	{
-		"name": "Основні страви",
-		"description": "Українські та європейські гарячі страви для обіду, вечері або бенкету.",
-		"parent": "menu-sfera",
-		"slug": "main-dishes"
-	},
-	{
-		"name": "Бенкетне меню",
-		"description": "Позиції та сети для весіль, банкетів, корпоративів і випускних.",
-		"parent": "menu-sfera",
-		"slug": "banquet-menu"
-	},
-	{
-		"name": "Коктейлі та напої",
-		"description": "Барні акценти для вечері, тераси або події.",
-		"parent": "bar-sfera",
-		"slug": "bar"
+		"name": "Coffee",
+		"description": "Classic espresso drinks prepared for a clean flavor, silky milk texture, and easy pairing with breakfast.",
+		"parent": "drinks",
+		"slug": "coffee"
 	}
 ]

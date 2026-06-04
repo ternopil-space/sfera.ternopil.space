@@ -31,7 +31,7 @@
 						@if (dish().price === null) {
 							<span [translate]="'Ask for price'">{{ 'Ask for price' }}</span>
 						} @else {
-							{{ dish().price }} â‚¬
+							{{ dish().price }} {{ currency.icon }}
 						}
 					</p>
 				</div>
@@ -186,7 +186,7 @@
 											'Ask for price'
 										}}</span>
 									} @else {
-										{{ suggestion.price }} â‚¬
+										{{ suggestion.price }} {{ currency.icon }}
 									}
 								</p>
 								@if (suggestion.hasDescription) {

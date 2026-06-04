@@ -1,17 +1,17 @@
 [
 	{
-		"slug": "sfera-restaurant-atmosphere",
+		"slug": "horeca-bar-service-photo",
 		"src": "gallery/demo-1.webp",
-		"alt": "SfeRa restaurant atmosphere"
+		"alt": "Horeca bar service photo"
 	},
 	{
-		"slug": "sfera-event-detail",
+		"slug": "horeca-hotel-reception-photo-1",
 		"src": "gallery/demo-2.webp",
-		"alt": "SfeRa event detail"
+		"alt": "Horeca hotel reception photo"
 	},
 	{
-		"slug": "sfera-terrace-mood",
+		"slug": "horeca-hotel-reception-photo-2",
 		"src": "gallery/demo-3.webp",
-		"alt": "SfeRa terrace and banquet mood"
+		"alt": "Horeca hotel reception photo"
 	}
 ]

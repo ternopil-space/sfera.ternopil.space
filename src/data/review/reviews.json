@@ -1,22 +1,12 @@
 [
 	{
-		"slug": "guests-choose-events",
-		"author": "Гості SfeRa",
-		"title": "Обирають для подій і сімейних зустрічей",
-		"body": "SfeRa доречно представляти через атмосферу, кухню, терасу з видом на воду і можливість приймати події до 150 гостей. Це узагальнений соціальний доказ, а не пряма цитата з відгуку.",
+		"slug": "thoughtful-evening-service",
+		"author": "Olena K.",
+		"title": "Thoughtful service and a relaxed dinner",
+		"body": "The team made the evening feel easy from the first greeting to the last course. The menu was clear, the dishes arrived at a comfortable pace, and every question was answered with care. It felt warm, organized, and worth returning to.",
 		"rating": 5,
-		"date": "2026",
-		"sourceLabel": "Публічні платформи та позиціонування",
-		"sourceUrl": ""
-	},
-	{
-		"slug": "terrace-and-cuisine",
-		"author": "Гості ресторану",
-		"title": "Тераса, кухня і краєвид",
-		"body": "Гості обирають SfeRa для вечерь, бізнес-ланчів, святкувань і живих зустрічей біля води. Формулювання подане як нейтральна картка, без вигаданих цитат.",
-		"rating": 5,
-		"date": "2026",
-		"sourceLabel": "Узагальнений соціальний доказ",
+		"date": "March 2026",
+		"sourceLabel": "Guest review",
 		"sourceUrl": ""
 	}
 ]

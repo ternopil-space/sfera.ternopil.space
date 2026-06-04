@@ -3,6 +3,7 @@ import { FormField, FormRoot, form, required } from '@angular/forms/signals';
 import { RouterLink } from '@angular/router';
 import { TranslateDirective } from '@wawjs/ngx-translate';
 import { ContactService } from '../../feature/contact/contact.service';
+import { companyProfile } from '../../feature/company/company.data';
 
 type BookingKind = 'table' | 'room' | 'spa';
 
@@ -46,29 +47,30 @@ export class BookComponent {
 	protected readonly bookingOptions: BookingOption[] = [
 		{
 			value: 'table',
-			label: 'Столик',
+			label: 'Table',
 			icon: 'restaurant',
 			route: '/menu',
-			description: 'Забронюйте столик і перегляньте меню перед візитом.',
+			description: 'Reserve a table and review dishes before your visit.',
 		},
 		{
 			value: 'room',
-			label: 'Простір',
-			icon: 'deck',
+			label: 'Room',
+			icon: 'hotel',
 			route: '/rooms',
-			description: 'Уточніть залу, терасу або камерну зону для події.',
+			description: 'Ask about available rooms and guest services.',
 		},
 		{
 			value: 'spa',
-			label: 'Подія',
-			icon: 'celebration',
+			label: 'Spa',
+			icon: 'spa',
 			route: '/spa',
-			description: 'Узгодьте банкет, меню, таймінг і сервісні деталі.',
+			description: 'Plan a wellness visit, massage, sauna, or recovery time.',
 		},
 	];
 	protected readonly submittedRequest = signal<BookingRequest | null>(null);
 	protected readonly submitMessage = signal('');
 	protected readonly submitError = signal('');
+	protected readonly company = companyProfile;
 	protected readonly bookingRequest = signal(initialBookingRequest(this._contactService.getSavedPhone()));
 	protected readonly bookingForm = form(
 		this.bookingRequest,
@@ -130,10 +132,6 @@ export class BookComponent {
 
 	private _bookingKindLabel(kind: BookingKind): string {
 		return this.bookingOptions.find((option) => option.value === kind)?.label ?? kind;
-	}
-
-	protected bookingKindLabel(kind: BookingKind): string {
-		return this._bookingKindLabel(kind);
 	}
 
 	private _normalizeRequest(request: BookingRequest): BookingRequest {

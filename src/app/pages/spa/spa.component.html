@@ -13,7 +13,7 @@
 				<span [translate]="page.description">{{ page.description }}</span>
 			</p>
 
-			<div class="spa__tags" aria-label="Сервіс для подій">
+			<div class="spa__tags" aria-label="Wellness services">
 				@for (tag of page.tags; track tag) {
 					<span class="spa__tag">
 						<span class="material-symbols-outlined" aria-hidden="true">spa</span>
@@ -24,7 +24,7 @@
 		</div>
 	</section>
 
-	<section class="spa__services" aria-label="Послуги для подій">
+	<section class="spa__services" aria-label="Spa services">
 		@for (service of page.services; track service.slug) {
 			<article class="spa__service">
 				<div class="spa__serviceHeader">
@@ -38,12 +38,12 @@
 					</div>
 
 					<span class="material-symbols-outlined spa__serviceIcon" aria-hidden="true">
-						@if (service.slug === 'event-planning') {
-							event_available
-						} @else if (service.slug === 'guest-comfort') {
-							groups
+						@if (service.slug === 'hammam') {
+							water_drop
+						} @else if (service.slug === 'dry-sauna') {
+							hot_tub
 						} @else {
-							restaurant_menu
+							pool
 						}
 					</span>
 				</div>
@@ -148,7 +148,7 @@
 					class="mt-2 w-full rounded-[0.9rem] border border-[var(--c-secondary)] bg-[var(--c-bg-primary)] px-4 py-3 text-sm text-[var(--c-text-secondary)] outline-none ring-1 ring-[color:rgba(197,61,61,0.24)] transition-colors focus:border-[var(--c-secondary)] focus:ring-2"
 					type="tel"
 					autocomplete="tel"
-					placeholder="+380 68 854 56 35"
+					[attr.placeholder]="company.phone"
 					[formField]="bookingForm.phone"
 					[attr.aria-required]="true"
 					[attr.aria-invalid]="bookingForm.phone().invalid()"

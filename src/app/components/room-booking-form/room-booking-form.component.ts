@@ -3,6 +3,7 @@ import { FormField, FormRoot, form, required } from '@angular/forms/signals';
 import type { Room } from '@wawjs/ngx-horeca';
 import { TranslateDirective } from '@wawjs/ngx-translate';
 import { ContactService } from '../../feature/contact/contact.service';
+import { companyProfile } from '../../feature/company/company.data';
 
 interface RoomBookingRequest {
 	phone: string;
@@ -36,6 +37,7 @@ export class RoomBookingFormComponent {
 	protected readonly submittedRequest = signal<RoomBookingRequest | null>(null);
 	protected readonly submitMessage = signal('');
 	protected readonly submitError = signal('');
+	protected readonly company = companyProfile;
 	protected readonly bookingRequest = signal(initialRoomBookingRequest(this._contactService.getSavedPhone()));
 	protected readonly bookingForm = form(
 		this.bookingRequest,

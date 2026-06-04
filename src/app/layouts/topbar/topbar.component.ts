@@ -5,6 +5,7 @@ import { LanguageService, TranslateDirective, TranslateService } from '@wawjs/ng
 import { ThemeService } from '@wawjs/ngx-ui';
 import type { Language } from '@wawjs/ngx-translate';
 import type { AppLanguage } from '../../../environments/environment.prod';
+import { companyProfile } from '../../feature/company/company.data';
 
 @Component({
 	selector: 'app-topbar',
@@ -20,6 +21,7 @@ export class TopbarComponent {
 	private readonly _router = inject(Router);
 
 	protected readonly mode = computed(() => this._themeService.mode() ?? 'light');
+	protected readonly company = companyProfile;
 	protected readonly languageMenuOpen = signal(false);
 	protected readonly languages = computed(() =>
 		this._languageService.languages().map((language) => _toAppLanguage(language)),

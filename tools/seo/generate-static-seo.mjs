@@ -9,21 +9,10 @@ const outputDir = path.join(rootDir, 'dist/app/browser');
 const staticRoutes = [
 	'/',
 	'/favorites',
-	'/menu',
-	'/about',
-	'/spa',
-	'/book',
-	'/seasonal',
-	'/daily',
 	'/rooms',
 	'/navigation',
 	'/gallery',
-	'/discounts',
-	'/loyalty',
-	'/takeaway',
-	'/catering',
-	'/questions',
-	'/rules',
+	'/sales',
 	'/articles',
 	'/quests',
 	'/reviews',
@@ -37,14 +26,6 @@ const staticRoutes = [
 const company = await readJson('src/data/company/company.json');
 const dishes = await readJson('src/data/dish/dishes.json');
 const articles = await readJson('src/data/article/articles.json');
-const discounts = await readJson('src/data/discount/discounts.json');
-const events = await readJson('src/data/event/events.json');
-const jobs = await readJson('src/data/job/jobs.json');
-const products = await readJson('src/data/product/products.json');
-const profiles = await readJson('src/data/profile/profiles.json');
-const quests = await readJson('src/data/quest/quests.json');
-const reviews = await readJson('src/data/review/reviews.json');
-const rooms = await readJson('src/data/room/rooms.json');
 const siteUrl = trimTrailingSlash(company.siteUrl || 'https://example.com');
 const pageSeo = company.pageSeo ?? {};
 
@@ -52,14 +33,6 @@ const routes = [
 	...staticRoutes.filter((route) => isIndexable(route, pageSeo)),
 	...toSlugRoutes('/dish', dishes),
 	...toSlugRoutes('/article', articles),
-	...toSlugRoutes('/discount', discounts),
-	...toSlugRoutes('/event', events),
-	...toSlugRoutes('/job', jobs),
-	...toSlugRoutes('/product', products),
-	...toSlugRoutes('/profile', profiles),
-	...toSlugRoutes('/quest', quests),
-	...toSlugRoutes('/review', reviews),
-	...toSlugRoutes('/room', rooms),
 ];
 const lastmod = new Date().toISOString().slice(0, 10);
 

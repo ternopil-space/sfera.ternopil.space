@@ -10,10 +10,10 @@ import { TranslateDirective } from '@wawjs/ngx-translate';
 })
 export class FooterComponent {
 	protected readonly navItems = [
-		{ label: 'Навігація', icon: 'navigation', route: '/navigation', exact: true },
-		{ label: 'Меню', icon: 'restaurant_menu', route: '/menu', exact: true },
-		{ label: 'Події', icon: 'event', route: '/events', exact: true },
-		{ label: 'Простори', icon: 'deck', route: '/rooms', exact: true },
-		{ label: 'Контакти', icon: 'call', route: '/socials', exact: true },
+		{ label: 'Nav', icon: 'navigation', route: '/navigation', exact: true },
+		{ label: 'Gallery', icon: 'photo_library', route: '/gallery', exact: true },
+		{ label: 'Socials', icon: 'share', route: '/socials', exact: true },
+		{ label: 'Book', icon: 'book_online', route: '/book', exact: true },
+		{ label: 'Menu', icon: 'restaurant_menu', route: '/menu', exact: true },
 	];
 }

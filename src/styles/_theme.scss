@@ -2,26 +2,26 @@
 	color-scheme: light;
 
 	/* brand / actions */
-	--c-primary: #2f4f46;
-	--c-primary-hover: #263f38;
-	--c-secondary: #b68a3a;
-	--c-secondary-hover: #9f7428;
+	--c-primary: #b28a4a;
+	--c-primary-hover: #96723a;
+	--c-secondary: #3d3026;
+	--c-secondary-hover: #2f251e;
 
 	/* surfaces */
-	--c-bg-primary: #f7f1e8;
-	--c-bg-secondary: #fffaf2;
-	--c-bg-tertiary: #eee2d2;
+	--c-bg-primary: #fbf7ed;
+	--c-bg-secondary: #fffdf8;
+	--c-bg-tertiary: #f1e3c4;
 
 	/* content */
-	--c-text-primary: #5f544b;
-	--c-text-secondary: #211713;
-	--c-text-muted: #7e7164;
-	--c-placeholder: #7e7164b3;
+	--c-text-primary: #5c5045;
+	--c-text-secondary: #2a211b;
+	--c-text-muted: #776b5f;
+	--c-placeholder: #776b5fb3;
 
 	/* borders & elevation */
-	--c-border: #dfcfbb;
-	--shadow-sm: 0 1px 2px rgba(33, 23, 19, 0.08);
-	--shadow-md: 0 10px 30px rgba(33, 23, 19, 0.14);
+	--c-border: #dec997;
+	--shadow-sm: 0 1px 2px rgba(61, 48, 38, 0.08);
+	--shadow-md: 0 12px 32px rgba(61, 48, 38, 0.14);
 
 	/* typography */
 	--ff-base: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -30,8 +30,8 @@
 
 	/* radius */
 	--radius: 8px;
-	--radius-card: 12px;
-	--radius-btn: 999px;
+	--radius-card: 10px;
+	--radius-btn: 8px;
 
 	/* spacing */
 	--sp-0: 0px;
@@ -59,36 +59,36 @@
 	--motion-slow: 0.4s;
 
 	/* focus */
-	--focus-ring: 0 0 0 3px rgba(182, 138, 58, 0.28);
+	--focus-ring: 0 0 0 3px rgba(178, 138, 74, 0.24);
 }
 
 html[data-mode='dark'] {
 	color-scheme: dark;
 
 	/* brand / actions */
-	--c-primary: #7ea394;
-	--c-primary-hover: #a3c1b5;
-	--c-secondary: #e3bd6d;
-	--c-secondary-hover: #f0d08a;
+	--c-primary: #d0ad6c;
+	--c-primary-hover: #e0c486;
+	--c-secondary: #f6ead4;
+	--c-secondary-hover: #fff4dd;
 
 	/* surfaces */
-	--c-bg-primary: #211713;
-	--c-bg-secondary: #2d211c;
-	--c-bg-tertiary: #3a2b24;
+	--c-bg-primary: #211913;
+	--c-bg-secondary: #2e241d;
+	--c-bg-tertiary: #3d3026;
 
 	/* borders & elevation */
-	--c-border: #5a4538;
+	--c-border: #735d38;
 	--shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
 	--shadow-md: 0 10px 30px rgba(0, 0, 0, 0.48);
 
 	/* content */
-	--c-text-primary: #e0d2bf;
-	--c-text-secondary: #fff8ec;
-	--c-text-muted: #b8a996;
-	--c-placeholder: #b8a996cc;
+	--c-text-primary: #eadcc6;
+	--c-text-secondary: #fffaf0;
+	--c-text-muted: #c4b49e;
+	--c-placeholder: #c4b49ecc;
 
 	/* focus */
-	--focus-ring: 0 0 0 3px rgba(227, 189, 109, 0.3);
+	--focus-ring: 0 0 0 3px rgba(208, 173, 108, 0.3);
 }
 
 html[data-density='compact'] {
